@@ -1686,10 +1686,11 @@ section#team-5 {
 }
 
 .specialists__card_empty .specialists__card-img {
-  margin: 0;
+  margin: 0 0 auto;
 }
 
 .specialists__card-img {
+  display: block;
   max-height: 260px;
   overflow: hidden;
   margin: 0 0 21px;

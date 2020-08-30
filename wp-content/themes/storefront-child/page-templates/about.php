@@ -61,9 +61,9 @@ Template Post Type: post, page, product
       <div class="row">
          <div class="col-md-3">
             <div class="specialists__card">
-               <div class="specialists__card-img">
+               <a href="#" class="specialists__card-img">
                   <img src="/wp-content/themes/storefront-child/img/specialists/img-1.png" alt="">
-               </div>
+               </a>
                <div class="specialists__card-title">Светлана Никитина</div>
                <div class="specialists__card-descr">Руководитель практики <br> Потребительские рынки</div>
                <a class="specialists__card-link" href="#">Подробнее</a>
@@ -71,9 +71,9 @@ Template Post Type: post, page, product
          </div>
          <div class="col-md-3">
             <div class="specialists__card">
-            <div class="specialists__card-img">
+               <a href="#" class="specialists__card-img">
                   <img src="/wp-content/themes/storefront-child/img/specialists/img-2.png" alt="">
-               </div>
+               </a>
                <div class="specialists__card-title">Имя Фамилия</div>
                <div class="specialists__card-descr">Должность</div>
                <a class="specialists__card-link" href="#">Подробнее</a>
@@ -81,9 +81,9 @@ Template Post Type: post, page, product
          </div>
          <div class="col-md-3">
             <div class="specialists__card">
-            <div class="specialists__card-img">
+               <a href="#" class="specialists__card-img">
                   <img src="/wp-content/themes/storefront-child/img/specialists/img-3.png" alt="">
-               </div>
+               </a>
                <div class="specialists__card-title">Станислав Сметана</div>
                <div class="specialists__card-descr">Ведущий эксперт <br> практики Промышленность</div>
                <a class="specialists__card-link" href="#">Подробнее</a>
@@ -91,9 +91,9 @@ Template Post Type: post, page, product
          </div>
          <div class="col-md-3">
             <div class="specialists__card">
-            <div class="specialists__card-img">
+               <a href="#" class="specialists__card-img">
                   <img src="/wp-content/themes/storefront-child/img/specialists/img-4.png" alt="">
-               </div>
+               </a>
                <div class="specialists__card-title">Людмила Ушакова</div>
                <div class="specialists__card-descr">Управляющий партнёр, <br> Руководитель практики <br> Стратегические
                   сессии</div>
@@ -104,9 +104,9 @@ Template Post Type: post, page, product
       <div class="row">
          <div class="col-md-3">
             <div class="specialists__card">
-            <div class="specialists__card-img">
+               <a href="#" class="specialists__card-img">
                   <img src="/wp-content/themes/storefront-child/img/specialists/img-5.png" alt="">
-               </div>
+               </a>
                <div class="specialists__card-title">Имя Фамилия</div>
                <div class="specialists__card-descr">Должность</div>
                <a class="specialists__card-link" href="#">Подробнее</a>
@@ -114,9 +114,9 @@ Template Post Type: post, page, product
          </div>
          <div class="col-md-3">
             <div class="specialists__card">
-            <div class="specialists__card-img">
+               <a href="#" class="specialists__card-img">
                   <img src="/wp-content/themes/storefront-child/img/specialists/img-6.png" alt="">
-               </div>
+               </a>
                <div class="specialists__card-title">Имя Фамилия</div>
                <div class="specialists__card-descr">Должность</div>
                <a class="specialists__card-link" href="#">Подробнее</a>
@@ -124,9 +124,9 @@ Template Post Type: post, page, product
          </div>
          <div class="col-md-3">
             <div class="specialists__card">
-            <div class="specialists__card-img">
+               <a href="#" class="specialists__card-img">
                   <img src="/wp-content/themes/storefront-child/img/specialists/img-7.png" alt="">
-               </div>
+               </a>
                <div class="specialists__card-title">Соколова Анна</div>
                <div class="specialists__card-descr">Консультант практики <br> Потребительские рынки</div>
                <a class="specialists__card-link" href="#">Подробнее</a>
@@ -134,9 +134,9 @@ Template Post Type: post, page, product
          </div>
          <div class="col-md-3">
             <div class="specialists__card">
-            <div class="specialists__card-img">
+               <a href="#" class="specialists__card-img">
                   <img src="/wp-content/themes/storefront-child/img/specialists/img-8.png" alt="">
-               </div>
+               </a>
                <div class="specialists__card-title">Елена Макеева</div>
                <div class="specialists__card-descr">Руководитель практики <br> IT\Digital\Telco</div>
                <a class="specialists__card-link" href="#">Подробнее</a>
@@ -146,22 +146,20 @@ Template Post Type: post, page, product
       <div class="row">
          <div class="col-md-3">
             <div class="specialists__card">
-            <div class="specialists__card-img">
+               <a href="#" class="specialists__card-img">
                   <img src="/wp-content/themes/storefront-child/img/specialists/img-9.png" alt="">
-               </div>
+               </a>
                <div class="specialists__card-title">Антон Миллер</div>
                <div class="specialists__card-descr">Руководитель практики <br> Финансы и Инвестиции</div>
                <a class="specialists__card-link" href="#">Подробнее</a>
             </div>
          </div>
          <div class="col-md-3">
-            <div class="specialists__card specialists__card_empty">
+            <a href="#" class="specialists__card specialists__card_empty">
                <div class="specialists__card-title">Стать частью <br> команды</div>
                <img class="specialists__card-img" src="/wp-content/themes/storefront-child/svg/cup.svg" alt="">
-               <a class="specialists__card-link" href="#">
-                  <img src="/wp-content/themes/storefront-child/svg/arrow-blue.svg" alt="">
-               </a>
-            </div>
+               <img src="/wp-content/themes/storefront-child/svg/arrow-blue.svg" alt="">
+            </a>
          </div>
       </div>
    </div>
