@@ -93,9 +93,9 @@
 	do_action( 'storefront_before_content' );
 	?>
 
-    <div id="content" class="site-content">
+    <!-- <div id="content" class="site-content">
         <div class="container">
-            <div class="row">
+            <div class="row"> -->
 
 <?php
 do_action( 'storefront_content_top' );
