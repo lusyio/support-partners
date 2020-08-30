@@ -29,6 +29,7 @@ Author URI:   https://richbee.ru/
 
 .heading {
   position: relative;
+  margin: 0 0 42px;
   padding: 0 0 15px;
   font-weight: 500;
   font-size: 36px;
@@ -96,6 +97,7 @@ img {
   height: auto;
   max-width: 100%;
   display: initial;
+  border-radius: 0;
 }
 
 header .woocommerce {
@@ -591,7 +593,6 @@ ul.products li.product:hover {
 .woocommerce-placeholder.wp-post-image {
   display: block;
   width: 100%;
-  -webkit-backface-visibility: hidden;
   transition: transform 0.4s ease-out;
 }
 
@@ -1442,6 +1443,14 @@ section#team-5 {
   margin: 0 0 60px;
 }
 
+.clients .row {
+  margin: 0 0 40px;
+}
+
+.clients .row:last-of-type {
+  margin-bottom: 0;
+}
+
 .feedback {
   width: 100%;
   padding: 75px 0;
@@ -1520,6 +1529,284 @@ section#team-5 {
   font-weight: 300;
   font-size: 18px;
   color: #767676;
+}
+
+.intro {
+  width: 100%;
+}
+
+.intro__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 420px;
+  padding: 54px 95px;
+  background: linear-gradient(180.13deg, rgba(0, 88, 150, 0.3) 0.11%, #005896 98.33%), url(/wp-content/themes/storefront-child/img/intro/about.png) center center/cover no-repeat;
+}
+
+.intro__title {
+  margin: 0 0 20px;
+  font-weight: bold;
+  font-size: 48px;
+  letter-spacing: 0.025em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.intro__descr {
+  font-size: 18px;
+  line-height: 21px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.breadcrumb-primary {
+  margin: 0;
+  padding: 42px 0;
+  display: flex;
+  list-style: none;
+}
+
+.breadcrumb-primary__link {
+  color: #005896;
+  transition: all 0.3s ease;
+}
+
+.breadcrumb-primary__link:hover {
+  color: rgba(0, 88, 150, 0.8);
+}
+
+.breadcrumb-primary__link_active {
+  color: #828282;
+}
+
+.breadcrumb-primary__link_active:hover {
+  color: rgba(130, 130, 130, 0.8);
+}
+
+.breadcrumb-primary__separator {
+  margin: 0 5px;
+  color: #828282;
+}
+
+.values {
+  width: 100%;
+  padding: 0 0 145px;
+}
+
+.values .heading {
+  margin: 0 0 98px;
+}
+
+.values .col-md-8 {
+  position: relative;
+}
+
+.values .col-md-8::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -95px;
+  width: 100vw;
+  height: 100%;
+  background: #f4f8fb;
+}
+
+.values__inner {
+  position: relative;
+  padding: 45px 0;
+}
+
+.values__inner p {
+  margin: 0 0 25px;
+}
+
+.values__inner p:last-child {
+  margin-bottom: 0;
+}
+
+.values__inner::before, .values__inner::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+}
+
+.values__inner::before {
+  bottom: -30px;
+  left: -155px;
+  background: url(/wp-content/themes/storefront-child/svg/decor.svg);
+}
+
+.values__inner::after {
+  top: -30px;
+  right: -260px;
+  background: url(/wp-content/themes/storefront-child/svg/decor-white.svg);
+}
+
+.specialists {
+  width: 100%;
+  padding: 0 0 109px;
+}
+
+.specialists .heading {
+  margin: 0 0 44px;
+}
+
+.specialists .row {
+  margin: 0 0 61px;
+}
+
+.specialists .row:last-of-type {
+  margin-bottom: 0;
+}
+
+.specialists__card {
+  min-height: 410px;
+  display: flex;
+  flex-direction: column;
+}
+
+.specialists__card_empty {
+  padding: 23px 0 43px;
+  min-height: 260px;
+  text-align: center;
+  box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+.specialists__card_empty .specialists__card-title {
+  margin: 0 0 36px;
+  padding: 0;
+  font-size: 20px;
+  line-height: 23px;
+  color: #363636;
+}
+
+.specialists__card_empty .specialists__card-title::before {
+  display: none;
+}
+
+.specialists__card_empty .specialists__card-img {
+  margin: 0 0 auto;
+}
+
+.specialists__card-img {
+  display: block;
+  max-height: 260px;
+  overflow: hidden;
+  margin: 0 0 21px;
+}
+
+.specialists__card-img img {
+  max-width: 100%;
+}
+
+.specialists__card-title {
+  position: relative;
+  margin: 0 0 10px;
+  padding-top: 14px;
+  font-size: 18px;
+  line-height: 21px;
+  color: #363636;
+}
+
+.specialists__card-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 1.3px;
+  font-weight: normal;
+  border-bottom: 1.3px solid #ed002f;
+}
+
+.specialists__card-descr {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: #696969;
+}
+
+.specialists__card-link {
+  margin-top: auto;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: #363636;
+  text-decoration: underline;
+  transition: all .3s ease;
+}
+
+.specialists__card-link:hover {
+  color: rgba(54, 54, 54, 0.8);
+}
+
+.benefits {
+  padding: 72px 100px;
+  width: 100%;
+  background: #f4f8fb;
+}
+
+.benefits__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.benefits__item:nth-of-type(4), .benefits__item:last-of-type {
+  margin-top: 52px;
+}
+
+.benefits__item-img {
+  margin: 0 0 10px;
+  min-height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.benefits__item-descr {
+  font-size: 16px;
+  line-height: 123.5%;
+  color: #696969;
+}
+
+.reviews {
+  width: 100%;
+  padding: 72px 0 200px;
+}
+
+.reviews .heading {
+  margin: 0 0 88px;
+}
+
+.reviews__item {
+  padding: 29px 65px;
+  background: #ffffff;
+  box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+.reviews__item-header {
+  margin: 0 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reviews__item-title {
+  font-size: 24px;
+  line-height: 28px;
+  color: #363636;
+}
+
+.reviews__item-subtitle {
+  font-size: 18px;
+  color: #767676;
+}
+
+.reviews__item-descr {
+  font-size: 16px;
+  color: #696969;
 }
 
 /*--------------------------------------------------------------

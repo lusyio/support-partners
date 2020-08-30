@@ -17,7 +17,7 @@
 <footer id="colophon" class="site-footer" role="contentinfo">
    <div class="container pt-3 pb-3">
       <div class="row">
-               <?php
+         <?php
                     if ($menu_items = wp_get_nav_menu_items('second')) {
                         $menu_list = '';
                         echo '<div class="col-12 text-center col-md-6 text-lg-left">';
@@ -46,30 +46,30 @@
                         echo '</div>';
                     }
                     ?>
-            </div>
-         </div>
-         <div class="col-12 footer-socials text-center col-lg-3 text-lg-right">
-            <div class="social">
-               <a class="text-decoration-none socials" href="#"><img
-                     src="/wp-content/themes/storefront-child/svg/vk.svg" alt=""></a>
-               <a class="text-decoration-none ml-3 socials" href="#"><img
-                     src="/wp-content/themes/storefront-child/svg/facebook.svg" alt=""></a>
-            </div>
-            <!-- <p class="mb-0">
+      </div>
+   </div>
+   <div class="col-12 footer-socials text-center col-lg-3 text-lg-right">
+      <div class="social">
+         <a class="text-decoration-none socials" href="#"><img src="/wp-content/themes/storefront-child/svg/vk.svg"
+               alt=""></a>
+         <a class="text-decoration-none ml-3 socials" href="#"><img
+               src="/wp-content/themes/storefront-child/svg/facebook.svg" alt=""></a>
+      </div>
+      <!-- <p class="mb-0">
                     <a class="footer-terms" href="/terms/">Политика конфиденциальности</a>
                 </p>
                 <p class="footer-name-p">
                     &copy; <?php echo '<a class="footer-name" href="' . home_url() . '">' . get_bloginfo('name') . '</a>'; ?>
                     , 2015 - <?php echo date('Y'); ?>
                 </p> -->
-            <p class="mb-0 footer-credits d-lg-none d-block">
-               <a class="credits" href="https://richbee.ru/" target="_blank"><img
-                     src="/wp-content/themes/storefront-child/svg/Richbee-black.svg" alt=""></a>
-            </p>
-         </div>
-      </div>
-
+      <p class="mb-0 footer-credits d-lg-none d-block">
+         <a class="credits" href="https://richbee.ru/" target="_blank"><img
+               src="/wp-content/themes/storefront-child/svg/Richbee-black.svg" alt=""></a>
+      </p>
    </div>
+
+   <!-- </div>
+   </div> -->
 
 
    <div class="col-full">
