@@ -1734,7 +1734,7 @@ section#team-5 {
   line-height: 16px;
   color: #363636;
   text-decoration: underline;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .specialists__card-link:hover {
@@ -1807,6 +1807,58 @@ section#team-5 {
 .reviews__item-descr {
   font-size: 16px;
   color: #696969;
+}
+
+.product .row {
+  margin-bottom: 40px;
+}
+
+.product__item {
+  display: flex;
+  flex-direction: column;
+  min-height: 301px;
+  padding: 40px 61px 36px;
+  background: #ffffff;
+  box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+.product__item-title {
+  margin: 0 0 36px;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #363636;
+}
+
+.product__item-descr {
+  font-weight: 300;
+  font-size: 16px;
+  color: #828282;
+}
+
+.product__item-link {
+  position: relative;
+  margin-top: auto;
+  margin-left: auto;
+  padding-right: 108px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #005896;
+  transition: all .3s ease;
+}
+
+.product__item-link::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 0;
+  width: 81px;
+  height: 10px;
+  background: url(/wp-content/themes/storefront-child/svg/arrow-blue.svg);
+}
+
+.product__item-link:hover {
+  color: rgba(0, 88, 150, 0.8);
 }
 
 /*--------------------------------------------------------------
