@@ -1854,6 +1854,51 @@ section#team-5 {
   color: #696969;
 }
 
+
+.product .row {
+  margin-bottom: 40px;
+}
+
+.product__item {
+  display: flex;
+  flex-direction: column;
+  min-height: 301px;
+  padding: 40px 61px 36px;
+  background: #ffffff;
+  box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+.product__item-title {
+  margin: 0 0 36px;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #363636;
+}
+
+.product__item-descr {
+  font-weight: 300;
+  font-size: 16px;
+  color: #828282;
+}
+
+.product__item-link {
+  position: relative;
+  margin-top: auto;
+  margin-left: auto;
+  padding-right: 108px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #005896;
+  transition: all .3s ease;
+}
+
+.product__item-link::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 0;
+
 .search {
   width: 100%;
   padding: 58px 0 72px;
@@ -2003,10 +2048,15 @@ section#team-5 {
   position: absolute;
   bottom: 0;
   left: 0;
+
   width: 81px;
   height: 10px;
   background: url(/wp-content/themes/storefront-child/svg/arrow-blue.svg);
 }
+
+
+.product__item-link:hover {
+  color: rgba(0, 88, 150, 0.8);
 
 .vacancies__item-title {
   margin: 0 0 13px;
@@ -2022,6 +2072,7 @@ section#team-5 {
   max-width: 256px;
   text-align: center;
   padding: 17px 30px;
+
 }
 
 /*--------------------------------------------------------------
