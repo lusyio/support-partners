@@ -2166,15 +2166,25 @@ section#team-5 {
    }
 
    .col-md-3 {
+
       &:nth-child(odd) {
+
          .vacancies__item {
             background-color: $accent;
+
+            svg {
+               path {
+                  fill: $white;
+               }
+            }
 
             span {
                color: $white;
 
-               &::before {
-                  background: url(/wp-content/themes/storefront-child/svg/arrow-white.svg);
+               svg {
+               }
+               path {
+                  fill: $white;
                }
             }
          }
@@ -2194,6 +2204,13 @@ section#team-5 {
       padding: 25px 25px 36px;
       box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
 
+      svg {
+         path {
+            fill: $accent;
+         }
+      }
+
+
       span {
          position: relative;
          margin-top: auto;
@@ -2203,14 +2220,14 @@ section#team-5 {
          line-height: 14px;
          color: $accent;
 
-         &::before {
-            content: "";
+         svg {
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 81px;
-            height: 10px;
-            background: url(/wp-content/themes/storefront-child/svg/arrow-blue.svg);
+         }
+
+         path {
+            fill: $accent;
          }
       }
    }

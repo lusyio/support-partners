@@ -1966,12 +1966,16 @@ section#team-5 {
   background-color: #005896;
 }
 
+.vacancies .col-md-3:nth-child(odd) .vacancies__item svg path {
+  fill: #ffffff;
+}
+
 .vacancies .col-md-3:nth-child(odd) .vacancies__item span {
   color: #ffffff;
 }
 
-.vacancies .col-md-3:nth-child(odd) .vacancies__item span::before {
-  background: url(/wp-content/themes/storefront-child/svg/arrow-white.svg);
+.vacancies .col-md-3:nth-child(odd) .vacancies__item span path {
+  fill: #ffffff;
 }
 
 .vacancies .col-md-3:nth-child(odd) .vacancies__item-title {
@@ -1988,6 +1992,10 @@ section#team-5 {
   box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
 }
 
+.vacancies__item svg path {
+  fill: #005896;
+}
+
 .vacancies__item span {
   position: relative;
   margin-top: auto;
@@ -1998,14 +2006,14 @@ section#team-5 {
   color: #005896;
 }
 
-.vacancies__item span::before {
-  content: "";
+.vacancies__item span svg {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 81px;
-  height: 10px;
-  background: url(/wp-content/themes/storefront-child/svg/arrow-blue.svg);
+}
+
+.vacancies__item span path {
+  fill: #005896;
 }
 
 .vacancies__item-title {
