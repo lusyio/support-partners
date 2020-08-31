@@ -50,7 +50,7 @@
 					) );
 					?>
 
-						<?= get_field('phone', 21) ?>
+						<a class="phone-link" href="tel:"><?= get_field('phone', 21) ?></a>
                     <div class="outer-menu">
                         <button class="navbar-toggler position-relative" type="button" style="z-index: 1">
                             <span class="navbar-toggler-icon"></span>
