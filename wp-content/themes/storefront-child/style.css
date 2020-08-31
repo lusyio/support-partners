@@ -377,20 +377,41 @@ header#masthead {
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.navbar-light .navbar-nav .nav-item {
+  margin-right: 33px;
+}
+
+.navbar-light .navbar-nav .nav-item:last-child {
+  margin-right: 0;
+}
+
 .navbar-light .navbar-nav .nav-link {
   position: relative;
+  display: block;
   padding: 0 0 10px !important;
-  margin: 0 15px;
+  margin: 0;
   color: #363636 !important;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
-  transition: all 0.3s ease;
-  border-bottom: 1.3px solid transparent;
+  transition: all .5s ease;
+  overflow: hidden;
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
-  border-bottom: 1.3px solid #ed002f;
+.navbar-light .navbar-nav .nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.3px;
+  background-color: #ed002f;
+  transform: translate3d(-100%, 0, 0);
+  transition: all .5s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover::before {
+  transform: translate3d(0, 0, 0);
 }
 
 #searchBtn {
@@ -1854,7 +1875,6 @@ section#team-5 {
   color: #696969;
 }
 
-
 .product .row {
   margin-bottom: 40px;
 }
@@ -1890,14 +1910,26 @@ section#team-5 {
   font-size: 14px;
   line-height: 16px;
   color: #005896;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
-.product__item-link::before {
-  content: '';
+.product__item-link svg {
   position: absolute;
   top: 5px;
   right: 0;
+}
+
+.product__item-link path {
+  fill: #005896;
+}
+
+.product__item-link:hover {
+  color: rgba(0, 88, 150, 0.8);
+}
+
+.product__item-link:hover path {
+  fill: rgba(0, 88, 150, 0.8);
+}
 
 .search {
   width: 100%;
@@ -2048,15 +2080,10 @@ section#team-5 {
   position: absolute;
   bottom: 0;
   left: 0;
-
   width: 81px;
   height: 10px;
   background: url(/wp-content/themes/storefront-child/svg/arrow-blue.svg);
 }
-
-
-.product__item-link:hover {
-  color: rgba(0, 88, 150, 0.8);
 
 .vacancies__item-title {
   margin: 0 0 13px;
@@ -2072,7 +2099,6 @@ section#team-5 {
   max-width: 256px;
   text-align: center;
   padding: 17px 30px;
-
 }
 
 /*--------------------------------------------------------------
