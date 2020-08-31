@@ -7,15 +7,6 @@ Template Post Type: post, page, product
 
 <?php get_header(); ?>
 
-
-<section class="intro">
-   <div class="container">
-      <div class="intro__inner" style="background: linear-gradient(180.13deg,rgba(0, 88, 150, 0.3) 0.11%,#005896 98.33%), url(/wp-content/themes/storefront-child/img/intro/products.png) center center / cover no-repeat;">
-         <h2 class="intro__title">онлайн-продукты</h2>
-      </div>
-   </div>
-</section>
-
 <div class="container">
    <ul class="breadcrumb-primary">
       <li>
