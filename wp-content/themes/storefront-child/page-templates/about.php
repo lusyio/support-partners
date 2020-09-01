@@ -8,14 +8,6 @@ Template Post Type: post, page, product
 <?php get_header(); ?>
 
 
-<section class="intro">
-   <div class="container">
-      <div class="intro__inner">
-         <h2 class="intro__title">о компании</h2>
-         <div class="intro__descr">Мы оперативно находим отличных кандидатов, <br> приносящих реальную пользу</div>
-      </div>
-   </div>
-</section>
 
 <div class="container">
    <ul class="breadcrumb-primary">
@@ -158,7 +150,9 @@ Template Post Type: post, page, product
             <a href="#" class="specialists__card specialists__card_empty">
                <div class="specialists__card-title">Стать частью <br> команды</div>
                <img class="specialists__card-img" src="/wp-content/themes/storefront-child/svg/cup.svg" alt="">
-               <img src="/wp-content/themes/storefront-child/svg/arrow-blue.svg" alt="">
+               <svg class="icon">
+                  <use xlink:href="#arrow"></use>
+               </svg>
             </a>
          </div>
       </div>
