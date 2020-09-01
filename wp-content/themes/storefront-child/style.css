@@ -9,6 +9,10 @@ Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 
 */
+.hidden {
+  display: none;
+}
+
 .btn-primary {
   display: inline-block;
   padding: 17px 39px;
@@ -98,19 +102,6 @@ Author URI:   https://richbee.ru/
   width: 56px;
   height: 2px;
   border-bottom: 1.3px solid #ed002f;
-}
-
-.hidden {
-  display: none;
-}
-
-.arrow {
-  width: 81px;
-  height: 10px;
-}
-
-#arrow path {
-  fill: #005896;
 }
 
 html {
@@ -422,6 +413,7 @@ header#masthead {
   position: relative;
   display: block;
   margin: 0;
+  padding: 0 0 13px !important;
   color: #363636 !important;
   font-weight: normal;
   font-size: 14px;
@@ -1450,40 +1442,36 @@ p.no-comments .button:hover {
 }
 
 .team__item-link {
-  display: block;
-  position: relative;
+  display: flex;
+  flex-direction: column;
   margin-top: auto;
-  padding-bottom: 12px;
   font-size: 14px;
   line-height: 14px;
   color: #ffffff;
   transition: all 0.3s ease;
 }
 
-.team__item-link:hover {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.team__item-link::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.team__item-link .icon {
+  margin-top: 12px;
   width: 81px;
   height: 10px;
-  background: url(/wp-content/themes/storefront-child/svg/arrow-white.svg) center no-repeat;
+  fill: #ffffff;
+}
+
+.team__item-link:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .team__item-link_blue {
   color: #005896;
 }
 
-.team__item-link_blue:hover {
-  color: rgba(0, 88, 150, 0.8);
+.team__item-link_blue .icon {
+  fill: #005896;
 }
 
-.team__item-link_blue::before {
-  background: url(/wp-content/themes/storefront-child/svg/arrow-blue.svg) center no-repeat;
+.team__item-link_blue:hover {
+  color: rgba(0, 88, 150, 0.8);
 }
 
 section#team-2,
@@ -1786,6 +1774,13 @@ section#team-5 {
   margin: 0 0 auto;
 }
 
+.specialists__card_empty .icon {
+  width: 81px;
+  height: 10px;
+  margin: 0 auto;
+  fill: #005896;
+}
+
 .specialists__card-img {
   display: block;
   max-height: 260px;
@@ -1934,31 +1929,29 @@ section#team-5 {
 }
 
 .product__item-link {
-  position: relative;
+  display: flex;
+  align-items: center;
   margin-top: auto;
   margin-left: auto;
-  padding-right: 108px;
   font-size: 14px;
   line-height: 16px;
   color: #005896;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
 
-.product__item-link svg {
-  position: absolute;
-  top: 5px;
-  right: 0;
-}
-
-.product__item-link path {
+.product__item-link .icon {
+  margin-left: 21px;
+  width: 91px;
+  height: 10px;
   fill: #005896;
+  transition: all .3s ease;
 }
 
 .product__item-link:hover {
   color: rgba(0, 88, 150, 0.8);
 }
 
-.product__item-link:hover path {
+.product__item-link:hover .icon {
   fill: rgba(0, 88, 150, 0.8);
 }
 
@@ -2074,19 +2067,20 @@ section#team-5 {
   background-color: #005896;
 }
 
-.vacancies .col-md-3:nth-child(odd) .vacancies__item svg path {
+.vacancies .col-md-3:nth-child(odd) .vacancies__item > .icon {
   fill: #ffffff;
+  stroke: #005896;
 }
 
-.vacancies .col-md-3:nth-child(odd) .vacancies__item span {
+.vacancies .col-md-3:nth-child(odd) .vacancies__item-wrap {
   color: #ffffff;
 }
 
-.vacancies .col-md-3:nth-child(odd) .vacancies__item span path {
+.vacancies .col-md-3:nth-child(odd) .vacancies__item-wrap > .icon {
   fill: #ffffff;
 }
 
-.vacancies .col-md-3:nth-child(odd) .vacancies__item .vacancies__item-title {
+.vacancies .col-md-3:nth-child(odd) .vacancies__item-title {
   color: #ffffff;
 }
 
@@ -2100,36 +2094,37 @@ section#team-5 {
   box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
 }
 
-
-.vacancies__item svg path {
+.vacancies__item > .icon {
+  width: 76px;
+  height: 76px;
   fill: #005896;
+  stroke: #ffffff;
 }
 
-.vacancies svg path {
-  fill: #005896;
-}
-
-.vacancies span {
-  position: relative;
+.vacancies__item-wrap {
+  display: flex;
+  flex-direction: column;
   margin-top: auto;
-  padding-bottom: 15px;
-  display: block;
   font-size: 14px;
   line-height: 14px;
   color: #005896;
 }
 
-
-.vacancies span svg {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.vacancies span path {
+.vacancies__item-wrap > .icon {
+  margin-top: 15px;
+  width: 81px;
+  height: 10px;
   fill: #005896;
+  transition: all .3s ease;
 }
 
+.vacancies__item-wrap:hover {
+  color: rgba(0, 88, 150, 0.8);
+}
+
+.vacancies__item-wrap:hover .icon {
+  fill: rgba(0, 88, 150, 0.8);
+}
 
 .vacancies__item-title {
   margin: 0 0 13px;
@@ -2235,7 +2230,7 @@ section#team-5 {
   font-size: 20px;
   text-transform: uppercase;
   color: #005896;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .pagination-primary__link:hover {

@@ -123,47 +123,32 @@ Template Post Type: post, page, product
                <div class="cycle__number"><span>5</span>/5</div>
             </div>
             <div class="item">
-               <svg id="item-1" width="149" height="247" viewBox="0 0 149 247" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                     d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z"
-                     fill="none" />
+               <svg id="item-1" width="149" height="247" viewBox="0 0 149 247" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z" fill="none" />
                </svg>
                <span>1</span>
             </div>
             <div class="item">
-               <svg id="item-2" width="149" height="247" viewBox="0 0 149 247" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                     d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z"
-                     fill="none" />
+               <svg id="item-2" width="149" height="247" viewBox="0 0 149 247" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z" fill="none" />
                </svg>
                <span>2</span>
             </div>
             <div class="item">
-               <svg id="item-3" width="149" height="247" viewBox="0 0 149 247" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                     d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z"
-                     fill="none" />
+               <svg id="item-3" width="149" height="247" viewBox="0 0 149 247" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z" fill="none" />
                </svg>
                <span>3</span>
             </div>
             <div class="item">
-               <svg id="item-4" width="149" height="247" viewBox="0 0 149 247" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                     d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z"
-                     fill="none" />
+               <svg id="item-4" width="149" height="247" viewBox="0 0 149 247" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z" fill="none" />
                </svg>
                <span>4</span>
             </div>
             <div class="item">
-               <svg id="item-5" width="149" height="247" viewBox="0 0 149 247" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                     d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z"
-                     fill="none" />
+               <svg id="item-5" width="149" height="247" viewBox="0 0 149 247" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z" fill="none" />
                </svg>
                <span>5</span>
             </div>
@@ -181,7 +166,12 @@ Template Post Type: post, page, product
                <div class="team__item-title">executive search</div>
                <div class="team__item-descr">Подбор управленческого персонала</div>
                <img class="team__item-img" src="/wp-content/themes/storefront-child/svg/team/research.svg" alt="">
-               <a class="team__item-link" href="#">Подробнее</a>
+               <a class="team__item-link" href="#">
+                  Подробнее
+                  <svg class="icon">
+                     <use xlink:href="#arrow"></use>
+                  </svg>
+               </a>
             </div>
          </div>
          <div class="col-md-4">
@@ -189,12 +179,22 @@ Template Post Type: post, page, product
                <div class="team__item-box">
                   <div class="team__item-title team__item-title_small">salary overview</div>
                   <div class="team__item-descr team__item-descr_small">Обзор заработных плат</div>
-                  <a class="team__item-link team__item-link_blue" href="#">Подробнее</a>
+                  <a class="team__item-link team__item-link_blue" href="#">
+                     Подробнее
+                     <svg class="icon">
+                        <use xlink:href="#arrow"></use>
+                     </svg>
+                  </a>
                </div>
                <div class="team__item-box">
                   <div class="team__item-title team__item-title_small">ready</div>
                   <div class="team__item-descr team__item-descr_small">Проект</div>
-                  <a class="team__item-link team__item-link_blue" href="#">Подробнее</a>
+                  <a class="team__item-link team__item-link_blue" href="#">
+                     Подробнее
+                     <svg class="icon">
+                        <use xlink:href="#arrow"></use>
+                     </svg>
+                  </a>
                </div>
             </div>
          </div>
@@ -212,7 +212,12 @@ Template Post Type: post, page, product
                <div class="team__item-title team__item-title_dark">disc</div>
                <div class="team__item-descr team__item-descr_dark">Тестирование</div>
                <img class="team__item-img" src="/wp-content/themes/storefront-child/svg/team/notepad.svg" alt="">
-               <a class="team__item-link team__item-link_blue" href="#">Подробнее</a>
+               <a class="team__item-link team__item-link_blue" href="#">
+                  Подробнее
+                  <svg class="icon">
+                     <use xlink:href="#arrow"></use>
+                  </svg>
+               </a>
             </div>
          </div>
       </div>
@@ -229,7 +234,12 @@ Template Post Type: post, page, product
                <div class="team__item-title team__item-title_dark">удалённая команда</div>
                <div class="team__item-descr team__item-descr_dark">Курс</div>
                <img class="team__item-img" src="/wp-content/themes/storefront-child/svg/team/interview.svg" alt="">
-               <a class="team__item-link team__item-link_blue" href="#">Подробнее</a>
+               <a class="team__item-link team__item-link_blue" href="#">
+                  Подробнее
+                  <svg class="icon">
+                     <use xlink:href="#arrow"></use>
+                  </svg>
+               </a>
             </div>
          </div>
          <div class="col-md-4">
@@ -237,7 +247,12 @@ Template Post Type: post, page, product
                <div class="team__item-title">командос</div>
                <div class="team__item-descr">Тренинг</div>
                <img class="team__item-img" src="/wp-content/themes/storefront-child/svg/team/sport-team.svg" alt="">
-               <a class="team__item-link" href="#">Подробнее</a>
+               <a class="team__item-link" href="#">
+                  Подробнее
+                  <svg class="icon">
+                     <use xlink:href="#arrow"></use>
+                  </svg>
+               </a>
             </div>
          </div>
       </div>
@@ -252,11 +267,21 @@ Template Post Type: post, page, product
             <div class="team__item team__item_small team__item_white">
                <div class="team__item-box">
                   <div class="team__item-title team__item-title_small">карьерное консультирование</div>
-                  <a class="team__item-link team__item-link_blue" href="#">Подробнее</a>
+                  <a class="team__item-link team__item-link_blue" href="#">
+                     Подробнее
+                     <svg class="icon">
+                        <use xlink:href="#arrow"></use>
+                     </svg>
+                  </a>
                </div>
                <div class="team__item-box">
                   <div class="team__item-title team__item-title_small">персональное консультирование</div>
-                  <a class="team__item-link team__item-link_blue" href="#">Подробнее</a>
+                  <a class="team__item-link team__item-link_blue" href="#">
+                     Подробнее
+                     <svg class="icon">
+                        <use xlink:href="#arrow"></use>
+                     </svg>
+                  </a>
                </div>
             </div>
          </div>
@@ -265,7 +290,12 @@ Template Post Type: post, page, product
                <div class="team__item-title">командос</div>
                <div class="team__item-descr">Онлайн-курс</div>
                <img class="team__item-img" src="/wp-content/themes/storefront-child/svg/team/sport-team.svg" alt="">
-               <a class="team__item-link" href="#">Подробнее</a>
+               <a class="team__item-link" href="#">
+                  Подробнее
+                  <svg class="icon">
+                     <use xlink:href="#arrow"></use>
+                  </svg>
+               </a>
             </div>
          </div>
          <div class="col-md-4">
@@ -278,7 +308,12 @@ Template Post Type: post, page, product
                <div class="team__item-box">
                   <div class="team__item-title team__item-title_small">частная практика</div>
                   <div class="team__item-descr team__item-descr_small">Проект</div>
-                  <a class="team__item-link team__item-link_blue" href="#">Подробнее</a>
+                  <a class="team__item-link team__item-link_blue" href="#">
+                     Подробнее
+                     <svg class="icon">
+                        <use xlink:href="#arrow"></use>
+                     </svg>
+                  </a>
                </div>
             </div>
          </div>
@@ -295,14 +330,24 @@ Template Post Type: post, page, product
             <div class="team__item team__item_white">
                <div class="team__item-title team__item-title_dark">экспертные <br> сессии</div>
                <img class="team__item-img" src="/wp-content/themes/storefront-child/svg/team/support.svg" alt="">
-               <a class="team__item-link team__item-link_blue" href="#">Подробнее</a>
+               <a class="team__item-link team__item-link_blue" href="#">
+                  Подробнее
+                  <svg class="icon">
+                     <use xlink:href="#arrow"></use>
+                  </svg>
+               </a>
             </div>
          </div>
          <div class="col-md-4">
             <div class="team__item">
                <div class="team__item-title">стратегические сессии</div>
                <img class="team__item-img" src="/wp-content/themes/storefront-child/svg/team/idea.svg" alt="">
-               <a class="team__item-link" href="#">Подробнее</a>
+               <a class="team__item-link" href="#">
+                  Подробнее
+                  <svg class="icon">
+                     <use xlink:href="#arrow"></use>
+                  </svg>
+               </a>
             </div>
          </div>
       </div>

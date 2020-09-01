@@ -9,6 +9,12 @@ Author URI:   https://richbee.ru/
 
 */
 
+// SVG Sprite
+
+.hidden {
+   display: none;
+}
+
 // Variables
 
 $accent: #005896;
@@ -117,23 +123,6 @@ $dark-gray: #363636;
       width: 56px;
       height: 2px;
       border-bottom: 1.3px solid $red;
-   }
-}
-
-// SVG Sprite
-
-.hidden {
-   display: none;
-}
-
-.arrow {
-   width: 81px;
-   height: 10px;
-}
-
-#arrow {
-   path {
-      fill: $accent;
    }
 }
 
@@ -450,6 +439,7 @@ header#masthead {
    position: relative;
    display: block;
    margin: 0;
+   padding: 0 0 13px !important;
    color: $dark-gray !important;
    font-weight: normal;
    font-size: 14px;
@@ -474,13 +464,6 @@ header#masthead {
       }
    }
 }
-// .navbar-expand-xl .navbar-collapse .navbar-nav:hover .nav-item:not(.active) a {
-//   color: $accent !important;
-// }
-
-// .navbar-dark .navbar-collapse .navbar-nav .nav-item:not(.active) a:hover {
-//   color: #fff !important;
-// }
 
 #searchBtn {
    position: absolute;
@@ -1625,40 +1608,34 @@ p.no-comments .button:hover {
    }
 
    &__item-link {
-      display: block;
-      position: relative;
+      display: flex;
+      flex-direction: column;
       margin-top: auto;
-      padding-bottom: 12px;
       font-size: 14px;
       line-height: 14px;
       color: $white;
       transition: all 0.3s ease;
 
-      &:hover {
-         color: rgba($white, 0.8);
-      }
-
-      &::before {
-         content: "";
-         position: absolute;
-         bottom: 0;
-         left: 0;
+      .icon {
+         margin-top: 12px;
          width: 81px;
          height: 10px;
-         background: url(/wp-content/themes/storefront-child/svg/arrow-white.svg)
-            center no-repeat;
+         fill: $white;
+      }
+
+      &:hover {
+         color: rgba($white, 0.8);
       }
 
       &_blue {
          color: $accent;
 
-         &:hover {
-            color: rgba($accent, 0.8);
+         .icon {
+            fill: $accent;
          }
 
-         &::before {
-            background: url(/wp-content/themes/storefront-child/svg/arrow-blue.svg)
-               center no-repeat;
+         &:hover {
+            color: rgba($accent, 0.8);
          }
       }
    }
@@ -1973,6 +1950,13 @@ section#team-5 {
          .specialists__card-img {
             margin: 0 0 auto;
          }
+
+         .icon {
+            width: 81px;
+            height: 10px;
+            margin: 0 auto;
+            fill: $accent;
+         }
       }
    }
 
@@ -2131,29 +2115,27 @@ section#team-5 {
    }
 
    &__item-link {
-      position: relative;
+      display: flex;
+      align-items: center;
       margin-top: auto;
       margin-left: auto;
-      padding-right: 108px;
       font-size: 14px;
       line-height: 16px;
       color: $accent;
-      transition: all 0.3s ease;
+      transition: all .3s ease;
 
-      svg {
-         position: absolute;
-         top: 5px;
-         right: 0;
-      }
-
-      path {
+      .icon {
+         margin-left: 21px;
+         width: 91px;
+         height: 10px;
          fill: $accent;
+         transition: all .3s ease;
       }
 
       &:hover {
          color: rgba($accent, 0.8);
 
-         path {
+         .icon {
             fill: rgba($accent, 0.8);
          }
       }
@@ -2280,23 +2262,21 @@ section#team-5 {
          .vacancies__item {
             background-color: $accent;
 
-            svg {
-               path {
-                  fill: $white;
-               }
+           > .icon {
+               fill: $white;
+               stroke: $accent;
             }
+         }
+         .vacancies__item-wrap {
+            color: $white;
 
-            span {
-               color: $white;
-
-               path {
-                  fill: $white;
-               }
+           > .icon {
+               fill: $white;
             }
+         }
 
-            .vacancies__item-title {
-               color: $white;
-            }
+         .vacancies__item-title {
+            color: $white;
          }
       }
    }
@@ -2309,37 +2289,40 @@ section#team-5 {
       min-height: 246px;
       padding: 25px 25px 36px;
       box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
-   
 
-
-      svg {
-         path {
-            fill: $accent;
-         }
-     }
+      > .icon {
+         width: 76px;
+         height: 76px;
+         fill: $accent;
+         stroke: $white;
+      }
    }
 
-   span {
-      position: relative;
+   &__item-wrap {
+      display: flex;
+      flex-direction: column;
       margin-top: auto;
-      padding-bottom: 15px;
-      display: block;
       font-size: 14px;
       line-height: 14px;
       color: $accent;
 
-      svg {
-         position: absolute;
-         bottom: 0;
-         left: 0;
+      > .icon {
+         margin-top: 15px;
+         width: 81px;
+         height: 10px;
+         fill: $accent;
+         transition: all .3s ease;
       }
 
-      path {
-         fill: $accent;
+      &:hover {
+         color: rgba($accent, 0.8);
 
+         .icon {
+            fill: rgba($accent, 0.8);
+         }
       }
    }
-  
+
    &__item-title {
       margin: 0 0 13px;
       font-size: 20px;
@@ -2450,19 +2433,14 @@ section#team-5 {
       font-size: 20px;
       text-transform: uppercase;
       color: $accent;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
 
       &:hover {
          background-color: $accent;
          color: $white;
       }
    }
-  
-  
-  
 }
-
-
 
 /*--------------------------------------------------------------
 # MEDIA
