@@ -100,6 +100,19 @@ Author URI:   https://richbee.ru/
   border-bottom: 1.3px solid #ed002f;
 }
 
+.hidden {
+  display: none;
+}
+
+.arrow {
+  width: 81px;
+  height: 10px;
+}
+
+#arrow path {
+  fill: #005896;
+}
+
 html {
   font-family: "Roboto", sans-serif;
 }
@@ -405,24 +418,14 @@ header#masthead {
   margin-right: 0;
 }
 
-.navbar-light .navbar-nav .nav-item {
-  margin-right: 33px;
-}
-
-.navbar-light .navbar-nav .nav-item:last-child {
-  margin-right: 0;
-}
-
 .navbar-light .navbar-nav .nav-link {
   position: relative;
   display: block;
   margin: 0;
-  padding: 0 0 13px !important;
   color: #363636 !important;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
-  transition: all 0.3s ease;
   overflow: hidden;
 }
 
@@ -2083,7 +2086,7 @@ section#team-5 {
   fill: #ffffff;
 }
 
-.vacancies .col-md-3:nth-child(odd) .vacancies__item-title {
+.vacancies .col-md-3:nth-child(odd) .vacancies__item .vacancies__item-title {
   color: #ffffff;
 }
 
@@ -2095,6 +2098,11 @@ section#team-5 {
   min-height: 246px;
   padding: 25px 25px 36px;
   box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+
+.vacancies__item svg path {
+  fill: #005896;
 }
 
 .vacancies svg path {
@@ -2111,6 +2119,7 @@ section#team-5 {
   color: #005896;
 }
 
+
 .vacancies span svg {
   position: absolute;
   bottom: 0;
@@ -2120,6 +2129,7 @@ section#team-5 {
 .vacancies span path {
   fill: #005896;
 }
+
 
 .vacancies__item-title {
   margin: 0 0 13px;
@@ -2135,6 +2145,102 @@ section#team-5 {
   max-width: 256px;
   text-align: center;
   padding: 17px 30px;
+}
+
+.work .row {
+  margin: 0 0 121px;
+}
+
+.work .row:last-of-type {
+  margin: 0 0 114px;
+}
+
+.work__item-title {
+  margin: 0 0 36px;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #005896;
+}
+
+.work__item-img {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 226px;
+  background-color: #f4f8fb;
+  border-top: 1.3px solid #ed002f;
+}
+
+.work__item-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 282px;
+  padding: 36px 63px 29px;
+  background: #ffffff;
+  box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+.work__item-descr {
+  font-weight: 300;
+  font-size: 16px;
+  color: #696969;
+}
+
+.work__item-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  color: #005896;
+  transition: all 0.3s ease;
+}
+
+.work__item-link:hover {
+  color: rgba(0, 88, 150, 0.8);
+}
+
+.pagination-primary {
+  margin: 0;
+  padding: 0 0 121px;
+  list-style: none;
+  display: flex;
+}
+
+.pagination-primary li {
+  margin-right: 21px;
+}
+
+.pagination-primary li:last-child {
+  margin-right: 0;
+}
+
+.pagination-primary li:last-child a {
+  color: #696969;
+}
+
+.pagination-primary li:last-child a:hover {
+  background-color: transparent;
+}
+
+.pagination-primary__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33px;
+  height: 30px;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #005896;
+  transition: all .3s ease;
+}
+
+.pagination-primary__link:hover {
+  background-color: #005896;
+  color: #ffffff;
 }
 
 /*--------------------------------------------------------------
