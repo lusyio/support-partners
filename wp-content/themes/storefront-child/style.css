@@ -2286,6 +2286,8 @@ section#team-5 {
 }
 
 .upcoming-events__content-link {
+  display: flex;
+  align-items: center;
   margin-top: auto;
   margin-left: auto;
   font-weight: normal;
@@ -2295,12 +2297,20 @@ section#team-5 {
   transition: all 0.3s ease;
 }
 
+.upcoming-events__content-link .icon {
+  margin-left: 21px;
+  width: 81px;
+  height: 10px;
+  fill: #ffffff;
+  transition: all 0.3s ease;
+}
+
 .upcoming-events__content-link:hover {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.upcoming-events__content-link .arrow {
-  margin-left: 21px;
+.upcoming-events__content-link:hover .icon {
+  fill: rgba(255, 255, 255, 0.8);
 }
 
 .past-events .row {

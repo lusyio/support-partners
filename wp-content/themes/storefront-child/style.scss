@@ -2512,6 +2512,8 @@ section#team-5 {
    }
 
    &__content-link {
+      display: flex;
+      align-items: center;
       margin-top: auto;
       margin-left: auto;
       font-weight: normal;
@@ -2520,13 +2522,23 @@ section#team-5 {
       color: $white;
       transition: all 0.3s ease;
 
-      &:hover {
-         color: rgba($white, 0.8);
+
+      .icon {
+         margin-left: 21px;
+         width: 81px;
+         height: 10px;
+         fill: $white;
+         transition: all 0.3s ease;
       }
 
-      .arrow {
-         margin-left: 21px;
+      &:hover {
+         color: rgba($white, 0.8);
+
+         .icon {
+            fill: rgba($white, 0.8);
+         }
       }
+
    }
 }
 
