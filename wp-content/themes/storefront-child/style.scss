@@ -36,7 +36,6 @@ $dark-gray: #363636;
    &:hover {
       box-shadow: 2px 2px 10px rgba(0, 88, 150, 0.3);
    }
-
 }
 
 .btn-empty {
@@ -59,9 +58,6 @@ $dark-gray: #363636;
    }
 }
 
-
-}
-
 .btn-empty {
    display: inline-block;
    padding: 17px 39px;
@@ -81,7 +77,6 @@ $dark-gray: #363636;
       color: $accent;
    }
 }
-
 
 // Headings
 
@@ -434,28 +429,24 @@ header#masthead {
    }
 }
 
+.navbar-light .navbar-nav .nav-item {
+   margin-right: 33px;
+
+   &:last-child {
+      margin-right: 0;
+   }
+}
+
 .navbar-light .navbar-nav .nav-link {
    position: relative;
-
-   padding: 0 0 10px !important;
-   margin: 0 15px;
-
    display: block;
-   padding: 0 0 10px !important;
    margin: 0;
-
+   padding: 0 0 13px !important;
    color: $dark-gray !important;
    font-weight: normal;
    font-size: 14px;
    line-height: 16px;
-
    transition: all 0.3s ease;
-   border-bottom: 1.3px solid transparent;
-
-   &:hover {
-      border-bottom: 1.3px solid $red;
-
-   transition: all .5s ease;
    overflow: hidden;
 
    &::before {
@@ -464,20 +455,18 @@ header#masthead {
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 1.3px;
+      height: 1px;
       background-color: $red;
       transform: translate3d(-100%, 0, 0);
-      transition: all .5s ease;
+      transition: all 0.5s ease;
    }
 
    &:hover {
       &::before {
          transform: translate3d(0, 0, 0);
       }
-
    }
 }
-
 // .navbar-expand-xl .navbar-collapse .navbar-nav:hover .nav-item:not(.active) a {
 //   color: $accent !important;
 // }
@@ -1518,12 +1507,6 @@ p.no-comments .button:hover {
             100% 100%
          );
 
-         //  > span {
-         //     font-weight: 300;
-         //    font-size: 30px;
-         //    color: #ed002f;
-         //  }
-
          > span {
             position: relative;
 
@@ -1619,7 +1602,6 @@ p.no-comments .button:hover {
       color: rgba($white, 0.8);
 
       &_small {
-         // margin: 0 0 38px;
          text-align: left;
          font-size: 16px;
          line-height: 19px;
@@ -2111,7 +2093,6 @@ section#team-5 {
    }
 }
 
-
 // Product
 
 .product {
@@ -2288,10 +2269,7 @@ section#team-5 {
    }
 
    .col-md-3 {
-
-
       &:nth-child(odd) {
-
          .vacancies__item {
             background-color: $accent;
 
@@ -2304,21 +2282,8 @@ section#team-5 {
             span {
                color: $white;
 
-               svg {
-               }
                path {
                   fill: $white;
-
-      &:nth-child(odd) {
-         .vacancies__item {
-            background-color: $accent;
-
-            span {
-               color: $white;
-
-               &::before {
-                  background: url(/wp-content/themes/storefront-child/svg/arrow-white.svg);
-
                }
             }
          }
@@ -2337,44 +2302,31 @@ section#team-5 {
       min-height: 246px;
       padding: 25px 25px 36px;
       box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
+   }
 
+   svg {
+      path {
+         fill: $accent;
+      }
+   }
+
+   span {
+      position: relative;
+      margin-top: auto;
+      padding-bottom: 15px;
+      display: block;
+      font-size: 14px;
+      line-height: 14px;
+      color: $accent;
 
       svg {
-         path {
-            fill: $accent;
-         }
+         position: absolute;
+         bottom: 0;
+         left: 0;
       }
 
-
-
-      span {
-         position: relative;
-         margin-top: auto;
-         padding-bottom: 15px;
-         display: block;
-         font-size: 14px;
-         line-height: 14px;
-         color: $accent;
-
-         svg {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-         }
-
-         path {
-            fill: $accent;
-
-         &::before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 81px;
-            height: 10px;
-            background: url(/wp-content/themes/storefront-child/svg/arrow-blue.svg);
-
-         }
+      path {
+         fill: $accent;
       }
    }
 
@@ -2394,7 +2346,6 @@ section#team-5 {
       padding: 17px 30px;
    }
 }
-
 /*--------------------------------------------------------------
 # MEDIA
 --------------------------------------------------------------*/
