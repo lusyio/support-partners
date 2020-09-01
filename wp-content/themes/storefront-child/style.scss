@@ -449,13 +449,11 @@ header#masthead {
 .navbar-light .navbar-nav .nav-link {
    position: relative;
    display: block;
-   padding: 0 0 10px !important;
    margin: 0;
    color: $dark-gray !important;
    font-weight: normal;
    font-size: 14px;
    line-height: 16px;
-   transition: all 0.5s ease;
    overflow: hidden;
 
    &::before {
@@ -464,7 +462,7 @@ header#masthead {
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 1.3px;
+      height: 1px;
       background-color: $red;
       transform: translate3d(-100%, 0, 0);
       transition: all 0.5s ease;
@@ -1516,12 +1514,6 @@ p.no-comments .button:hover {
             100% 100%
          );
 
-         //  > span {
-         //     font-weight: 300;
-         //    font-size: 30px;
-         //    color: #ed002f;
-         //  }
-
          > span {
             position: relative;
 
@@ -1617,7 +1609,6 @@ p.no-comments .button:hover {
       color: rgba($white, 0.8);
 
       &_small {
-         // margin: 0 0 38px;
          text-align: left;
          font-size: 16px;
          line-height: 19px;
@@ -2318,43 +2309,37 @@ section#team-5 {
       min-height: 246px;
       padding: 25px 25px 36px;
       box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
+   
+
 
       svg {
          path {
             fill: $accent;
          }
+     }
+   }
+
+   span {
+      position: relative;
+      margin-top: auto;
+      padding-bottom: 15px;
+      display: block;
+      font-size: 14px;
+      line-height: 14px;
+      color: $accent;
+
+      svg {
+         position: absolute;
+         bottom: 0;
+         left: 0;
       }
 
-      span {
-         position: relative;
-         margin-top: auto;
-         padding-bottom: 15px;
-         display: block;
-         font-size: 14px;
-         line-height: 14px;
-         color: $accent;
+      path {
+         fill: $accent;
 
-         svg {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-         }
-
-         path {
-            fill: $accent;
-
-            &::before {
-               content: "";
-               position: absolute;
-               bottom: 0;
-               left: 0;
-               width: 81px;
-               height: 10px;
-               background: url(/wp-content/themes/storefront-child/svg/arrow-blue.svg);
-            }
-         }
       }
    }
+  
    &__item-title {
       margin: 0 0 13px;
       font-size: 20px;
@@ -2472,7 +2457,12 @@ section#team-5 {
          color: $white;
       }
    }
+  
+  
+  
 }
+
+
 
 /*--------------------------------------------------------------
 # MEDIA
