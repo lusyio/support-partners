@@ -27,50 +27,68 @@ Template Post Type: post, page, product
 <div class="vacancy">
    <div class="vacancy__header">
       <div class="container">
-         <h1 class="vacancy__header-title">Директор по развитию</h1>
-         <h2 class="vacancy__header-subtitle">100 000 - 150 000 руб</h2>
+         <div class="row">
+            <div class="col-md-12">
+               <h1 class="vacancy__header-title">Директор по развитию</h1>
+               <h2 class="vacancy__header-subtitle">100 000 - 150 000 руб</h2>
+            </div>
+         </div>
       </div>
    </div>
+
    <div class="vacancy__body">
       <div class="container">
-         <div class="vacancy__body-inner">
-            <ul class="vacancy__body-list">
-               <li>График</li>
-               <li>Опыт работы</li>
-               <li>Образование</li>
-            </ul>
-            <ul class="vacancy__body-list">
-               <li>Полный рабочий день</li>
-               <li>От 5 лет</li>
-               <li>Высшее</li>
-            </ul>
-         </div>
-         <div class="vacancy__body-item">
-            <h2 class="vacancy__body-item-title">Обязанности</h2>
-            <div class="vacancy__item-text">
-               Развитие бизнеса (10 точек); <br>
-               Организация бесперебойной работы мини-кафе в Бизнес- центре; <br>
-               Обеспечение выполнения основных финансовых показателей; <br>
-               Бюджетирование; <br>
-               Контроль расходов и прибыли, анализ и оптимизация затрат, ведение отчетной документации; <br>
-               Контроль документооборота; <br>
+         <div class="row">
+            <div class="col-md-12">
+               <div class="vacancy__body-inner">
+                  <ul class="vacancy__body-list">
+                     <li>График</li>
+                     <li>Опыт работы</li>
+                     <li>Образование</li>
+                  </ul>
+                  <ul class="vacancy__body-list">
+                     <li>Полный рабочий день</li>
+                     <li>От 5 лет</li>
+                     <li>Высшее</li>
+                  </ul>
+               </div>
             </div>
          </div>
-         <div class="vacancy__body-item">
-            <h2 class="vacancy__body-item-title">Условия</h2>
-            <div class="vacancy__item-text">
-               - график работы 5/2 с 9-18 <br>
-               - много работы, интересные задачи <br>
-               - дружный коллектив <br>
-               - официальное оформление <br>
-               - зп по результатам собеседования (в зависимости от опыта и навыков) <br>
-               - своевременная выплата заработной платы 2 раза в месяц <br>
-               - оплачиваемый отпуск <br>
-               - офис м. Краснопресненская <br>
+         <div class="row">
+            <div class="col-md-12">
+               <div class="vacancy__body-item">
+                  <h2 class="vacancy__subtitle">Обязанности</h2>
+                  <div class="vacancy__body-sublist vacancy__body-sublist_unmarked">
+                     <li>Развитие бизнеса (10 точек);</li>
+                     <li>Организация бесперебойной работы мини-кафе в Бизнес- центре;</li>
+                     <li>Обеспечение выполнения основных финансовых показателей;</li>
+                     <li>Бюджетирование;</li>
+                     <li>Контроль расходов и прибыли, анализ и оптимизация затрат, ведение отчетной документации;</li>
+                     <li>Контроль документооборота;</li>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+               <div class="vacancy__body-item">
+                  <h2 class="vacancy__subtitle">Условия</h2>
+                  <div class="vacancy__body-sublist vacancy__body-sublist_marked">
+                     <li>график работы 5/2 с 9-18</li>
+                     <li>много работы, интересные задачи</li>
+                     <li>дружный коллектив</li>
+                     <li>официальное оформление</li>
+                     <li>зп по результатам собеседования (в зависимости от опыта и навыков)</li>
+                     <li>своевременная выплата заработной платы 2 раза в месяц</li>
+                     <li>оплачиваемый отпуск</li>
+                     <li>офис м. Краснопресненская</li>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
    </div>
+
    <div class="vacancy__footer">
       <div class="container">
          <h3 class="vacancy__footer-title">Откликнуться на вакансию</h3>
@@ -101,6 +119,7 @@ Template Post Type: post, page, product
          </div>
       </div>
    </div>
+
 </div>
 
 

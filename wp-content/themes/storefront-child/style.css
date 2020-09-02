@@ -2449,6 +2449,89 @@ section#team-5 {
   fill: rgba(0, 88, 150, 0.8);
 }
 
+.contacts {
+  padding-bottom: 120px;
+}
+
+.contacts__content {
+  display: block;
+  min-height: 342px;
+  margin-left: 95px;
+  padding: 55px 0 0;
+}
+
+.contacts__content-address {
+  padding-bottom: 29px;
+  position: relative;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #363636;
+}
+
+.contacts__content-address::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 0;
+  width: 40px;
+  height: 1.3px;
+  background-color: #ed002f;
+}
+
+.contacts__item-text {
+  font-size: 16px;
+  line-height: 19px;
+  color: #696969;
+}
+
+.contacts__social-link {
+  position: relative;
+  display: block;
+  margin: 0 0 19px;
+  padding-left: 30px;
+  font-size: 14px;
+  line-height: 17px;
+  color: #005896;
+  transition: all 0.3s ease;
+}
+
+.contacts__social-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.contacts__social-link:first-of-type::before {
+  background: url(/wp-content/themes/storefront-child/svg/telegram.svg) center no-repeat;
+}
+
+.contacts__social-link:last-of-type {
+  margin: 0;
+}
+
+.contacts__social-link:last-of-type::before {
+  background: url(/wp-content/themes/storefront-child/svg/phone.svg) center no-repeat;
+}
+
+.contacts__social-link:hover {
+  background-color: transparent;
+  color: rgba(0, 88, 150, 0.8);
+}
+
+.contacts__map {
+  display: flex;
+}
+
+.contacts__map iframe {
+  width: 100%;
+  max-width: 760px;
+  margin-left: auto;
+}
 
 .vacancy {
   padding: 0 0 158px;
@@ -2509,15 +2592,45 @@ section#team-5 {
   color: #363636;
 }
 
-.vacancy__body-item {
-  margin: 0 0 35px;
+.vacancy__body-sublist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.vacancy__body-item:last-of-type {
+.vacancy__body-sublist li {
+  margin: 0 0 25px;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #696969;
+}
+
+.vacancy__body-sublist li:last-child {
   margin: 0;
 }
 
-.vacancy__body-item-title {
+.vacancy__body-sublist_unmarked {
+  margin: 0 0 35px 0;
+}
+
+.vacancy__body-sublist_marked {
+  margin: 0;
+}
+
+.vacancy__body-sublist_marked li {
+  position: relative;
+  padding-left: 10px;
+}
+
+.vacancy__body-sublist_marked li::before {
+  content: "-";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.vacancy__subtitle {
   position: relative;
   margin: 0 0 30px;
   padding-left: 57px;
@@ -2526,7 +2639,7 @@ section#team-5 {
   line-height: 28px;
 }
 
-.vacancy__body-item-title::before {
+.vacancy__subtitle::before {
   content: "";
   position: absolute;
   top: 16px;
@@ -2536,56 +2649,13 @@ section#team-5 {
   background-color: #ed002f;
 }
 
-.vacancy__item-text {
-  font-size: 16px;
-  line-height: 19px;
-  color: #696969;
-}
-
 .vacancy__footer-title {
   margin: 0 0 32px;
   font-weight: normal;
-}
-.contacts {
-  padding-bottom: 120px;
-}
-
-.contacts__content {
-  display: block;
-  min-height: 342px;
-  margin-left: 95px;
-  padding: 55px 0 0;
-}
-
-.contacts__content-address {
-  padding-bottom: 29px;
-  position: relative;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 17px;
-  color: #363636;
-}
-
-.contacts__content-address::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
-  height: 1.3px;
-  background-color: #005896;
-}
-
-.contacts__content-address span {
-  margin: 0 0 15px;
-  display: block;
-  font-weight: 500;
   font-size: 24px;
   line-height: 28px;
   color: #005896;
 }
-
 
 .vacancy input[type="text"],
 .vacancy input[type="tel"],
@@ -2703,63 +2773,21 @@ section#team-5 {
   color: #767676;
 }
 
-.vacancy__footer-file:hover {
-  background-color: transparent;
+.vacancy__footer-file span span {
+  margin: 0 0 15px;
+  display: block;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #005896;
 }
 
-.contacts__content-address div {
+.vacancy__footer-file span div {
   margin: 0 0 15px;
 }
 
-.contacts__content-address div:last-of-type {
+.vacancy__footer-file span div:last-of-type {
   margin: 0;
-}
-
-.contacts__social-link {
-  position: relative;
-  display: block;
-  margin: 0 0 19px;
-  padding-left: 30px;
-  font-size: 14px;
-  line-height: 17px;
-  color: #005896;
-  transition: all .3s ease;
-}
-
-.contacts__social-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-}
-
-.contacts__social-link:first-of-type::before {
-  background: url(/wp-content/themes/storefront-child/svg/telegram.svg) center no-repeat;
-}
-
-.contacts__social-link:last-of-type {
-  margin: 0;
-}
-
-.contacts__social-link:last-of-type::before {
-  background: url(/wp-content/themes/storefront-child/svg/phone.svg) center no-repeat;
-}
-
-.contacts__social-link:hover {
-  color: rgba(0, 88, 150, 0.8);
-}
-
-.contacts__map {
-  display: flex;
-}
-
-.contacts__map iframe {
-  width: 100%;
-  max-width: 760px;
-  margin-left: auto;
-
 }
 
 /*--------------------------------------------------------------
