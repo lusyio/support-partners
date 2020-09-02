@@ -2618,7 +2618,6 @@ section#team-5 {
 // News
 
 .news {
-
    .row {
       margin: 0 0 67px;
 
@@ -2678,6 +2677,108 @@ section#team-5 {
          .icon {
             fill: rgba($accent, 0.8);
          }
+      }
+   }
+}
+
+// Contacts
+
+.contacts {
+   padding-bottom: 120px;
+
+   &__content {
+      display: block;
+      min-height: 342px;
+      margin-left: 95px;
+      padding: 55px 0 0;
+   }
+
+   &__content-address {
+      padding-bottom: 29px;
+      position: relative;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 17px;
+      color: $dark-gray;
+
+      &::before {
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         width: 40px;
+         height: 1.3px;
+         background-color: $accent;
+      }
+
+      span {
+         margin: 0 0 15px;
+         display: block;
+         font-weight: 500;
+         font-size: 24px;
+         line-height: 28px;
+         color: $accent;
+      }
+
+      div {
+         margin: 0 0 15px;
+
+         &:last-of-type {
+            margin: 0;
+         }
+      }
+   }
+
+   &__social {
+   }
+
+   &__social-link {
+      position: relative;
+      display: block;
+      margin: 0 0 19px;
+      padding-left: 30px;
+      font-size: 14px;
+      line-height: 17px;
+      color: $accent;
+      transition: all .3s ease;
+
+      &::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 20px;
+         height: 20px;
+      }
+
+      &:first-of-type {
+
+         &::before {
+            background: url(/wp-content/themes/storefront-child/svg/telegram.svg) center no-repeat;
+         }
+      }
+
+      &:last-of-type {
+         margin: 0;
+
+         &::before {
+            background: url(/wp-content/themes/storefront-child/svg/phone.svg) center no-repeat;
+         }
+      }
+
+      &:hover {
+         color: rgba($accent, 0.8);
+      }
+   }
+
+   &__map {
+      display: flex;
+
+      iframe {
+         width: 100%;
+         max-width: 760px;
+         margin-left: auto;
       }
    }
 }
