@@ -2537,7 +2537,9 @@ section#team-5 {
   display: flex;
 }
 
-.contacts__map img {
+.contacts__map iframe {
+  width: 100%;
+  max-width: 760px;
   margin-left: auto;
 }
 

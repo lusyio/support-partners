@@ -2775,7 +2775,9 @@ section#team-5 {
    &__map {
       display: flex;
 
-      img {
+      iframe {
+         width: 100%;
+         max-width: 760px;
          margin-left: auto;
       }
    }

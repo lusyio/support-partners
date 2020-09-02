@@ -41,7 +41,7 @@ Template Post Type: post, page, product
          </div>
          <div class="col-md-9">
             <div class="contacts__map">
-               <img src="/wp-content/themes/storefront-child/img/contacts/map.png" alt="map">
+               <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae80ffcb59c171efcc95e96855e7ac2a63f3fe26a5dc703b0f60a59ffa6108733&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
             </div>
          </div>
       </div>
