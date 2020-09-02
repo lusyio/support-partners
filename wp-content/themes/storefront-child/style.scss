@@ -2705,29 +2705,19 @@ section#team-5 {
       &::before {
          content: "";
          position: absolute;
-         bottom: 0;
+
+         top: 16px;
          left: 0;
          width: 40px;
          height: 1.3px;
-         background-color: $accent;
+         background-color: $red;
       }
+   }
 
-      span {
-         margin: 0 0 15px;
-         display: block;
-         font-weight: 500;
-         font-size: 24px;
-         line-height: 28px;
-         color: $accent;
-      }
-
-      div {
-         margin: 0 0 15px;
-
-         &:last-of-type {
-            margin: 0;
-         }
-      }
+   &__item-text {
+      font-size: 16px;
+      line-height: 19px;
+      color: $gray;
    }
 
    &__social {
@@ -2741,10 +2731,10 @@ section#team-5 {
       font-size: 14px;
       line-height: 17px;
       color: $accent;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
 
       &::before {
-         content: '';
+         content: "";
          position: absolute;
          top: 0;
          left: 0;
@@ -2753,9 +2743,9 @@ section#team-5 {
       }
 
       &:first-of-type {
-
          &::before {
-            background: url(/wp-content/themes/storefront-child/svg/telegram.svg) center no-repeat;
+            background: url(/wp-content/themes/storefront-child/svg/telegram.svg)
+               center no-repeat;
          }
       }
 
@@ -2763,11 +2753,13 @@ section#team-5 {
          margin: 0;
 
          &::before {
-            background: url(/wp-content/themes/storefront-child/svg/phone.svg) center no-repeat;
+            background: url(/wp-content/themes/storefront-child/svg/phone.svg)
+               center no-repeat;
          }
       }
 
       &:hover {
+         background-color: transparent;
          color: rgba($accent, 0.8);
       }
    }
@@ -2779,6 +2771,261 @@ section#team-5 {
          width: 100%;
          max-width: 760px;
          margin-left: auto;
+      }
+   }
+}
+
+// Vacancy
+
+.vacancy {
+   padding: 0 0 158px;
+
+   &__header {
+      padding: 27px 0 32px;
+      background-color: $accent-light;
+   }
+
+   &__header-title {
+      margin: 0 0 17px;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 42px;
+      color: $accent;
+   }
+
+   &__header-subtitle {
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 28px;
+      color: $accent;
+   }
+
+   &__body {
+      padding: 40px 0 100px;
+   }
+
+   &__body-inner {
+      display: flex;
+      margin: 0 0 54px;
+   }
+
+   &__body-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+         margin: 0 0 25px;
+         font-weight: normal;
+         font-size: 16px;
+         line-height: 19px;
+         color: $gray;
+
+         &:last-child {
+            margin: 0;
+         }
+      }
+
+      &:first-of-type {
+         margin-right: 60px;
+      }
+
+      &:last-of-type {
+         li {
+            color: $dark-gray;
+         }
+      }
+   }
+
+   &__body-sublist {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+         margin: 0 0 25px;
+         font-weight: normal;
+         font-size: 16px;
+         line-height: 19px;
+         color: $gray;
+
+         &:last-child {
+            margin: 0;
+         }
+      }
+
+      &_unmarked {
+         margin: 0 0 35px 0;
+      }
+
+      &_marked {
+         margin: 0;
+         li {
+            position: relative;
+            padding-left: 10px;
+            &::before {
+               content: "-";
+               position: absolute;
+               top: 0;
+               left: 0;
+            }
+         }
+      }
+   }
+
+   &__subtitle {
+      position: relative;
+      margin: 0 0 30px;
+      padding-left: 57px;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 28px;
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: 16px;
+         left: 0;
+         width: 40px;
+         height: 1.3px;
+         background-color: $red;
+      }
+   }
+
+   &__footer-title {
+      margin: 0 0 32px;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 28px;
+      color: $accent;
+   }
+
+   input[type="text"],
+   input[type="tel"],
+   input[type="email"] {
+      display: block;
+      width: 100%;
+      max-width: 665px;
+      margin: 0 0 37px;
+      padding: 23px 26px;
+      font-weight: 300;
+      font-size: 18px;
+      color: #767676;
+      letter-spacing: normal;
+      border: 0;
+      border-radius: 0;
+      background-color: $accent-light;
+
+      &::placeholder {
+         font-weight: 300;
+         font-size: 18px;
+         color: #767676;
+      }
+
+      &:last-of-type {
+         margin: 0 0 47px;
+      }
+   }
+
+   textarea {
+      width: 100%;
+      max-width: 665px;
+      min-height: 246px;
+      margin: 0 0 35px;
+      padding: 25px 30px;
+      font-weight: 300;
+      font-size: 18px;
+      color: #767676;
+      letter-spacing: normal;
+      border: 0;
+      border-radius: 0;
+      background-color: $accent-light;
+      resize: none;
+
+      &::placeholder {
+         font-weight: 300;
+         font-size: 18px;
+         color: #767676;
+      }
+   }
+
+   label {
+      margin: 0 0 47px;
+      font-weight: 400;
+      font-size: 18px;
+      color: $dark-gray;
+   }
+
+   input[type="checkbox"] {
+      margin-right: 39px;
+   }
+
+   input[type="file"] {
+      border: 1px solid #000;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 60px;
+      opacity: 0;
+      cursor: pointer;
+   }
+
+   &__footer-file {
+      position: relative;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      cursor: pointer;
+
+      &::before {
+         content: "";
+         position: absolute;
+         bottom: 0px;
+         left: 5px;
+         width: 40px;
+         height: 1.3px;
+         background-color: $red;
+      }
+
+      img {
+         margin-right: 17px;
+      }
+
+      span {
+         display: block;
+         text-align: left;
+
+         &:first-of-type {
+            font-weight: normal;
+            font-size: 18px;
+            text-decoration-line: underline;
+            color: #005896;
+         }
+
+         &:last-of-type {
+            font-weight: normal;
+            font-size: 14px;
+            color: #767676;
+         }
+
+         span {
+            margin: 0 0 15px;
+            display: block;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 28px;
+            color: $accent;
+         }
+
+         div {
+            margin: 0 0 15px;
+
+            &:last-of-type {
+               margin: 0;
+            }
+         }
       }
    }
 }
