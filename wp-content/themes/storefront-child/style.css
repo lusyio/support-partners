@@ -2473,11 +2473,20 @@ section#team-5 {
 .contacts__content-address::before {
   content: "";
   position: absolute;
-  top: 16px;
+  bottom: 0;
   left: 0;
   width: 40px;
   height: 1.3px;
   background-color: #ed002f;
+}
+
+.contacts__content-address span {
+  display: block;
+  margin: 0 0 15px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #005896;
 }
 
 .contacts__item-text {
