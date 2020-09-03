@@ -3038,6 +3038,69 @@ section#team-5 {
    }
 }
 
+// Post
+
+.post {
+
+   &__img {
+      min-height: 513px;
+      padding-bottom: 154px;
+   }
+
+   &__title {
+      max-width: 726px;
+      margin: -60px auto 31px;
+      padding: 42px 45px 60px;
+      font-weight: 500;
+      font-size: 36px;
+      text-align: center;
+      color: $accent;
+      background-color: $white;
+   }
+
+   &__subtitle {
+      padding: 0 95px;
+      margin: 0 0 30px;
+      font-weight: 500;
+      font-size: 18px;
+      color: $gray;
+   }
+
+   &__text {
+      padding: 0 95px;
+      margin: 0 0 60px;
+      font-size: 18px;
+      color: $gray;
+   }
+
+   &__link {
+      display: block;
+      margin: 20px 0 154px;
+      padding-left: 95px;
+      font-size: 14px;
+      color: $accent;
+      transition: all .3s ease;
+
+
+      &:hover {
+         color: rgba($accent, 0.8);
+
+         .icon {
+            fill: rgba($accent, 0.8);
+         }
+      }
+
+      .icon {
+         margin-right: 25px;
+         width: 81px;
+         height: 10px;
+         fill: $accent;
+         transform: rotate(180deg);
+         transition: all .3s ease;
+      }
+   }
+}
+
 /*--------------------------------------------------------------
 # MEDIA
 --------------------------------------------------------------*/
