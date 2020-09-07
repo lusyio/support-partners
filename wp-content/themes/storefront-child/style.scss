@@ -2965,7 +2965,7 @@ section#team-5 {
    }
 
    input[type="checkbox"] {
-      margin-right: 39px;
+      margin-right: 20px;
    }
 
    input[type="file"] {
@@ -3038,16 +3038,18 @@ section#team-5 {
    }
 }
 
-// Post
+// New-post
 
-.post {
+.new-post {
 
-   &__img {
-      min-height: 513px;
-      padding-bottom: 154px;
-   }
+      img {
+         min-height: 513px;
+      }
+
 
    &__title {
+      position: relative;
+      z-index: 1;
       max-width: 726px;
       margin: -60px auto 31px;
       padding: 42px 45px 60px;
@@ -3066,7 +3068,7 @@ section#team-5 {
       color: $gray;
    }
 
-   &__text {
+   p {
       padding: 0 95px;
       margin: 0 0 60px;
       font-size: 18px;
@@ -3079,8 +3081,7 @@ section#team-5 {
       padding-left: 95px;
       font-size: 14px;
       color: $accent;
-      transition: all .3s ease;
-
+      transition: all 0.3s ease;
 
       &:hover {
          color: rgba($accent, 0.8);
@@ -3096,7 +3097,7 @@ section#team-5 {
          height: 10px;
          fill: $accent;
          transform: rotate(180deg);
-         transition: all .3s ease;
+         transition: all 0.3s ease;
       }
    }
 }

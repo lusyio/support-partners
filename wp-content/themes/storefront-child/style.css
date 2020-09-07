@@ -2727,7 +2727,7 @@ section#team-5 {
 }
 
 .vacancy input[type="checkbox"] {
-  margin-right: 39px;
+  margin-right: 20px;
 }
 
 .vacancy input[type="file"] {
@@ -2799,12 +2799,13 @@ section#team-5 {
   margin: 0;
 }
 
-.post__img {
+.new-post img {
   min-height: 513px;
-  padding-bottom: 154px;
 }
 
-.post__title {
+.new-post__title {
+  position: relative;
+  z-index: 1;
   max-width: 726px;
   margin: -60px auto 31px;
   padding: 42px 45px 60px;
@@ -2815,7 +2816,7 @@ section#team-5 {
   background-color: #ffffff;
 }
 
-.post__subtitle {
+.new-post__subtitle {
   padding: 0 95px;
   margin: 0 0 30px;
   font-weight: 500;
@@ -2823,37 +2824,37 @@ section#team-5 {
   color: #696969;
 }
 
-.post__text {
+.new-post p {
   padding: 0 95px;
   margin: 0 0 60px;
   font-size: 18px;
   color: #696969;
 }
 
-.post__link {
+.new-post__link {
   display: block;
   margin: 20px 0 154px;
   padding-left: 95px;
   font-size: 14px;
   color: #005896;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
-.post__link:hover {
+.new-post__link:hover {
   color: rgba(0, 88, 150, 0.8);
 }
 
-.post__link:hover .icon {
+.new-post__link:hover .icon {
   fill: rgba(0, 88, 150, 0.8);
 }
 
-.post__link .icon {
+.new-post__link .icon {
   margin-right: 25px;
   width: 81px;
   height: 10px;
   fill: #005896;
   transform: rotate(180deg);
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 /*--------------------------------------------------------------
