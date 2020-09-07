@@ -149,7 +149,9 @@ Template Post Type: post, page, product
          <div class="col-md-3">
             <a href="#" class="specialists__card specialists__card_empty">
                <div class="specialists__card-title">Стать частью <br> команды</div>
-               <img class="specialists__card-img" src="/wp-content/themes/storefront-child/svg/cup.svg" alt="">
+               <div class="specialists__card-imgwrap">
+                  <img class="specialists__card-img" src="/wp-content/themes/storefront-child/svg/cup.svg" alt="">
+               </div>
                <svg class="icon">
                   <use xlink:href="#arrow"></use>
                </svg>
@@ -206,7 +208,7 @@ Template Post Type: post, page, product
 </section>
 
 <div class="container">
-   <h2 class="heading">Преимущества</h2>
+   <h2 class="heading mb-5">Преимущества</h2>
 </div>
 
 <section class="benefits">

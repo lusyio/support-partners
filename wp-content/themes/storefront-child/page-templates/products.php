@@ -19,75 +19,79 @@ Template Post Type: post, page, product
    </ul>
 </div>
 
+
 <div class="product">
    <div class="container">
       <div class="row">
-         <div class="col-md-6">
-            <div class="product__item">
-               <div class="product__item-title">Командос</div>
-               <div class="product__item-descr">
-                  Онлайн-тренинг для руководителей, которые
-                  хотят внедрить в бизнес инновационные
-                  практики управления, найма, мотивации
-                  и вовлечения команды
+         <div class="col-md-12">
+            <div class="product-item">
+               <div class="product-item__content">
+                  <div class="product-item__content-title">Командос</div>
+                  <div class="product-item__content-descr">
+                     Онлайн-тренинг для руководителей, которые
+                     хотят внедрить в бизнес инновационные
+                     практики управления, найма, мотивации
+                     и вовлечения команды
+                  </div>
+                  <a href="#" class="product-item__content-link">
+                     Узнать больше
+                     <svg class="icon">
+                        <use xlink:href="#arrow"></use>
+                     </svg>
+                  </a>
                </div>
-               <a href="#" class="product__item-link">
-                  Узнать больше
-                  <svg class="icon">
-                     <use xlink:href="#arrow"></use>
-                  </svg>
+               <a href="#" class="product-item__img">
+                  <img src="/wp-content/themes/storefront-child/img/product/img-1.png" alt="">
                </a>
             </div>
          </div>
-         <div class="col-md-6">
-            <img src="/wp-content/themes/storefront-child/img/product/img-1.png" alt="">
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-md-6">
-            <img src="/wp-content/themes/storefront-child/img/product/img-1.png" alt="">
-         </div>
-         <div class="col-md-6">
-            <div class="product__item">
-               <div class="product__item-title">Карьера</div>
-               <div class="product__item-descr">
-                  Онлайн-тренинг для руководителей, которые
-                  хотят внедрить в бизнес инновационные
-                  практики управления, найма, мотивации
-                  и вовлечения команды
+         <div class="col-md-12">
+            <div class="product-item">
+               <div class="product-item__content">
+                  <div class="product-item__content-title">Карьера</div>
+                  <div class="product-item__content-descr">
+                     Онлайн-тренинг для руководителей, которые
+                     хотят внедрить в бизнес инновационные
+                     практики управления, найма, мотивации
+                     и вовлечения команды
+                  </div>
+                  <a href="#" class="product-item__content-link">
+                     Узнать больше
+                     <svg class="icon">
+                        <use xlink:href="#arrow"></use>
+                     </svg>
+                  </a>
                </div>
-               <a href="#" class="product__item-link">
-                  Узнать больше
-                  <svg class="icon">
-                     <use xlink:href="#arrow"></use>
-                  </svg>
+               <a href="#" class="product-item__img">
+                  <img src="/wp-content/themes/storefront-child/img/product/img-1.png" alt="">
                </a>
             </div>
          </div>
-      </div>
-      <div class="row">
-         <div class="col-md-6">
-            <div class="product__item">
-               <div class="product__item-title">Частная практика</div>
-               <div class="product__item-descr">
-                  Онлайн-тренинг для руководителей, которые
-                  хотят внедрить в бизнес инновационные
-                  практики управления, найма, мотивации
-                  и вовлечения команды
+         <div class="col-md-12">
+            <div class="product-item">
+               <div class="product-item__content">
+                  <div class="product-item__content-title">Частная практика</div>
+                  <div class="product-item__content-descr">
+                     Онлайн-тренинг для руководителей, которые
+                     хотят внедрить в бизнес инновационные
+                     практики управления, найма, мотивации
+                     и вовлечения команды
+                  </div>
+                  <a href="#" class="product-item__content-link">
+                     Узнать больше
+                     <svg class="icon">
+                        <use xlink:href="#arrow"></use>
+                     </svg>
+                  </a>
                </div>
-               <a href="#" class="product__item-link">
-                  Узнать больше
-                  <svg class="icon">
-                     <use xlink:href="#arrow"></use>
-                  </svg>
+               <a href="#" class="product-item__img">
+                  <img src="/wp-content/themes/storefront-child/img/product/img-1.png" alt="">
                </a>
             </div>
-         </div>
-         <div class="col-md-6">
-            <img src="/wp-content/themes/storefront-child/img/product/img-1.png" alt="">
          </div>
       </div>
    </div>
 </div>
+
 
 <?php get_footer(); ?>
