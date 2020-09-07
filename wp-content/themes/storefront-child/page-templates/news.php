@@ -20,98 +20,94 @@ Template Post Type: post, page, product
    </ul>
 </div>
 
-<div class="news">
+
+<section class="news">
    <div class="container">
-      <div class="row align-items-center">
-         <div class="col-md-5">
-            <a href="#" class="news__img">
-               <img src="/wp-content/themes/storefront-child/img/events/img-2.png" alt="">
-            </a>
-         </div>
-         <div class="col-md-7">
-            <div class="news__content">
-               <div class="news__content-title">новость</div>
-               <div class="news__content-date">16.03.2020</div>
-               <div class="news__content-descr">
-                  Компания Support Partners успешно занимается поиском <br> руководителей высшего (executive search) и среднего звена для <br>
-                  российского бизнеса, иностранных компаний и государственных <br> корпораций
-               </div>
-               <a href="#" class="news__content-link">
-                  <svg class="icon">
-                     <use xlink:href="#arrow"></use>
-                  </svg>
+      <div class="row">
+         <div class="col-md-12">
+            <div class="news-item">
+               <a href="#" class="news-item__img">
+                  <img src="/wp-content/themes/storefront-child/img/events/img-2.png" alt="">
                </a>
+               <div class="news-item__content">
+                  <div class="news-item__content-title">новость</div>
+                  <div class="news-item__content-date">16.03.2020</div>
+                  <div class="news-item__content-descr">
+                     Компания Support Partners успешно занимается поиском <br> руководителей высшего (executive search) и среднего звена для <br>
+                     российского бизнеса, иностранных компаний и государственных <br> корпораций
+                  </div>
+                  <a href="#" class="news-item__content-link">
+                     <svg class="icon">
+                        <use xlink:href="#arrow"></use>
+                     </svg>
+                  </a>
+               </div>
             </div>
          </div>
-      </div>
-      <div class="row align-items-center">
-         <div class="col-md-5">
-            <a href="#" class="news__img">
-               <img src="/wp-content/themes/storefront-child/img/events/img-2.png" alt="">
-            </a>
-         </div>
-         <div class="col-md-7">
-            <div class="news__content">
-               <div class="news__content-title">новость 2</div>
-               <div class="news__content-date">16.03.2020</div>
-               <div class="news__content-descr">
-                  Компания Support Partners успешно занимается поиском <br> руководителей высшего (executive search) и среднего звена для <br>
-                  российского бизнеса, иностранных компаний и государственных <br> корпораций
-               </div>
-               <a href="#" class="news__content-link">
-                  <svg class="icon">
-                     <use xlink:href="#arrow"></use>
-                  </svg>
+         <div class="col-md-12">
+            <div class="news-item">
+               <a href="#" class="news-item__img">
+                  <img src="/wp-content/themes/storefront-child/img/events/img-2.png" alt="">
                </a>
+               <div class="news-item__content">
+                  <div class="news-item__content-title">новость 2</div>
+                  <div class="news-item__content-date">16.03.2020</div>
+                  <div class="news-item__content-descr">
+                     Компания Support Partners успешно занимается поиском <br> руководителей высшего (executive search) и среднего звена для <br>
+                     российского бизнеса, иностранных компаний и государственных <br> корпораций
+                  </div>
+                  <a href="#" class="news-item__content-link">
+                     <svg class="icon">
+                        <use xlink:href="#arrow"></use>
+                     </svg>
+                  </a>
+               </div>
             </div>
          </div>
-      </div>
-      <div class="row align-items-center">
-         <div class="col-md-5">
-            <a href="#" class="news__img">
-               <img src="/wp-content/themes/storefront-child/img/events/img-2.png" alt="">
-            </a>
-         </div>
-         <div class="col-md-7">
-            <div class="news__content">
-               <div class="news__content-title">новость 3</div>
-               <div class="news__content-date">16.03.2020</div>
-               <div class="news__content-descr">
-                  Компания Support Partners успешно занимается поиском <br> руководителей высшего (executive search) и среднего звена для <br>
-                  российского бизнеса, иностранных компаний и государственных <br> корпораций
-               </div>
-               <a href="#" class="news__content-link">
-                  <svg class="icon">
-                     <use xlink:href="#arrow"></use>
-                  </svg>
+         <div class="col-md-12">
+            <div class="news-item">
+               <a href="#" class="news-item__img">
+                  <img src="/wp-content/themes/storefront-child/img/events/img-2.png" alt="">
                </a>
+               <div class="news-item__content">
+                  <div class="news-item__content-title">новость 3</div>
+                  <div class="news-item__content-date">16.03.2020</div>
+                  <div class="news-item__content-descr">
+                     Компания Support Partners успешно занимается поиском <br> руководителей высшего (executive search) и среднего звена для <br>
+                     российского бизнеса, иностранных компаний и государственных <br> корпораций
+                  </div>
+                  <a href="#" class="news-item__content-link">
+                     <svg class="icon">
+                        <use xlink:href="#arrow"></use>
+                     </svg>
+                  </a>
+               </div>
             </div>
          </div>
-      </div>
-      <div class="row align-items-center">
-         <div class="col-md-5">
-            <a href="#" class="news__img">
-               <img src="/wp-content/themes/storefront-child/img/events/img-2.png" alt="">
-            </a>
-         </div>
-         <div class="col-md-7">
-            <div class="news__content">
-               <div class="news__content-title">новость 4</div>
-               <div class="news__content-date">16.03.2020</div>
-               <div class="news__content-descr">
-                  Компания Support Partners успешно занимается поиском <br> руководителей высшего (executive search) и среднего звена для <br>
-                  российского бизнеса, иностранных компаний и государственных <br> корпораций
-               </div>
-               <a href="#" class="news__content-link">
-                  <svg class="icon">
-                     <use xlink:href="#arrow"></use>
-                  </svg>
+         <div class="col-md-12">
+            <div class="news-item">
+               <a href="#" class="news-item__img">
+                  <img src="/wp-content/themes/storefront-child/img/events/img-2.png" alt="">
                </a>
+               <div class="news-item__content">
+                  <div class="news-item__content-title">новость 4</div>
+                  <div class="news-item__content-date">16.03.2020</div>
+                  <div class="news-item__content-descr">
+                     Компания Support Partners успешно занимается поиском <br> руководителей высшего (executive search) и среднего звена для <br>
+                     российского бизнеса, иностранных компаний и государственных <br> корпораций
+                  </div>
+                  <a href="#" class="news-item__content-link">
+                     <svg class="icon">
+                        <use xlink:href="#arrow"></use>
+                     </svg>
+                  </a>
+               </div>
             </div>
          </div>
       </div>
    </div>
-</div>
+</section>
+
 
 
 <div class="container">

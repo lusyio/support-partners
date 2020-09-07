@@ -21,134 +21,135 @@ Template Post Type: post, page, product
 </div>
 
 
-<section class="work">
+<section class="works">
    <div class="container">
       <div class="row">
          <div class="col-md-4">
-            <a href="#" class="work__item">
-               <div class="work__item-title">название проекта 1</div>
-               <div class="work__item-img">
+            <div class="works__item">
+               <div class="works__item-title">название проекта 1</div>
+               <div class="works__item-img">
                   <img src="/wp-content/themes/storefront-child/svg/clients/skolkovo.svg" alt="skolkovo">
                </div>
-               <div class="work__item-wrap">
-                  <div class="work__item-descr">
+               <div class="works__item-box">
+                  <div class="works__item-descr">
                      Путем быстрого и качественного поиска руководителей мы позволяем нашим клиентам решать их бизнес-задачи
                      и добиваться поставленных целей.
                   </div>
-                  <a href="#" class="work__item-link">
+                  <a href="#" class="works__item-link">
                      Узнать больше
-                     <svg class="arrow">
+                     <svg class="icon">
                         <use xlink:href="#arrow"></use>
                      </svg>
                   </a>
                </div>
-            </a>
+            </div>
          </div>
          <div class="col-md-4">
-            <a href="#" class="work__item">
-               <div class="work__item-title">название проекта 2</div>
-               <div class="work__item-img">
-                  <img src="/wp-content/themes/storefront-child/svg/clients/knauf.svg" alt="knauf">
+            <div class="works__item">
+               <div class="works__item-title">название проекта 2</div>
+               <div class="works__item-img">
+                  <img src="/wp-content/themes/storefront-child/svg/clients/knauf.svg" alt="skolkovo">
                </div>
-               <div class="work__item-wrap">
-                  <div class="work__item-descr">
+               <div class="works__item-box">
+                  <div class="works__item-descr">
                      Путем быстрого и качественного поиска руководителей мы позволяем нашим клиентам решать их бизнес-задачи
                      и добиваться поставленных целей.
                   </div>
-                  <a href="#" class="work__item-link">
+                  <a href="#" class="works__item-link">
                      Узнать больше
-                     <svg class="arrow">
+                     <svg class="icon">
                         <use xlink:href="#arrow"></use>
                      </svg>
                   </a>
                </div>
-            </a>
+            </div>
          </div>
          <div class="col-md-4">
-            <a href="#" class="work__item">
-               <div class="work__item-title">название проекта 3</div>
-               <div class="work__item-img">
-                  <img src="/wp-content/themes/storefront-child/svg/clients/avon.svg" alt="avon">
+            <div class="works__item">
+               <div class="works__item-title">название проекта 3</div>
+               <div class="works__item-img">
+                  <img src="/wp-content/themes/storefront-child/svg/clients/avon.svg" alt="skolkovo">
                </div>
-               <div class="work__item-wrap">
-                  <div class="work__item-descr">
+               <div class="works__item-box">
+                  <div class="works__item-descr">
                      Путем быстрого и качественного поиска руководителей мы позволяем нашим клиентам решать их бизнес-задачи
                      и добиваться поставленных целей.
                   </div>
-                  <a href="#" class="work__item-link">
+                  <a href="#" class="works__item-link">
                      Узнать больше
-                     <svg class="arrow">
+                     <svg class="icon">
                         <use xlink:href="#arrow"></use>
                      </svg>
                   </a>
                </div>
-            </a>
+            </div>
          </div>
       </div>
       <div class="row">
          <div class="col-md-4">
-            <a href="#" class="work__item">
-               <div class="work__item-title">название проекта 4</div>
-               <div class="work__item-img">
-                  <img src="/wp-content/themes/storefront-child/svg/clients/luhta.svg" alt="luhta">
+            <div class="works__item">
+               <div class="works__item-title">название проекта 1</div>
+               <div class="works__item-img">
+                  <img src="/wp-content/themes/storefront-child/svg/clients/luhta.svg" alt="skolkovo">
                </div>
-               <div class="work__item-wrap">
-                  <div class="work__item-descr">
+               <div class="works__item-box">
+                  <div class="works__item-descr">
                      Путем быстрого и качественного поиска руководителей мы позволяем нашим клиентам решать их бизнес-задачи
                      и добиваться поставленных целей.
                   </div>
-                  <a href="#" class="work__item-link">
+                  <a href="#" class="works__item-link">
                      Узнать больше
-                     <svg class="arrow">
+                     <svg class="icon">
                         <use xlink:href="#arrow"></use>
                      </svg>
                   </a>
                </div>
-            </a>
+            </div>
          </div>
          <div class="col-md-4">
-            <a href="#" class="work__item">
-               <div class="work__item-title">название проекта 5</div>
-               <div class="work__item-img">
-                  <img src="/wp-content/themes/storefront-child/svg/clients/unicredit.svg" alt="unicredit">
+            <div class="works__item">
+               <div class="works__item-title">название проекта 2</div>
+               <div class="works__item-img">
+                  <img src="/wp-content/themes/storefront-child/svg/clients/unicredit.svg" alt="skolkovo">
                </div>
-               <div class="work__item-wrap">
-                  <div class="work__item-descr">
+               <div class="works__item-box">
+                  <div class="works__item-descr">
                      Путем быстрого и качественного поиска руководителей мы позволяем нашим клиентам решать их бизнес-задачи
                      и добиваться поставленных целей.
                   </div>
-                  <a href="#" class="work__item-link">
+                  <a href="#" class="works__item-link">
                      Узнать больше
-                     <svg class="arrow">
+                     <svg class="icon">
                         <use xlink:href="#arrow"></use>
                      </svg>
                   </a>
                </div>
-            </a>
+            </div>
          </div>
          <div class="col-md-4">
-            <a href="#" class="work__item">
-               <div class="work__item-title">название проекта 6</div>
-               <div class="work__item-img">
-                  <img src="/wp-content/themes/storefront-child/svg/clients/cargill.svg" alt="cargill">
+            <div class="works__item">
+               <div class="works__item-title">название проекта 3</div>
+               <div class="works__item-img">
+                  <img src="/wp-content/themes/storefront-child/svg/clients/cargill.svg" alt="skolkovo">
                </div>
-               <div class="work__item-wrap">
-                  <div class="work__item-descr">
+               <div class="works__item-box">
+                  <div class="works__item-descr">
                      Путем быстрого и качественного поиска руководителей мы позволяем нашим клиентам решать их бизнес-задачи
                      и добиваться поставленных целей.
                   </div>
-                  <a href="#" class="work__item-link">
+                  <a href="#" class="works__item-link">
                      Узнать больше
-                     <svg class="arrow">
+                     <svg class="icon">
                         <use xlink:href="#arrow"></use>
                      </svg>
                   </a>
                </div>
-            </a>
+            </div>
          </div>
       </div>
    </div>
 </section>
+
 
 <div class="container">
    <ul class="pagination-primary">
@@ -169,13 +170,6 @@ Template Post Type: post, page, product
 
 
 
-<!-- Svg Sprite -->
-
-<svg width="0" height="0" class="hidden">
-   <symbol viewBox="0 0 82 10" fill="none" xmlns="http://www.w3.org/2000/svg" id="arrow">
-      <path d="M81.46 5.46a.65.65 0 0 0 0-.92L77.323.404a.65.65 0 1 0-.92.919L80.082 5l-3.677 3.677a.65.65 0 0 0 .919.92L81.46 5.46zM0 5.65h81v-1.3H0v1.3z" fill="none"></path>
-   </symbol>
-</svg>
 
 
 

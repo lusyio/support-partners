@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying 404 pages (not found).
  *
@@ -7,77 +8,111 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area col-12">
+<div id="primary" class="content-area col-12">
 
-		<main id="main" class="site-main" role="main">
+   <main id="main" class="site-main" role="main">
 
-			<div class="error-404 not-found">
+      <div class="error-404 not-found">
 
-				<div class="page-content">
+         <div class="page-content">
 
-					<header class="page-header">
-						<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'storefront' ); ?></h1>
-					</header><!-- .page-header -->
+            <div class="error-nf">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="error-nf__inner">
+                           <div class="error-nf__numbers">
+                              <div>4</div>
+                              <img src="/wp-content/themes/storefront-child/svg/error.svg" alt="">
+                              <div>4</div>
+                           </div>
+                           <div class="error-nf__content">
+                              <h1 class="error-nf__content-title">Ошибка</h1>
+                              <div class="error-nf__content-descr">К сожалению, запрашиваемая вами страница не найдена</div>
+                           </div>
+                        </div>
+                        <a href="#" class="error-nf__link">
+                           <svg class="icon">
+                              <use xlink:href="#arrow"></use>
+                           </svg>
+                           Вернуться на главную
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
 
-					<p><?php esc_html_e( 'Nothing was found at this location. Try searching, or check out the links below.', 'storefront' ); ?></p>
 
-					<?php
-					echo '<section aria-label="' . esc_html__( 'Search', 'storefront' ) . '">';
 
-					if ( storefront_is_woocommerce_activated() ) {
-						the_widget( 'WC_Widget_Product_Search' );
-					} else {
-						get_search_form();
-					}
 
-					echo '</section>';
+            <header class="page-header">
+               <!-- <h1 class="page-title"><?php esc_html_e('Oops! That page can&rsquo;t be found.', 'storefront'); ?></h1> -->
+            </header><!-- .page-header -->
 
-					if ( storefront_is_woocommerce_activated() ) {
+            <!-- <p class="error-text"><?php esc_html_e('Nothing was found at this location. Try searching, or check out the links below.', 'storefront'); ?></p>
 
-						echo '<div class="row">';
+         					<?php
+                        echo '<section aria-label="' . esc_html__('Search', 'storefront') . '">';
 
-							echo '<section class="col" aria-label="' . esc_html__( 'Promoted Products', 'storefront' ) . '">';
+                        if (storefront_is_woocommerce_activated()) {
+                           the_widget('WC_Widget_Product_Search');
+                        } else {
+                           get_search_form();
+                        }
 
-								storefront_promoted_products();
+                        echo '</section>';
 
-							echo '</section>';
+                        if (storefront_is_woocommerce_activated()) {
 
-							echo '<nav class="col" aria-label="' . esc_html__( 'Product Categories', 'storefront' ) . '">';
+                           echo '<div class="row">';
 
-								echo '<h2>' . esc_html__( 'Product Categories', 'storefront' ) . '</h2>';
+                           echo '<section class="col" aria-label="' . esc_html__('Promoted Products', 'storefront') . '">';
 
-								the_widget(
-									'WC_Widget_Product_Categories', array(
-										'count' => 1,
-									)
-								);
+                           storefront_promoted_products();
 
-							echo '</nav>';
+                           echo '</section>';
 
-						echo '</div>';
+                           echo '<nav class="col" aria-label="' . esc_html__('Product Categories', 'storefront') . '">';
 
-						echo '<section aria-label="' . esc_html__( 'Popular Products', 'storefront' ) . '">';
+                           echo '<h2>' . esc_html__('Product Categories', 'storefront') . '</h2>';
 
-							echo '<h2>' . esc_html__( 'Popular Products', 'storefront' ) . '</h2>';
+                           the_widget(
+                              'WC_Widget_Product_Categories',
+                              array(
+                                 'count' => 1,
+                              )
+                           );
 
-							$shortcode_content = storefront_do_shortcode(
-								'best_selling_products', array(
-									'per_page' => 4,
-									'columns'  => 4,
-								)
-							);
+                           echo '</nav>';
 
-							echo $shortcode_content; // WPCS: XSS ok.
+                           echo '</div>';
 
-						echo '</section>';
-					}
-					?>
+                           echo '<section aria-label="' . esc_html__('Popular Products', 'storefront') . '">';
 
-				</div><!-- .page-content -->
-			</div><!-- .error-404 -->
+                           echo '<h2>' . esc_html__('Popular Products', 'storefront') . '</h2>';
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+                           $shortcode_content = storefront_do_shortcode(
+                              'best_selling_products',
+                              array(
+                                 'per_page' => 4,
+                                 'columns'  => 4,
+                              )
+                           );
+
+                           echo $shortcode_content; // WPCS: XSS ok.
+
+                           echo '</section>';
+                        }
+                        ?> -->
+
+
+
+
+         </div><!-- .page-content -->
+      </div><!-- .error-404 -->
+
+   </main><!-- #main -->
+</div><!-- #primary -->
 
 <?php
 get_footer();
