@@ -327,3 +327,96 @@ function jk_related_products_args($args)
     return $args;
 }
 
+/**
+ * Render activities by category id
+ * @param $cat_id
+ * @return false|string
+ */
+function get_activities($cat_id)
+{
+    $args = array(
+        'category' => $cat_id,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => -1
+    );
+    $activities = get_posts($args);
+    $upcomingActivities = [];
+    $pastActivities = [];
+    foreach ($activities as $activity) {
+        $activityId = $activity->ID;
+        if (get_field('relevance', $activityId) === 'upcoming') {
+            $upcomingActivities[] = $activity;
+        } else {
+            $pastActivities[] = $activity;
+        }
+    }
+    ob_start();
+    if (count($upcomingActivities)):?>
+        <section class="upcoming-events">
+            <div class="container">
+                <h2 class="upcoming-events__title">Предстоящие мероприятия</h2>
+                <?php foreach ($upcomingActivities as $upcomingActivity):
+                    $upcomingActivityId = $upcomingActivity->ID;
+                    $upcomingActivityLink = get_field('landing-link', $upcomingActivityId);
+                    $upcomingActivityImage = get_the_post_thumbnail($upcomingActivityId);
+                    ?>
+                    <div class="upcoming-events__inner">
+                        <a href="<?= $upcomingActivityLink ?>" class="upcoming-events__img">
+                            <?= $upcomingActivityImage ?>
+                        </a>
+                        <div class="upcoming-events__content">
+                            <div class="upcoming-events__content-title"><?= $upcomingActivity->post_title ?></div>
+                            <div class="upcoming-events__content-descr">
+                                <?= $upcomingActivity->post_content ?>
+                            </div>
+                            <div class="upcoming-events__content-date"><?= get_field('date', $upcomingActivityId) ?></div>
+                            <a href="<?= $upcomingActivityLink ?>"
+                               class="upcoming-events__content-link">
+                                Узнать больше
+                                <svg class="icon">
+                                    <use xlink:href="#arrow"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    <?php
+    endif;
+    if (count($pastActivities)): ?>
+        <section class="past-events">
+            <div class="container">
+                <h2 class="past-events__title">Прошедшие мероприятия</h2>
+                <div class="row">
+                    <?php foreach ($pastActivities as $pastActivity):
+                        $pastActivityId = $pastActivity->ID;
+                        $pastActivityLink = get_field('landing-link', $pastActivityId);
+                        $pastActivityImage = get_the_post_thumbnail($pastActivityId);
+                        ?>
+                        <div class="col-md-4">
+                            <a href="<?= $pastActivityLink ?>" class="past-events__item">
+                                <div class="past-events__item-header">
+                                    <div class="past-events__item-img">
+                                        <?= $pastActivityImage ?>
+                                    </div>
+                                    <div class="past-events__item-date"><?= get_field('date', $pastActivityId) ?></div>
+                                </div>
+                                <div class="past-events__item-content">
+                                    <div class="past-events__item-wrap">
+                                        <div class="past-events__item-title"><?= $pastActivity->post_title ?></div>
+                                    </div>
+                                    <div class="past-events__item-descr">
+                                        <?= $pastActivity->post_content ?>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
+    <?php endif;
+    return ob_get_clean();
+}
