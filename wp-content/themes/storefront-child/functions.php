@@ -327,6 +327,7 @@ function jk_related_products_args($args)
 }
 
 /**
+ * <<<<<<< HEAD
  * get post gallery images with info
  *
  * @param null $postvar
@@ -381,4 +382,220 @@ function strip_shortcode_gallery($content)
     }
 
     return $content;
+}
+
+/**
+ * Render activities by category id
+ * @param $cat_id
+ * @return false|string
+ */
+function get_activities($cat_id)
+{
+    $args = array(
+        'category' => $cat_id,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => -1
+    );
+    $activities = get_posts($args);
+    $upcomingActivities = [];
+    $pastActivities = [];
+    foreach ($activities as $activity) {
+        $activityId = $activity->ID;
+        if (get_field('relevance', $activityId) === 'upcoming') {
+            $upcomingActivities[] = $activity;
+        } else {
+            $pastActivities[] = $activity;
+        }
+    }
+    ob_start();
+    if (count($upcomingActivities)):?>
+        <section class="upcoming-events">
+            <div class="container">
+                <h2 class="upcoming-events__title">Предстоящие мероприятия</h2>
+                <?php foreach ($upcomingActivities as $upcomingActivity):
+                    $upcomingActivityId = $upcomingActivity->ID;
+                    $upcomingActivityLink = get_field('landing-link', $upcomingActivityId);
+                    $upcomingActivityImage = get_the_post_thumbnail($upcomingActivityId);
+                    ?>
+                    <div class="upcoming-events__inner">
+                        <a href="<?= $upcomingActivityLink ?>" class="upcoming-events__img">
+                            <?= $upcomingActivityImage ?>
+                        </a>
+                        <div class="upcoming-events__content">
+                            <div class="upcoming-events__content-title"><?= $upcomingActivity->post_title ?></div>
+                            <div class="upcoming-events__content-descr">
+                                <?= $upcomingActivity->post_content ?>
+                            </div>
+                            <div class="upcoming-events__content-date"><?= get_field('date', $upcomingActivityId) ?></div>
+                            <a href="<?= $upcomingActivityLink ?>"
+                               class="upcoming-events__content-link">
+                                Узнать больше
+                                <svg class="icon">
+                                    <use xlink:href="#arrow"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    <?php
+    endif;
+    if (count($pastActivities)): ?>
+        <section class="past-events">
+            <div class="container">
+                <h2 class="past-events__title">Прошедшие мероприятия</h2>
+                <div class="row">
+                    <?php foreach ($pastActivities as $pastActivity):
+                        $pastActivityId = $pastActivity->ID;
+                        $pastActivityLink = get_field('landing-link', $pastActivityId);
+                        $pastActivityImage = get_the_post_thumbnail($pastActivityId);
+                        ?>
+                        <div class="col-md-4">
+                            <a href="<?= $pastActivityLink ?>" class="past-events__item">
+                                <div class="past-events__item-header">
+                                    <div class="past-events__item-img">
+                                        <?= $pastActivityImage ?>
+                                    </div>
+                                    <div class="past-events__item-date"><?= get_field('date', $pastActivityId) ?></div>
+                                </div>
+                                <div class="past-events__item-content">
+                                    <div class="past-events__item-wrap">
+                                        <div class="past-events__item-title"><?= $pastActivity->post_title ?></div>
+                                    </div>
+                                    <div class="past-events__item-descr">
+                                        <?= $pastActivity->post_content ?>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
+    <?php endif;
+    return ob_get_clean();
+}
+
+/**
+ * Render services posts by category id
+ * @param $cat_id
+ * @return false|string
+ * @todo Выводить актуальные вакансии
+ */
+function get_services($cat_id)
+{
+    $args = array(
+        'category' => $cat_id,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => -1
+    );
+    $servicesPosts = get_posts($args);
+    ob_start();
+    foreach ($servicesPosts as $servicesPost):
+        $postId = $servicesPost->ID;
+        $gallery = get_post_gallery_images_with_info($servicesPost);
+        $servicesPoints = explode(";", get_field('service_points', $postId));
+        $servicesPointsParts = array_chunk($servicesPoints, ceil(count($servicesPoints) / 2));
+        ?>
+        <div class="heading-wrap heading-wrap_services">
+            <div class="container">
+                <h2 class="heading"><?= $servicesPost->post_title ?></h2>
+                <div class="descr"><?= strip_shortcode_gallery($servicesPost->post_content) ?></div>
+            </div>
+        </div>
+
+        <section class="search">
+            <div class="container">
+                <div class="row">
+                    <?php foreach ($servicesPointsParts as $servicesPointsPart): ?>
+                        <div class="col-md-6">
+                            <ul class="search__list">
+                                <?php foreach ($servicesPointsPart as $item):
+                                    if ($item): ?>
+                                        <li class="search__list-item"><?= $item ?></li>
+                                    <?php endif;
+                                endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
+
+        <?php foreach ($gallery as $image_obj): ?>
+        <div class="description <?= $image_obj['title'] ?>">
+            <div class="container">
+                <div class="description__inner">
+                    <img src="<?= $image_obj['src'] ?>" alt="">
+                    <div class="description__box">
+                        <div class="description__text">
+                            <?= $image_obj['description'] ?>
+                        </div>
+                        <button class="btn-primary">Отправить заявку</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach;
+    endforeach;
+    return ob_get_clean();
+}
+
+/**
+ * Render online products by category id
+ * @param $cat_id
+ * @return false | string
+ */
+function get_online_products($cat_id)
+{
+    $args = array(
+        'category' => $cat_id,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => -1
+    );
+    $onlineProducts = get_posts($args);
+    ob_start(); ?>
+    <div class="product">
+        <div class="container">
+            <div class="row">
+                <?php foreach ($onlineProducts as $onlineProduct):
+                    $postId = $onlineProduct->ID;
+                    $link = get_field('landing-link', $postId);
+                    $featured_image = get_the_post_thumbnail($postId);
+                    ?>
+                    <div class="col-md-12">
+                        <div class="product-item">
+                            <div class="product-item__content">
+                                <div class="product-item__content-title"><?= $onlineProduct->post_title ?></div>
+                                <div class="product-item__content-descr">
+                                    <?= $onlineProduct->post_content ?>
+                                </div>
+                                <?php if ($link): ?>
+                                    <a href="<?= $link ?>" class="product-item__content-link">
+                                        Узнать больше
+                                        <svg class="icon">
+                                            <use xlink:href="#arrow"></use>
+                                        </svg>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                            <?php if ($link): ?>
+                                <a href="<?= $link ?>" class="product-item__img">
+                                    <?= $featured_image ?>
+                                </a>
+                            <?php else: ?>
+                                <?= $featured_image ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
 }
