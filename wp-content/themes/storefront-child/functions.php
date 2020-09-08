@@ -139,7 +139,7 @@ if ('Отключаем Emojis в WordPress') {
     function disable_emojis_remove_dns_prefetch($urls, $relation_type)
     {
 
-        if ('dns-prefetch' == $relation_type) {
+        if ('dns-prefetch' === $relation_type) {
 
             // Strip out any URLs referencing the WordPress.org emoji location
             $emoji_svg_url_bit = 'https://s.w.org/images/core/emoji/';
@@ -214,15 +214,14 @@ add_filter('woocommerce_checkout_fields', 'new_woocommerce_checkout_fields', 10,
 function new_woocommerce_checkout_fields($fields)
 {
     if (!WC()->cart->needs_shipping()) {
-        unset($fields['billing']['billing_address_1']); //удаляем Населённый пункт
-        unset($fields['billing']['billing_address_2']); //удаляем Населённый пункт
-        unset($fields['billing']['billing_city']); //удаляем Населённый пункт
-        unset($fields['billing']['billing_postcode']); //удаляем Населённый пункт
-        unset($fields['billing']['billing_country']); //удаляем Населённый пункт
-        unset($fields['billing']['billing_state']); //удаляем Населённый пункт
-        unset($fields['billing']['billing_company']); //удаляем Населённый пункт
-        unset($fields['billing']['phone']); //удаляем Населённый пункт
-
+        unset($fields['billing']['billing_address_1'],
+            $fields['billing']['billing_address_2'],
+            $fields['billing']['billing_city'],
+            $fields['billing']['billing_postcode'],
+            $fields['billing']['billing_country'],
+            $fields['billing']['billing_state'],
+            $fields['billing']['billing_company'],
+            $fields['billing']['phone']);
     }
     return $fields;
 }
@@ -237,9 +236,9 @@ add_filter('woocommerce_product_tabs', 'woo_remove_product_tabs', 98);
 function woo_remove_product_tabs($tabs)
 {
 
-    unset($tabs['description']);        // Remove the description tab
-    unset($tabs['reviews']);            // Remove the reviews tab
-    unset($tabs['additional_information']);    // Remove the additional information tab
+    unset($tabs['description'],
+        $tabs['reviews'],
+        $tabs['additional_information']);
 
     return $tabs;
 }
@@ -327,3 +326,99 @@ function jk_related_products_args($args)
     return $args;
 }
 
+/**
+ * get post gallery images with info
+ *
+ * @param null $postvar
+ * @param int $pos
+ * @return array
+ */
+function get_post_gallery_images_with_info($postvar = NULL, $pos = 0)
+{
+    if (!isset($postvar)) {
+        global $post;
+        $postvar = $post;
+    }
+    $post_content = $postvar->post_content;
+    if ($pos) {
+        $post_content = preg_split('~\(:\)~', $post_content)[1];
+    }
+    preg_match('/\[gallery.*ids=.(.*).]/', $post_content, $ids);
+    $images_id = explode(",", $ids[1]);
+    $image_gallery_with_info = array();
+    foreach ($images_id as $image_id) {
+        $attachment = get_post($image_id);
+        $image_gallery_with_info[] = array(
+            'alt' => get_post_meta($attachment->ID, '_wp_attachment_image_alt', true),
+            'caption' => $attachment->post_excerpt,
+            'description' => $attachment->post_content,
+            'href' => get_permalink($attachment->ID),
+            'src' => $attachment->guid,
+            'title' => $attachment->post_title
+        );
+    }
+    return $image_gallery_with_info;
+}
+
+/**
+ * Render services posts
+ * @return false|string
+ */
+function get_services()
+{
+    $args = array(
+        'category' => 4,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => -1
+    );
+    $servicesPosts = get_posts($args);
+    ob_start();
+    foreach ($servicesPosts as $servicesPost):
+        $postId = $servicesPost->ID;
+        $gallery = get_post_gallery_images_with_info();
+        $servicesPoints = explode(";", get_field('service_points', $postId));
+        $servicesPointsParts = array_chunk($servicesPoints, ceil(count($servicesPoints) / 2));
+        ?>
+        <div class="heading-wrap heading-wrap_services">
+            <div class="container">
+                <h2 class="heading"><?= $servicesPost->post_title ?></h2>
+                <div class="descr"><?= $servicesPost->post_content ?></div>
+            </div>
+        </div>
+
+        <section class="search">
+            <div class="container">
+                <div class="row">
+                    <?php foreach ($servicesPointsParts as $servicesPointsPart): ?>
+                        <div class="col-md-6">
+                            <ul class="search__list">
+                                <?php foreach ($servicesPointsPart as $item):
+                                    if ($item): ?>
+                                        <li class="search__list-item"><?= $item ?></li>
+                                    <?php endif;
+                                endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
+
+        <?php foreach ($gallery as $image_obj): ?>
+        <div class="description <?= $image_obj['title'] ?>">
+            <div class="container">
+                <div class="description__inner">
+                    <img src="<?= $image_obj['src'] ?>" alt="">
+                    <div class="description__text">
+                        <?= $image_obj['description'] ?>
+                    </div>
+                    <button class="btn-primary">Отправить заявку</button>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    <?php
+    endforeach;
+    return ob_get_clean();
+}
