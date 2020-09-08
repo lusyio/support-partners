@@ -66,15 +66,10 @@ Template Post Type: post, page, product
       <div class="row align-items-center">
          <div class="col-md-7">
             <div class="about__inner">
-               <h2 class="about__heading">Константин <span>Борисов</span></h2>
-               <div class="about__subheading">Основатель и Генеральный директор Support Partners</div>
+               <h2 class="about__heading"><?php the_field('about_heading'); ?></h2>
+               <div class="about__subheading"><?php the_field('about_subheading'); ?></div>
                <div class="about__descr">
-                  «Уважаемые партнеры, друзья! Рад приветствовать Вас на сайте компании Support
-                  Partners. На рынок executive search мы вышли в 2009 году. За время нашей работы мы прошли большой путь
-                  и
-                  гордимся нашими многочисленными успешными проектами, высокими местами в рейтингах, а также огромным
-                  количеством благодарных клиентов. Здесь, на нашем сайте, Вы найдете актуальные новости компании, наши
-                  достижения и полный перечень предоставляемых услуг»
+                  <?php the_field('about_descr'); ?>
                </div>
             </div>
          </div>
