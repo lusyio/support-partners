@@ -327,3 +327,58 @@ function jk_related_products_args($args)
     return $args;
 }
 
+/**
+ * Render online products by category id
+ * @param $cat_id
+ * @return false|string
+ */
+function get_online_products($cat_id)
+{
+    $args = array(
+        'category' => $cat_id,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => -1
+    );
+    $onlineProducts = get_posts($args);
+    ob_start(); ?>
+    <div class="product">
+        <div class="container">
+            <div class="row">
+                <?php foreach ($onlineProducts as $onlineProduct):
+                    $postId = $onlineProduct->ID;
+                    $link = get_field('landing-link', $postId);
+                    $featured_image = get_the_post_thumbnail($postId);
+                    ?>
+                    <div class="col-md-12">
+                        <div class="product-item">
+                            <div class="product-item__content">
+                                <div class="product-item__content-title"><?= $onlineProduct->post_title ?></div>
+                                <div class="product-item__content-descr">
+                                    <?= $onlineProduct->post_content ?>
+                                </div>
+                                <?php if ($link): ?>
+                                    <a href="<?= $link ?>" class="product-item__content-link">
+                                        Узнать больше
+                                        <svg class="icon">
+                                            <use xlink:href="#arrow"></use>
+                                        </svg>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                            <?php if ($link): ?>
+                                <a href="<?= $link ?>" class="product-item__img">
+                                    <?= $featured_image ?>
+                                </a>
+                            <?php else: ?>
+                                <?= $featured_image ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
