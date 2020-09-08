@@ -23,7 +23,7 @@ Template Post Type: post, page, product
 <div class="contacts">
    <div class="container">
       <div class="row no-gutters align-items-center">
-         <div class="col-md-3">
+         <div class="col-md-4">
             <div class="contacts__content">
                <address class="contacts__content-address">
                   <span>Москва</span>
@@ -39,7 +39,7 @@ Template Post Type: post, page, product
                </div>
             </div>
          </div>
-         <div class="col-md-9">
+         <div class="col-md-8">
             <div class="contacts__map">
                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae80ffcb59c171efcc95e96855e7ac2a63f3fe26a5dc703b0f60a59ffa6108733&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
             </div>
