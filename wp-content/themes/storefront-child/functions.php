@@ -378,7 +378,7 @@ function get_services()
     ob_start();
     foreach ($servicesPosts as $servicesPost):
         $postId = $servicesPost->ID;
-        $gallery = get_post_gallery_images_with_info();
+        $gallery = get_post_gallery_images_with_info($servicesPost);
         $servicesPoints = explode(";", get_field('service_points', $postId));
         $servicesPointsParts = array_chunk($servicesPoints, ceil(count($servicesPoints) / 2));
         ?>
@@ -419,8 +419,7 @@ function get_services()
                 </div>
             </div>
         </div>
-    <?php endforeach; ?>
-    <?php
+    <?php endforeach;
     endforeach;
     return ob_get_clean();
 }
