@@ -2240,49 +2240,23 @@ section#team-5 {
       margin-top: 46px;
    }
 
-   &_two {
-      padding: 113px 0 100px;
 
-      .description__text {
-         position: absolute;
-         right: 65px;
-         top: 107px;
-         transform: translateY(0);
-      }
-   }
-
-   &_three {
-      padding: 93px 0 231px;
-
-      .description__inner {
-         img {
-            order: 2;
-         }
-      }
-
-      .description__text {
-         left: 0;
-         right: auto;
-      }
-
-      .btn-primary {
-         margin-top: 73px;
-      }
-   }
 
    &__inner {
       position: relative;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+
+      // img {
+      //    width: 665px;
+      //    position: absolute;
+      //    z-index: -1;
+      // }
    }
 
    &__text {
-      position: absolute;
-      right: 40px;
-      top: 50%;
-      transform: translateY(-50%);
-      max-width: 624px;
+      position: relative;
       padding: 24px 27px 24px 30px;
       font-size: 16px;
       color: #696969;
@@ -2299,6 +2273,39 @@ section#team-5 {
          transform: translateY(-50%);
       }
    }
+
+   &__box {
+      max-width: 624px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      // right: 40px;
+      // top: 50%;
+      // transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      &_bottom {
+         top: 30%;
+         transform: translateY(0%);
+      }
+   }
+}
+
+.description.right-bottom .description__box {
+   bottom: auto;
+   top: 0;
+}
+
+.description.left-center .description__inner {
+   flex-direction: row-reverse;
+}
+
+.description.left-center .description__box {
+   left: 0;
+   right: auto;
+   align-items: flex-start;
 }
 
 // Vacancies
@@ -3160,15 +3167,12 @@ section#team-5 {
    }
 }
 
-
 // New-post
 
 .new-post {
-
-      img {
-         min-height: 513px;
-      }
-
+   img {
+      min-height: 513px;
+   }
 
    &__title {
       position: relative;
@@ -3205,16 +3209,16 @@ section#team-5 {
       font-size: 14px;
       color: $accent;
       transition: all 0.3s ease;
-     
-     &:hover {
+
+      &:hover {
          color: rgba($accent, 0.8);
 
          .icon {
-
             fill: rgba($accent, 0.8);
          }
       }
-
+   }
+}
 // Error-nf
 
 .error-nf {
@@ -3244,7 +3248,6 @@ section#team-5 {
          &:last-child {
             margin-right: 0;
          }
-        
       }
 
       img {
@@ -3300,7 +3303,6 @@ section#team-5 {
          transition: all 0.3s;
          transform: rotate(-180deg);
       }
-
    }
 }
 

@@ -2040,34 +2040,6 @@ section#team-5 {
   margin-top: 46px;
 }
 
-.description_two {
-  padding: 113px 0 100px;
-}
-
-.description_two .description__text {
-  position: absolute;
-  right: 65px;
-  top: 107px;
-  transform: translateY(0);
-}
-
-.description_three {
-  padding: 93px 0 231px;
-}
-
-.description_three .description__inner img {
-  order: 2;
-}
-
-.description_three .description__text {
-  left: 0;
-  right: auto;
-}
-
-.description_three .btn-primary {
-  margin-top: 73px;
-}
-
 .description__inner {
   position: relative;
   display: flex;
@@ -2076,11 +2048,7 @@ section#team-5 {
 }
 
 .description__text {
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 624px;
+  position: relative;
   padding: 24px 27px 24px 30px;
   font-size: 16px;
   color: #696969;
@@ -2096,6 +2064,36 @@ section#team-5 {
   height: 56px;
   border-right: 1.3px solid #ed002f;
   transform: translateY(-50%);
+}
+
+.description__box {
+  max-width: 624px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.description__box_bottom {
+  top: 30%;
+  transform: translateY(0%);
+}
+
+.description.right-bottom .description__box {
+  bottom: auto;
+  top: 0;
+}
+
+.description.left-center .description__inner {
+  flex-direction: row-reverse;
+}
+
+.description.left-center .description__box {
+  left: 0;
+  right: auto;
+  align-items: flex-start;
 }
 
 .vacancies {
@@ -2901,7 +2899,6 @@ section#team-5 {
   margin: 0;
 }
 
-
 .new-post img {
   min-height: 513px;
 }
@@ -2949,13 +2946,6 @@ section#team-5 {
 
 .new-post__link:hover .icon {
   fill: rgba(0, 88, 150, 0.8);
-}
-
-.new-post__link .icon {
-  margin-right: 25px;
-  width: 81px;
-  height: 10px;
-  fill: #005896;
 }
 
 .error-nf {
@@ -3032,19 +3022,12 @@ section#team-5 {
 }
 
 .error-nf__link .icon {
-  transform: rotate(180deg);
-  transition: all 0.3s ease;
+  margin-right: 25px;
+  width: 81px;
+  height: 10px;
+  fill: #005896;
   transition: all 0.3s;
   transform: rotate(-180deg);
-}
-
-.error-nf__link:hover {
-  color: rgba(0, 88, 150, 0.8);
-}
-
-.error-nf__link:hover .icon {
-  transform: translateX(-10px) rotate(-180deg);
-  fill: rgba(0, 88, 150, 0.8);
 }
 
 /*--------------------------------------------------------------

@@ -413,10 +413,12 @@ function get_services($cat_id)
             <div class="container">
                 <div class="description__inner">
                     <img src="<?= $image_obj['src'] ?>" alt="">
-                    <div class="description__text">
-                        <?= $image_obj['description'] ?>
+                    <div class="description__box">
+                       <div class="description__text">
+                           <?= $image_obj['description'] ?>
+                       </div>
+                       <button class="btn-primary">Отправить заявку</button>
                     </div>
-                    <button class="btn-primary">Отправить заявку</button>
                 </div>
             </div>
         </div>
