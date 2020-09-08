@@ -361,11 +361,33 @@ function get_post_gallery_images_with_info($postvar = NULL, $pos = 0)
 }
 
 /**
+ * Clear post content
+ * @param $content
+ * @return string|string[]
+ */
+function strip_shortcode_gallery($content)
+{
+    preg_match_all('/' . get_shortcode_regex() . '/s', $content, $matches, PREG_SET_ORDER);
+
+    if (!empty($matches)) {
+        foreach ($matches as $shortcode) {
+            if ('gallery' === $shortcode[2]) {
+                $pos = strpos($content, $shortcode[0]);
+                if (false !== $pos) {
+                    return substr_replace($content, '', $pos, strlen($shortcode[0]));
+                }
+            }
+        }
+    }
+
+    return $content;
+}
+
+/**
  * Render services posts by category id
  * @param $cat_id
  * @return false|string
  * @todo Выводить актуальные вакансии
- * @todo Убрать галерею из post_content
  */
 function get_services($cat_id)
 {
@@ -386,7 +408,7 @@ function get_services($cat_id)
         <div class="heading-wrap heading-wrap_services">
             <div class="container">
                 <h2 class="heading"><?= $servicesPost->post_title ?></h2>
-                <div class="descr"><?= $servicesPost->post_content ?></div>
+                <div class="descr"><?= strip_shortcode_gallery($servicesPost->post_content) ?></div>
             </div>
         </div>
 
@@ -414,10 +436,10 @@ function get_services($cat_id)
                 <div class="description__inner">
                     <img src="<?= $image_obj['src'] ?>" alt="">
                     <div class="description__box">
-                       <div class="description__text">
-                           <?= $image_obj['description'] ?>
-                       </div>
-                       <button class="btn-primary">Отправить заявку</button>
+                        <div class="description__text">
+                            <?= $image_obj['description'] ?>
+                        </div>
+                        <button class="btn-primary">Отправить заявку</button>
                     </div>
                 </div>
             </div>
