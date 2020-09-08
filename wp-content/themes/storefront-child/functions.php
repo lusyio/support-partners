@@ -363,6 +363,8 @@ function get_post_gallery_images_with_info($postvar = NULL, $pos = 0)
 /**
  * Render services posts
  * @return false|string
+ * @todo Выводить актуальные вакансии
+ * @todo Убрать галерею из post_content
  */
 function get_services()
 {
