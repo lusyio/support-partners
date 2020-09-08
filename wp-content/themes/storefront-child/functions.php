@@ -361,15 +361,16 @@ function get_post_gallery_images_with_info($postvar = NULL, $pos = 0)
 }
 
 /**
- * Render services posts
+ * Render services posts by category id
+ * @param $cat_id
  * @return false|string
  * @todo Выводить актуальные вакансии
  * @todo Убрать галерею из post_content
  */
-function get_services()
+function get_services($cat_id)
 {
     $args = array(
-        'category' => 4,
+        'category' => $cat_id,
         'post_type' => 'post',
         'post_status' => 'publish',
         'numberposts' => -1

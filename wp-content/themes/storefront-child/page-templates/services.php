@@ -19,7 +19,7 @@ Template Post Type: post, page, product
         </ul>
     </div>
 
-<?= get_services() ?>
+<?= get_services(4) ?>
 
 
     <!---->
