@@ -33,7 +33,7 @@
          <div class="container">
             <nav class="navbar navbar-light navbar-expand-xl p-0 justify-content-between">
                <div class="navbar-brand">
-                  <a href="#">
+                  <a href="<?= get_home_url() ?>">
                      <img src="/wp-content/themes/storefront-child/svg/logo.svg" alt="logo">
                   </a>
                </div>
