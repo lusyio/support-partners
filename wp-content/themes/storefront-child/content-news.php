@@ -7,7 +7,7 @@
             <div class="news-item__content-title"><?= $post->post_title ?></div>
             <div class="news-item__content-date"><?= get_the_date('d.m.Y', $post->ID) ?></div>
             <div class="news-item__content-descr">
-                <?= $post->post_content ?>
+                <?= get_field('short_descr') ?>
             </div>
             <a href="<?= get_post_permalink($post->ID) ?>" class="news-item__content-link">
                 <svg class="icon">
