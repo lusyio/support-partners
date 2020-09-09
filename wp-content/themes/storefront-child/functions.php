@@ -482,7 +482,6 @@ function get_activities($cat_id)
  * Render services posts by category id
  * @param $cat_id
  * @return false|string
- * @todo Выводить актуальные вакансии
  */
 function get_services($cat_id)
 {
@@ -539,9 +538,62 @@ function get_services($cat_id)
                 </div>
             </div>
         </div>
-    <?php endforeach;
+    <?php endforeach; ?>
+        <?php $vacancies = array_filter(explode(";", get_field('vacancies', $postId))); ?>
+        <?= get_vacancies($vacancies) ?>
+    <?php
     endforeach;
     return ob_get_clean();
+}
+
+/**
+ * Render $vacancies by array of slugs
+ * @param $vacancies
+ * @return bool|false|string
+ */
+function get_vacancies($vacancies)
+{
+    if (count($vacancies)):
+        ob_start(); ?>
+        <section class="vacancies">
+            <div class="container">
+                <h2 class="vacancies__title">Актуальные вакансии</h2>
+                <div class="row">
+                    <?php
+                    foreach ($vacancies as $vacancy_slug):
+                        $args = array(
+                            'name' => $vacancy_slug,
+                            'post_type' => 'post',
+                            'post_status' => 'publish',
+                            'numberposts' => 1
+                        );
+                        $vacancy = get_posts($args);
+                        if ($vacancy_slug):
+                            ?>
+                            <div class="col-md-3">
+                                <a href="<?= get_post_permalink($vacancy[0]->ID) ?>" class="vacancies__item">
+                                    <div class="vacancies__item-title"><?= $vacancy[0]->post_title ?></div>
+                                    <svg class="icon">
+                                        <use xlink:href="#help"></use>
+                                    </svg>
+                                    <div class="vacancies__item-wrap">
+                                        Подробнее
+                                        <svg class="icon">
+                                            <use xlink:href="#arrow"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php
+                        endif;
+                    endforeach; ?>
+                </div>
+            </div>
+        </section>
+        <?php
+        return ob_get_clean();
+    endif;
+    return false;
 }
 
 /**
