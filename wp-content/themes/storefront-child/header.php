@@ -83,7 +83,7 @@
                 </div>
             </nav>
         </div>
-        <?php if (!is_front_page()): ?>
+        <?php if (!is_front_page() && !is_single()): ?>
             <section class="intro">
                 <div class="container">
                     <div class="intro__inner"
