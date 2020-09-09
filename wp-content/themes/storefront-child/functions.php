@@ -327,9 +327,7 @@ function jk_related_products_args($args)
 }
 
 /**
- * <<<<<<< HEAD
  * get post gallery images with info
- *
  * @param null $postvar
  * @param int $pos
  * @return array
@@ -681,5 +679,4 @@ function wp_get_menu_array($current_menu)
         }
     }
     return $menu;
-
 }
