@@ -22,7 +22,7 @@
             if ($menu_items = wp_get_menu_array('second')):
                 $menu_list = '';
                 ?>
-                <div class="col-12 text-center col-md-2 text-lg-left">
+                <div class="col-12 col-md-2">
                 <div class="footer-menu">
                 <ul class="menu">
                 <?php
@@ -32,7 +32,7 @@
                         </ul>
                         </div>
                         </div>
-                        <div class="col-12 text-center col-md-2 text-lg-left">
+                        <div class="col-12 <?= array_key_last($menu_items) === $key ? 'col-md-3' : 'col-md-2' ?>">
                         <div class="footer-menu">
                         <ul class="menu">
                             <li><a href="<?= $menu_item['url'] ?>"><?= $menu_item['title'] ?></a></li>
@@ -40,33 +40,32 @@
                         <ul class="sub-menu">
                         <?php foreach ($menu_item['children'] as $children): ?>
                         <li><a href="<?= $children['url'] ?>"><?= $children['title'] ?></a></li>
-                    <?php endforeach; ?>
-                    <?php else: ?>
+                    <?php endforeach;
+                    else: ?>
                         <li><a href="<?= $menu_item['url'] ?>"><?= $menu_item['title'] ?></a></li>
-                    <?php endif; ?>
-
-                <?php
+                    <?php endif;
                 endforeach; ?>
                 </ul>
                 </div>
                 </div>
             <?php endif; ?>
+            <div class="col-12 col-lg-3">
+                Тут поиск
+            </div>
         </div>
-    </div>
-    <div class="col-12 footer-socials text-center col-lg-3 text-lg-right">
-        <div class="social">
-            <a class="text-decoration-none socials" href="#">
-                <img src="/wp-content/themes/storefront-child/svg/vk.svg" alt="">
-            </a>
-            <a class="text-decoration-none ml-3 socials" href="#">
-                <img src="/wp-content/themes/storefront-child/svg/facebook.svg" alt="">
-            </a>
+        <div class="row">
+            <div class="ml-auto col-12 footer-socials col-lg-3">
+                <div class="social">
+                    <small>Оставайтесь с нами</small>
+                    <a class="text-decoration-none socials" href="#">
+                        <img src="/wp-content/themes/storefront-child/svg/vk.svg" alt="">
+                    </a>
+                    <a class="text-decoration-none ml-3 socials" href="#">
+                        <img src="/wp-content/themes/storefront-child/svg/facebook.svg" alt="">
+                    </a>
+                </div>
+            </div>
         </div>
-        <p class="mb-0 footer-credits d-lg-none d-block">
-            <a class="credits" href="https://richbee.ru/" target="_blank">
-                <img src="/wp-content/themes/storefront-child/svg/Richbee-black.svg" alt="">
-            </a>
-        </p>
     </div>
 
     <!-- </div>
