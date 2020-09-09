@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.1
+Version:      	1.0.2
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 
@@ -616,7 +616,7 @@ header#masthead {
     margin-bottom: 0;
 }
 
-.footer-menu .menu{
+.footer-menu .menu {
     margin-bottom: 16px;
 }
 
@@ -628,7 +628,7 @@ header#masthead {
     margin-bottom: 16px;
 }
 
-.site-footer a:not(.button):not(.components-button){
+.site-footer a:not(.button):not(.components-button) {
     color: #fff;
 }
 
@@ -2947,7 +2947,23 @@ section#team-5 {
 }
 
 .new-post img {
-    min-height: 513px;
+    height: 513px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.new-post .new-post__cases {
+    background: #F4F8FB;
+    height: 513px;
+    width: 100%;
+    display: flex;
+}
+
+.new-post .new-post__cases > img {
+    height: auto;
+    width: auto;
+    display: table;
+    margin: auto;
 }
 
 .new-post__title {
@@ -2963,7 +2979,7 @@ section#team-5 {
     background-color: #ffffff;
 }
 
-.new-post__subtitle {
+.new-post__subtitle, .new-post h2 {
     padding: 0 95px;
     margin: 0 0 30px;
     font-weight: 500;

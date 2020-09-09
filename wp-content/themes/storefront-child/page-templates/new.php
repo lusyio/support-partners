@@ -26,7 +26,13 @@ Template Post Type: post, page, product
 
     <div class="new-post">
         <div class="container">
-            <?= get_the_post_thumbnail($post->ID) ?>
+            <?php if (catSlug($post->post_category[0]) === 'cases'): ?>
+                <div class="new-post__cases">
+                    <?= get_the_post_thumbnail($post->ID) ?>
+                </div>
+            <?php else: ?>
+                <?= get_the_post_thumbnail($post->ID) ?>
+            <?php endif; ?>
             <h1 class="new-post__title"><?= $post->post_title ?></h1>
             <?php the_content() ?>
         </div>

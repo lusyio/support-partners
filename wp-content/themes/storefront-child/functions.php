@@ -680,3 +680,13 @@ function wp_get_menu_array($current_menu)
     }
     return $menu;
 }
+
+/**
+ * Get category slug by id
+ * @param $cat_id
+ * @return mixed
+ */
+function catSlug($cat_id) {
+    $cat_id = (int) $cat_id;
+    return get_category($cat_id)->slug;
+}
