@@ -59,7 +59,7 @@ Template Post Type: post, page, product
         <div class="description">
             <div class="container">
                 <div class="description__inner">
-                    <img src="/wp-content/themes/storefront-child/img/description/img-1.png" alt="">
+                    <img src="/wp-content/themes/storefront-child/img/description/img-1.jpg" alt="">
                     <div class="description__box">
                        <div class="description__text">
                            Среди наших Заказчиков, осуществляющих поиск руководителей высшего звена — как крупнейшие
@@ -176,7 +176,7 @@ Template Post Type: post, page, product
         <div class="description">
             <div class="container">
                 <div class="description__inner">
-                    <img src="/wp-content/themes/storefront-child/img/description/img-2.png" alt="">
+                    <img src="/wp-content/themes/storefront-child/img/description/img-2.jpg" alt="">
                     <div class="description__box description__box_bottom">
                        <div class="description__text">
                            По мере того, как компании, с одной стороны, все внимательнее подходят к вопросу затрат, а с другой
@@ -199,7 +199,7 @@ Template Post Type: post, page, product
         <div class="description">
             <div class="container">
                 <div class="description__inner">
-                    <img src="/wp-content/themes/storefront-child/img/description/img-3.png" alt="">
+                    <img src="/wp-content/themes/storefront-child/img/description/img-3.jpg" alt="">
                     <div class="description__box">
                        <div class="description__text">
                            Мы хэдхантеры, поэтому много кого знаем и легко умеем устанавливать контакты. Мы НИКОГДА не

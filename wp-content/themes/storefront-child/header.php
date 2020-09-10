@@ -85,7 +85,7 @@
 
          <section class="intro">
             <div class="container">
-               <div class="intro__inner" style="background: linear-gradient(180.13deg, rgba(0, 88, 150, 0.3) 0.11%,#005896 98.33%),url(/wp-content/themes/storefront-child/img/intro/about.png) center center / cover no-repeat;">
+               <div class="intro__inner" style="background: linear-gradient(180.13deg, rgba(0, 88, 150, 0.3) 0.11%,#005896 98.33%),url(/wp-content/themes/storefront-child/img/intro/about.jpg) center center / cover no-repeat;">
                   <h2 class="intro__title">о компании</h2>
                   <div class="intro__descr">Мы оперативно находим отличных кандидатов, <br> приносящих реальную пользу</div>
                </div>

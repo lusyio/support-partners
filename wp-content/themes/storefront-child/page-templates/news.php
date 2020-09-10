@@ -27,7 +27,7 @@ Template Post Type: post, page, product
          <div class="col-md-12">
             <div class="news-item">
                <a href="#" class="news-item__img">
-                  <img src="/wp-content/themes/storefront-child/img/events/img-2.png" alt="">
+                  <img src="/wp-content/themes/storefront-child/img/events/img-2.jpg" alt="">
                </a>
                <div class="news-item__content">
                   <div class="news-item__content-title">новость</div>
@@ -47,7 +47,7 @@ Template Post Type: post, page, product
          <div class="col-md-12">
             <div class="news-item">
                <a href="#" class="news-item__img">
-                  <img src="/wp-content/themes/storefront-child/img/events/img-2.png" alt="">
+                  <img src="/wp-content/themes/storefront-child/img/events/img-2.jpg" alt="">
                </a>
                <div class="news-item__content">
                   <div class="news-item__content-title">новость 2</div>
@@ -67,7 +67,7 @@ Template Post Type: post, page, product
          <div class="col-md-12">
             <div class="news-item">
                <a href="#" class="news-item__img">
-                  <img src="/wp-content/themes/storefront-child/img/events/img-2.png" alt="">
+                  <img src="/wp-content/themes/storefront-child/img/events/img-2.jpg" alt="">
                </a>
                <div class="news-item__content">
                   <div class="news-item__content-title">новость 3</div>
@@ -87,7 +87,7 @@ Template Post Type: post, page, product
          <div class="col-md-12">
             <div class="news-item">
                <a href="#" class="news-item__img">
-                  <img src="/wp-content/themes/storefront-child/img/events/img-2.png" alt="">
+                  <img src="/wp-content/themes/storefront-child/img/events/img-2.jpg" alt="">
                </a>
                <div class="news-item__content">
                   <div class="news-item__content-title">новость 4</div>

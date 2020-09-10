@@ -41,7 +41,7 @@ Template Post Type: post, page, product
          <div class="col-md-3">
             <div class="specialists__card">
                <a href="#" class="specialists__card-img">
-                  <img src="/wp-content/themes/storefront-child/img/specialists/img-1.png" alt="">
+                  <img src="/wp-content/themes/storefront-child/img/specialists/img-1.jpg" alt="">
                </a>
                <div class="specialists__card-title">Светлана Никитина</div>
                <div class="specialists__card-descr">Руководитель практики <br> Потребительские рынки</div>
@@ -51,7 +51,7 @@ Template Post Type: post, page, product
          <div class="col-md-3">
             <div class="specialists__card">
                <a href="#" class="specialists__card-img">
-                  <img src="/wp-content/themes/storefront-child/img/specialists/img-2.png" alt="">
+                  <img src="/wp-content/themes/storefront-child/img/specialists/img-2.jpg" alt="">
                </a>
                <div class="specialists__card-title">Имя Фамилия</div>
                <div class="specialists__card-descr">Должность</div>
@@ -61,7 +61,7 @@ Template Post Type: post, page, product
          <div class="col-md-3">
             <div class="specialists__card">
                <a href="#" class="specialists__card-img">
-                  <img src="/wp-content/themes/storefront-child/img/specialists/img-3.png" alt="">
+                  <img src="/wp-content/themes/storefront-child/img/specialists/img-3.jpg" alt="">
                </a>
                <div class="specialists__card-title">Станислав Сметана</div>
                <div class="specialists__card-descr">Ведущий эксперт <br> практики Промышленность</div>
@@ -71,7 +71,7 @@ Template Post Type: post, page, product
          <div class="col-md-3">
             <div class="specialists__card">
                <a href="#" class="specialists__card-img">
-                  <img src="/wp-content/themes/storefront-child/img/specialists/img-4.png" alt="">
+                  <img src="/wp-content/themes/storefront-child/img/specialists/img-4.jpg" alt="">
                </a>
                <div class="specialists__card-title">Людмила Ушакова</div>
                <div class="specialists__card-descr">Управляющий партнёр, <br> Руководитель практики <br> Стратегические
@@ -84,7 +84,7 @@ Template Post Type: post, page, product
          <div class="col-md-3">
             <div class="specialists__card">
                <a href="#" class="specialists__card-img">
-                  <img src="/wp-content/themes/storefront-child/img/specialists/img-5.png" alt="">
+                  <img src="/wp-content/themes/storefront-child/img/specialists/img-5.jpg" alt="">
                </a>
                <div class="specialists__card-title">Имя Фамилия</div>
                <div class="specialists__card-descr">Должность</div>
@@ -94,7 +94,7 @@ Template Post Type: post, page, product
          <div class="col-md-3">
             <div class="specialists__card">
                <a href="#" class="specialists__card-img">
-                  <img src="/wp-content/themes/storefront-child/img/specialists/img-6.png" alt="">
+                  <img src="/wp-content/themes/storefront-child/img/specialists/img-6.jpg" alt="">
                </a>
                <div class="specialists__card-title">Имя Фамилия</div>
                <div class="specialists__card-descr">Должность</div>
@@ -104,7 +104,7 @@ Template Post Type: post, page, product
          <div class="col-md-3">
             <div class="specialists__card">
                <a href="#" class="specialists__card-img">
-                  <img src="/wp-content/themes/storefront-child/img/specialists/img-7.png" alt="">
+                  <img src="/wp-content/themes/storefront-child/img/specialists/img-7.jpg" alt="">
                </a>
                <div class="specialists__card-title">Соколова Анна</div>
                <div class="specialists__card-descr">Консультант практики <br> Потребительские рынки</div>
@@ -114,7 +114,7 @@ Template Post Type: post, page, product
          <div class="col-md-3">
             <div class="specialists__card">
                <a href="#" class="specialists__card-img">
-                  <img src="/wp-content/themes/storefront-child/img/specialists/img-8.png" alt="">
+                  <img src="/wp-content/themes/storefront-child/img/specialists/img-8.jpg" alt="">
                </a>
                <div class="specialists__card-title">Елена Макеева</div>
                <div class="specialists__card-descr">Руководитель практики <br> IT\Digital\Telco</div>
@@ -126,7 +126,7 @@ Template Post Type: post, page, product
          <div class="col-md-3">
             <div class="specialists__card">
                <a href="#" class="specialists__card-img">
-                  <img src="/wp-content/themes/storefront-child/img/specialists/img-9.png" alt="">
+                  <img src="/wp-content/themes/storefront-child/img/specialists/img-9.jpg" alt="">
                </a>
                <div class="specialists__card-title">Антон Миллер</div>
                <div class="specialists__card-descr">Руководитель практики <br> Финансы и Инвестиции</div>

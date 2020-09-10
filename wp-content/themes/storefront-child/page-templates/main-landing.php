@@ -27,7 +27,7 @@ Template Post Type: post, page, product
          </div>
          <div class="col-md-6">
             <div class="main-screen__video">
-               <video poster="/wp-content/themes/storefront-child/img/main-screen/video-plug.png" preload="none" controls>
+               <video poster="/wp-content/themes/storefront-child/img/main-screen/video-plug.jpg" preload="none" controls>
                   <source src="https://youtu.be/sZBM492Ufco" type='video/webm; codecs="vp8, vorbis"' />
                   <source src="https://youtu.be/sZBM492Ufco" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
                   <source src="https://youtu.be/sZBM492Ufco" type='video/ogg; codecs="theora, vorbis"' />
@@ -53,7 +53,7 @@ Template Post Type: post, page, product
          </div>
          <div class="col-md-6">
             <div class="main-screen__img">
-               <img src="/wp-content/themes/storefront-child/img/main-screen/img-1.png" alt="">
+               <img src="/wp-content/themes/storefront-child/img/main-screen/img-1.jpg" alt="">
             </div>
          </div>
       </div>
@@ -75,7 +75,7 @@ Template Post Type: post, page, product
          </div>
          <div class="col-md-5">
             <div class="about__img">
-               <img src="/wp-content/themes/storefront-child/img/about.png" alt="">
+               <img src="/wp-content/themes/storefront-child/img/about.jpg" alt="">
             </div>
          </div>
       </div>
@@ -356,19 +356,19 @@ Template Post Type: post, page, product
       <div class="row">
          <div class="col-md-4">
             <a href="#" class="project__item">
-               <img src="/wp-content/themes/storefront-child/img/project/img-1.png" alt="">
+               <img src="/wp-content/themes/storefront-child/img/project/img-1.jpg" alt="">
                <div class="project__title">добывающий <br> холдинг</div>
             </a>
          </div>
          <div class="col-md-4">
             <a href="#" class="project__item">
-               <img src="/wp-content/themes/storefront-child/img/project/img-2.png" alt="">
+               <img src="/wp-content/themes/storefront-child/img/project/img-2.jpg" alt="">
                <div class="project__title">сельско-хозяйственный <br> холдинг</div>
             </a>
          </div>
          <div class="col-md-4">
             <a href="#" class="project__item">
-               <img src="/wp-content/themes/storefront-child/img/project/img-3.png" alt="">
+               <img src="/wp-content/themes/storefront-child/img/project/img-3.jpg" alt="">
                <div class="project__title">промышленно- <br> производственный <br> холдинг</div>
             </a>
          </div>
