@@ -136,84 +136,207 @@ Template Post Type: post, page, product
     <section class="cycle">
         <div class="container">
             <h2 class="heading">Цикл создания сильных команды</h2>
-            <div class="cycle__wrap">
-                <div class="cycle__message cycle__message_1">
-                    <span>Создать</span>
-                    <span>команду</span>
-                </div>
-                <div class="cycle__message cycle__message_2">
-                    <span>Оценить</span>
-                    <span>команду</span>
-                </div>
-                <div class="cycle__message cycle__message_3">
-                    <span>управлять</span>
-                    <span>командой</span>
-                </div>
-                <div class="cycle__message cycle__message_4 cycle__message_big">
-                    <div>
-                        <span>Развивать себя и</span>
-                        <span>строить карьеру</span>
-                    </div>
-                    <span></span>
-                    <div>
-                        <span>Найти для себя</span>
-                        <span>сильную команду</span>
-                    </div>
-                </div>
-                <div class="cycle__message cycle__message_5">
-                    <span>Трансформировать</span>
-                    <span>бизнеc</span>
-                </div>
-                <div class="cycle__inner">
-                    <div class="cycle__center">
-                        <div class="cycle__number"><span>5</span>/5</div>
-                    </div>
-                    <div class="item">
-                        <svg id="item-1" width="149" height="247" viewBox="0 0 149 247" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z"
-                                  fill="none"/>
-                        </svg>
-                        <span>1</span>
-                    </div>
-                    <div class="item">
-                        <svg id="item-2" width="149" height="247" viewBox="0 0 149 247" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z"
-                                  fill="none"/>
-                        </svg>
-                        <span>2</span>
-                    </div>
-                    <div class="item">
-                        <svg id="item-3" width="149" height="247" viewBox="0 0 149 247" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z"
-                                  fill="none"/>
-                        </svg>
-                        <span>3</span>
-                    </div>
-                    <div class="item">
-                        <svg id="item-4" width="149" height="247" viewBox="0 0 149 247" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z"
-                                  fill="none"/>
-                        </svg>
-                        <span>4</span>
-                    </div>
-                    <div class="item">
-                        <svg id="item-5" width="149" height="247" viewBox="0 0 149 247" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M92.8565 237.686C58.9229 212.742 33.7573 177.695 20.9665 137.568C8.17569 97.4421 8.41641 54.2964 21.6541 14.3153L97.3922 39.3921C89.4502 63.3789 89.3058 89.2643 96.9796 113.338C104.654 137.412 119.752 158.439 140.11 173.404L92.8565 237.686Z"
-                                  fill="none"/>
-                        </svg>
-                        <span>5</span>
+            <?php
+            try {
+                $labels = json_encode(array_filter(explode(";", get_field('cicle_title'))), JSON_THROW_ON_ERROR);
+            } catch (JsonException $e) {
+            }
+            ?>
+            <div class="chart">
+                <div class="chart-wrapper">
+                    <canvas data-labels='<?= $labels ?>'
+                            id="myChart" width="100%"
+                            height="100%">
+                    </canvas>
+                    <div id="tooltip">
+                        <div><p><span id="tooltip-target">1</span>/5</p></div>
                     </div>
                 </div>
             </div>
+
+            <script>
+                const chartNode = document.getElementById('myChart')
+                const ctx = chartNode.getContext('2d');
+                const labels = JSON.parse(chartNode.dataset.labels)
+                const values = new Array(labels.length).fill(1)
+                const data = {
+                    datasets: [{
+                        data: values,
+                        backgroundColor: '#E3EEF7',
+                        hoverBackgroundColor: '#005896',
+                        borderWidth: 1,
+                        borderAlign: 'inner',
+                    }],
+                    labels: labels
+                };
+
+                let chart_config = {
+                    type: 'doughnut',
+                    data: data,
+                    options: {
+                        plugins: {
+                            labels: {
+                                render: function (args) {
+                                    return args.index + 1;
+                                },
+                                fontSize: 36,
+                                fontStyle: 'bold',
+                                fontColor: '#fff',
+                                fontFamily: 'Roboto'
+                            }
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        animation: {
+                            animateScale: true
+                        },
+                        cutoutPercentage: 60,
+                        onHover: debounce(handleHover, 50),
+                        legend: false,
+                        tooltips: {
+                            enabled: false,
+                            custom: customTooltip
+                        }
+                    }
+                }
+
+                const chart = new Chart(ctx, chart_config);
+
+                function customTooltip(tooltipModel) {
+                    // Tooltip Element
+                    let tooltipEl = document.getElementById('chartjs-tooltip');
+
+                    // Create element on first render
+                    if (!tooltipEl) {
+                        tooltipEl = document.createElement('div');
+                        tooltipEl.id = 'chartjs-tooltip';
+                        tooltipEl.innerHTML = '<table></table>';
+                        document.body.appendChild(tooltipEl);
+                    }
+
+                    // Hide if no tooltip
+                    if (tooltipModel.opacity === 0) {
+                        tooltipEl.style.opacity = 0
+                        return;
+                    }
+
+                    // Set caret Position
+                    tooltipEl.classList.remove('above', 'below', 'no-transform');
+                    if (tooltipModel.yAlign) {
+                        tooltipEl.classList.add(tooltipModel.yAlign);
+                    } else {
+                        tooltipEl.classList.add('no-transform')
+                    }
+
+                    function getBody(bodyItem) {
+                        return bodyItem.lines;
+                    }
+
+                    // Set Text
+                    if (tooltipModel.body) {
+                        let titleLines = tooltipModel.title || []
+                        let bodyLines = tooltipModel.body.map(getBody)
+
+                        let innerHtml = '<thead>'
+
+                        titleLines.forEach(function (title) {
+                            innerHtml += '<tr><th>' + title + '</th></tr>'
+                        });
+                        innerHtml += '</thead><tbody>'
+
+                        bodyLines.forEach(function (body, i) {
+                            let normalizedBody = body[0].replace(/[^A-Za-zА-Яа-я\s]/g, '')
+                            let style = 'background: #F4F8FB'
+                            style += '; border-color: #F4F8FB'
+                            style += '; border-width: 2px'
+                            const span = `<span style="${style}"></span>`
+                            innerHtml += `<tr><td>${span} ${normalizedBody}</td></tr>`
+                        });
+                        innerHtml += '</tbody>';
+
+                        let tableRoot = tooltipEl.querySelector('table');
+                        tableRoot.innerHTML = innerHtml;
+                    }
+
+                    // `this` will be the overall tooltip
+                    let position = this._chart.canvas.getBoundingClientRect();
+
+                    // Display, position, and set styles for font
+                    tooltipEl.style.opacity = 1
+                    tooltipEl.style.position = 'absolute'
+                    tooltipEl.style.left = position.left + window.pageXOffset + tooltipModel.caretX + 'px'
+                    tooltipEl.style.top = position.top + window.pageYOffset + tooltipModel.caretY + 'px'
+                    tooltipEl.style.fontFamily = tooltipModel._bodyFontFamily
+                    tooltipEl.style.fontSize = tooltipModel.bodyFontSize + 'px'
+                    tooltipEl.style.fontStyle = tooltipModel._bodyFontStyle
+                    tooltipEl.style.padding = tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px'
+                    tooltipEl.style.pointerEvents = 'none'
+                    tooltipEl.style.color = '#005896'
+                    tooltipEl.style.textTransform = 'uppercase'
+                    tooltipEl.style.zIndex = 2
+                }
+
+                /**
+                 * Handle hover event on chart bar
+                 * @todo show active bar
+                 * @param e
+                 */
+                function handleHover(e) {
+                    let activeElement = chart.getElementAtEvent(e);
+
+                    if (activeElement[0]) {
+                        const index = activeElement[0]._index
+                        // console.log(activeElement[0]._index)
+
+                        changeCenterNumber(index + 1)
+                        showTeamBlock(index)
+                    }
+                }
+
+                /**
+                 * Change number in center of chart
+                 * @param number
+                 */
+                function changeCenterNumber(number) {
+                    const $target = document.getElementById('tooltip-target')
+                    $target.textContent = number
+                }
+
+                /**
+                 * Hide all team block and show selected by id
+                 * @param id
+                 */
+                function showTeamBlock(id) {
+                    const items = document.querySelectorAll('.team')
+                    const $target = document.getElementById(`team-${id}`)
+                    items.forEach((item, _) => {
+                        item.classList.add('d-none')
+                    })
+                    $target.classList.remove('d-none')
+                }
+
+                /**
+                 * Debounce functions
+                 * @param fn
+                 * @param wait
+                 * @return {function(...[*]=)}
+                 */
+                function debounce(fn, wait) {
+                    let timeout
+                    return function (...args) {
+                        const later = () => {
+                            clearTimeout(timeout)
+                            fn.apply(this, args)
+                        }
+                        clearTimeout(timeout)
+                        timeout = setTimeout(later, wait)
+                    }
+                }
+            </script>
         </div>
     </section>
 
-    <section id="team-1" class="team">
+    <section id="team-0" class="team">
         <div class="container">
             <h2 class="team__title">Создать команду</h2>
             <div class="row">
@@ -259,8 +382,7 @@ Template Post Type: post, page, product
         </div>
     </section>
 
-
-    <section id="team-2" class="team">
+    <section id="team-1" class="team d-none">
         <div class="container">
             <h2 class="team__title">Оценить команду</h2>
             <div class="row">
@@ -282,8 +404,7 @@ Template Post Type: post, page, product
         </div>
     </section>
 
-
-    <section id="team-3" class="team">
+    <section id="team-2" class="team d-none">
         <div class="container">
             <h2 class="team__title">Управлять командой</h2>
             <div class="row">
@@ -319,7 +440,7 @@ Template Post Type: post, page, product
         </div>
     </section>
 
-    <section id="team-4" class="team">
+    <section id="team-3" class="team d-none">
         <div class="container">
             <h2 class="team__title">Развивать себя и строить карьеру <span>/</span> Найти для себя сильную команду</h2>
             <div class="row">
@@ -383,8 +504,7 @@ Template Post Type: post, page, product
         </div>
     </section>
 
-
-    <section id="team-5" class="team">
+    <section id="team-4" class="team d-none">
         <div class="container">
             <h2 class="team__title">Трансформировать бизнес</h2>
             <div class="row">
@@ -416,7 +536,6 @@ Template Post Type: post, page, product
             </div>
         </div>
     </section>
-
 
     <section class="project">
         <div class="container">

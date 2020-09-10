@@ -1509,13 +1509,6 @@ p.no-comments .button:hover {
     color: rgba(0, 88, 150, 0.8);
 }
 
-section#team-2,
-section#team-3,
-section#team-4,
-section#team-5 {
-    display: none !important;
-}
-
 .project {
     width: 100%;
     padding: 75px 0;
@@ -3167,6 +3160,45 @@ section#team-5 {
 
 .cases .row > div {
     padding: 0 10px;
+}
+
+.chart .chart-wrapper {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    position: relative;
+}
+
+.chart {
+    margin-top: 100px;
+}
+
+.chart #tooltip span {
+    font-size: 96px !important;
+    font-weight: normal !important;
+}
+
+#myChart {
+    position: relative;
+    z-index: 1;
+}
+
+.chart #tooltip {
+    left: 0;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    padding: 0;
+    opacity: 1 !important;
+    align-items: center;
+    color: #ED002F;
+    font-weight: 300 !important;
+    font-size: 36px !important;
+    line-height: 42px !important;
 }
 
 /*--------------------------------------------------------------
