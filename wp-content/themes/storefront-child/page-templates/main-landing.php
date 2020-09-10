@@ -141,198 +141,201 @@ Template Post Type: post, page, product
                 $labels = json_encode(array_filter(explode(";", get_field('cicle_title'))), JSON_THROW_ON_ERROR);
             } catch (JsonException $e) {
             }
-            ?>
-            <div class="chart">
-                <div class="chart-wrapper">
-                    <canvas data-labels='<?= $labels ?>'
-                            id="myChart" width="100%"
-                            height="100%">
-                    </canvas>
-                    <div id="tooltip">
-                        <div><p><span id="tooltip-target">1</span>/5</p></div>
+            if ($labels): ?>
+                ?>
+                <div class="chart">
+                    <div class="chart-wrapper">
+                        <canvas data-labels='<?= $labels ?>'
+                                id="myChart" width="100%"
+                                height="100%">
+                        </canvas>
+                        <div id="tooltip">
+                            <div><p><span id="tooltip-target">1</span>/5</p></div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <script>
-                const chartNode = document.getElementById('myChart')
-                const ctx = chartNode.getContext('2d');
-                const labels = JSON.parse(chartNode.dataset.labels)
-                const values = new Array(labels.length).fill(1)
-                const data = {
-                    datasets: [{
-                        data: values,
-                        backgroundColor: '#E3EEF7',
-                        hoverBackgroundColor: '#005896',
-                        borderWidth: 1,
-                        borderAlign: 'inner',
-                    }],
-                    labels: labels
-                };
+                <script>
+                    const chartNode = document.getElementById('myChart')
+                    const ctx = chartNode.getContext('2d');
+                    const labels = JSON.parse(chartNode.dataset.labels)
+                    const values = new Array(labels.length).fill(1)
+                    const data = {
+                        datasets: [{
+                            data: values,
+                            backgroundColor: '#E3EEF7',
+                            hoverBackgroundColor: '#005896',
+                            borderWidth: 1,
+                            borderAlign: 'inner',
+                        }],
+                        labels: labels
+                    };
 
-                let chart_config = {
-                    type: 'doughnut',
-                    data: data,
-                    options: {
-                        plugins: {
-                            labels: {
-                                render: function (args) {
-                                    return args.index + 1;
-                                },
-                                fontSize: 36,
-                                fontStyle: 'bold',
-                                fontColor: '#fff',
-                                fontFamily: 'Roboto'
+                    let chart_config = {
+                        type: 'doughnut',
+                        data: data,
+                        options: {
+                            plugins: {
+                                labels: {
+                                    render: function (args) {
+                                        return args.index + 1;
+                                    },
+                                    fontSize: 36,
+                                    fontStyle: 'bold',
+                                    fontColor: '#fff',
+                                    fontFamily: 'Roboto'
+                                }
+                            },
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            animation: {
+                                animateScale: true
+                            },
+                            cutoutPercentage: 60,
+                            onHover: debounce(handleHover, 50),
+                            legend: false,
+                            tooltips: {
+                                enabled: false,
+                                custom: customTooltip
                             }
-                        },
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        animation: {
-                            animateScale: true
-                        },
-                        cutoutPercentage: 60,
-                        onHover: debounce(handleHover, 50),
-                        legend: false,
-                        tooltips: {
-                            enabled: false,
-                            custom: customTooltip
                         }
                     }
-                }
 
-                const chart = new Chart(ctx, chart_config);
+                    const chart = new Chart(ctx, chart_config);
 
-                function customTooltip(tooltipModel) {
-                    // Tooltip Element
-                    let tooltipEl = document.getElementById('chartjs-tooltip');
+                    function customTooltip(tooltipModel) {
+                        // Tooltip Element
+                        let tooltipEl = document.getElementById('chartjs-tooltip');
 
-                    // Create element on first render
-                    if (!tooltipEl) {
-                        tooltipEl = document.createElement('div');
-                        tooltipEl.id = 'chartjs-tooltip';
-                        tooltipEl.innerHTML = '<table></table>';
-                        document.body.appendChild(tooltipEl);
+                        // Create element on first render
+                        if (!tooltipEl) {
+                            tooltipEl = document.createElement('div');
+                            tooltipEl.id = 'chartjs-tooltip';
+                            tooltipEl.innerHTML = '<table></table>';
+                            document.body.appendChild(tooltipEl);
+                        }
+
+                        // Hide if no tooltip
+                        if (tooltipModel.opacity === 0) {
+                            tooltipEl.style.opacity = 0
+                            return;
+                        }
+
+                        // Set caret Position
+                        tooltipEl.classList.remove('above', 'below', 'no-transform');
+                        if (tooltipModel.yAlign) {
+                            tooltipEl.classList.add(tooltipModel.yAlign);
+                        } else {
+                            tooltipEl.classList.add('no-transform')
+                        }
+
+                        function getBody(bodyItem) {
+                            return bodyItem.lines;
+                        }
+
+                        // Set Text
+                        if (tooltipModel.body) {
+                            let titleLines = tooltipModel.title || []
+                            let bodyLines = tooltipModel.body.map(getBody)
+
+                            let innerHtml = '<thead>'
+
+                            titleLines.forEach(function (title) {
+                                innerHtml += '<tr><th>' + title + '</th></tr>'
+                            });
+                            innerHtml += '</thead><tbody>'
+
+                            bodyLines.forEach(function (body, i) {
+                                let normalizedBody = body[0].replace(/[^A-Za-zА-Яа-я\s]/g, '')
+                                let style = 'background: #F4F8FB'
+                                style += '; border-color: #F4F8FB'
+                                style += '; border-width: 2px'
+                                const span = `<span style="${style}"></span>`
+                                innerHtml += `<tr><td>${span} ${normalizedBody}</td></tr>`
+                            });
+                            innerHtml += '</tbody>';
+
+                            let tableRoot = tooltipEl.querySelector('table');
+                            tableRoot.innerHTML = innerHtml;
+                        }
+
+                        // `this` will be the overall tooltip
+                        let position = this._chart.canvas.getBoundingClientRect();
+
+                        // Display, position, and set styles for font
+                        tooltipEl.style.opacity = 1
+                        tooltipEl.style.position = 'absolute'
+                        tooltipEl.style.left = position.left + window.pageXOffset + tooltipModel.caretX + 'px'
+                        tooltipEl.style.top = position.top + window.pageYOffset + tooltipModel.caretY + 'px'
+                        tooltipEl.style.fontFamily = tooltipModel._bodyFontFamily
+                        tooltipEl.style.fontSize = tooltipModel.bodyFontSize + 'px'
+                        tooltipEl.style.fontStyle = tooltipModel._bodyFontStyle
+                        tooltipEl.style.padding = tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px'
+                        tooltipEl.style.pointerEvents = 'none'
+                        tooltipEl.style.color = '#005896'
+                        tooltipEl.style.textTransform = 'uppercase'
+                        tooltipEl.style.zIndex = 2
                     }
 
-                    // Hide if no tooltip
-                    if (tooltipModel.opacity === 0) {
-                        tooltipEl.style.opacity = 0
-                        return;
+                    /**
+                     * Handle hover event on chart bar
+                     * @todo show active bar
+                     * @param e
+                     */
+                    function handleHover(e) {
+                        let activeElement = chart.getElementAtEvent(e);
+
+                        if (activeElement[0]) {
+                            const index = activeElement[0]._index
+                            // console.log(activeElement[0]._index)
+
+                            changeCenterNumber(index + 1)
+                            showTeamBlock(index)
+                        }
                     }
 
-                    // Set caret Position
-                    tooltipEl.classList.remove('above', 'below', 'no-transform');
-                    if (tooltipModel.yAlign) {
-                        tooltipEl.classList.add(tooltipModel.yAlign);
-                    } else {
-                        tooltipEl.classList.add('no-transform')
+                    /**
+                     * Change number in center of chart
+                     * @param number
+                     */
+                    function changeCenterNumber(number) {
+                        const $target = document.getElementById('tooltip-target')
+                        $target.textContent = number
                     }
 
-                    function getBody(bodyItem) {
-                        return bodyItem.lines;
+                    /**
+                     * Hide all team block and show selected by id
+                     * @param id
+                     */
+                    function showTeamBlock(id) {
+                        const items = document.querySelectorAll('.team')
+                        const $target = document.getElementById(`team-${id}`)
+                        items.forEach((item, _) => {
+                            item.classList.add('d-none')
+                        })
+                        $target.classList.remove('d-none')
                     }
 
-                    // Set Text
-                    if (tooltipModel.body) {
-                        let titleLines = tooltipModel.title || []
-                        let bodyLines = tooltipModel.body.map(getBody)
-
-                        let innerHtml = '<thead>'
-
-                        titleLines.forEach(function (title) {
-                            innerHtml += '<tr><th>' + title + '</th></tr>'
-                        });
-                        innerHtml += '</thead><tbody>'
-
-                        bodyLines.forEach(function (body, i) {
-                            let normalizedBody = body[0].replace(/[^A-Za-zА-Яа-я\s]/g, '')
-                            let style = 'background: #F4F8FB'
-                            style += '; border-color: #F4F8FB'
-                            style += '; border-width: 2px'
-                            const span = `<span style="${style}"></span>`
-                            innerHtml += `<tr><td>${span} ${normalizedBody}</td></tr>`
-                        });
-                        innerHtml += '</tbody>';
-
-                        let tableRoot = tooltipEl.querySelector('table');
-                        tableRoot.innerHTML = innerHtml;
-                    }
-
-                    // `this` will be the overall tooltip
-                    let position = this._chart.canvas.getBoundingClientRect();
-
-                    // Display, position, and set styles for font
-                    tooltipEl.style.opacity = 1
-                    tooltipEl.style.position = 'absolute'
-                    tooltipEl.style.left = position.left + window.pageXOffset + tooltipModel.caretX + 'px'
-                    tooltipEl.style.top = position.top + window.pageYOffset + tooltipModel.caretY + 'px'
-                    tooltipEl.style.fontFamily = tooltipModel._bodyFontFamily
-                    tooltipEl.style.fontSize = tooltipModel.bodyFontSize + 'px'
-                    tooltipEl.style.fontStyle = tooltipModel._bodyFontStyle
-                    tooltipEl.style.padding = tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px'
-                    tooltipEl.style.pointerEvents = 'none'
-                    tooltipEl.style.color = '#005896'
-                    tooltipEl.style.textTransform = 'uppercase'
-                    tooltipEl.style.zIndex = 2
-                }
-
-                /**
-                 * Handle hover event on chart bar
-                 * @todo show active bar
-                 * @param e
-                 */
-                function handleHover(e) {
-                    let activeElement = chart.getElementAtEvent(e);
-
-                    if (activeElement[0]) {
-                        const index = activeElement[0]._index
-                        // console.log(activeElement[0]._index)
-
-                        changeCenterNumber(index + 1)
-                        showTeamBlock(index)
-                    }
-                }
-
-                /**
-                 * Change number in center of chart
-                 * @param number
-                 */
-                function changeCenterNumber(number) {
-                    const $target = document.getElementById('tooltip-target')
-                    $target.textContent = number
-                }
-
-                /**
-                 * Hide all team block and show selected by id
-                 * @param id
-                 */
-                function showTeamBlock(id) {
-                    const items = document.querySelectorAll('.team')
-                    const $target = document.getElementById(`team-${id}`)
-                    items.forEach((item, _) => {
-                        item.classList.add('d-none')
-                    })
-                    $target.classList.remove('d-none')
-                }
-
-                /**
-                 * Debounce functions
-                 * @param fn
-                 * @param wait
-                 * @return {function(...[*]=)}
-                 */
-                function debounce(fn, wait) {
-                    let timeout
-                    return function (...args) {
-                        const later = () => {
+                    /**
+                     * Debounce functions
+                     * @param fn
+                     * @param wait
+                     * @return {function(...[*]=)}
+                     */
+                    function debounce(fn, wait) {
+                        let timeout
+                        return function (...args) {
+                            const later = () => {
+                                clearTimeout(timeout)
+                                fn.apply(this, args)
+                            }
                             clearTimeout(timeout)
-                            fn.apply(this, args)
+                            timeout = setTimeout(later, wait)
                         }
-                        clearTimeout(timeout)
-                        timeout = setTimeout(later, wait)
                     }
-                }
-            </script>
+                </script>
+
+            <?php endif; ?>
         </div>
     </section>
 
