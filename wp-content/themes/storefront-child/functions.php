@@ -613,9 +613,9 @@ function get_online_products($cat_id)
         <div class="container">
             <div class="row">
                 <?php foreach ($onlineProducts as $onlineProduct):
-                    $postId = $onlineProduct->ID;
-                    $link = get_field('landing-link', $postId);
-                    $featured_image = get_the_post_thumbnail($postId);
+                    $post_id = $onlineProduct->ID;
+                    $link = get_field('landing-link', $post_id);
+                    $featured_image = get_the_post_thumbnail($post_id);
                     ?>
                     <div class="col-md-12">
                         <div class="product-item">
@@ -686,7 +686,54 @@ function wp_get_menu_array($current_menu)
  * @param $cat_id
  * @return mixed
  */
-function catSlug($cat_id) {
-    $cat_id = (int) $cat_id;
+function catSlug($cat_id)
+{
+    $cat_id = (int)$cat_id;
     return get_category($cat_id)->slug;
+}
+
+function get_team($cat_id)
+{
+    $args = array(
+        'category' => $cat_id,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => -1
+    );
+    $team_posts = get_posts($args);
+    ob_start();
+    if ($team_posts): ?>
+        <section class="specialists">
+            <div class="container">
+                <h2 class="heading">Наша команда</h2>
+                <div class="row">
+                    <?php
+                    foreach ($team_posts as $team_post):
+                        $post_id = $team_post->ID;
+                        $featured_image = get_the_post_thumbnail($post_id);
+                        $content = $team_post->post_content;
+                        $content = apply_filters('the_content', $content);
+                        $content = str_replace(']]>', ']]&gt;', $content);
+                        ?>
+                        <div class="col-md-3">
+                            <div class="specialists__card">
+                                <a href="#" class="specialists__card-img">
+                                    <?= $featured_image ?>
+                                </a>
+                                <div class="specialists__card-title"><?= $team_post->post_title ?></div>
+                                <div class="specialists__card-descr">
+                                    <?= get_field('position', $post_id) ?>
+                                </div>
+                                <a class="specialists__card-link" data-title="<?= $team_post->post_title ?>"
+                                   data-info='<?= $content ?>' href="#teamModal">Подробнее</a>
+                            </div>
+                        </div>
+                    <?php
+                    endforeach; ?>
+                </div>
+            </div>
+        </section>
+    <?php
+    endif;
+    return ob_get_clean();
 }
