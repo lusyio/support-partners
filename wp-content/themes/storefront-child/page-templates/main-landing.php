@@ -142,7 +142,6 @@ Template Post Type: post, page, product
             } catch (JsonException $e) {
             }
             if ($labels): ?>
-                ?>
                 <div class="chart">
                     <div class="chart-wrapper">
                         <canvas data-labels='<?= $labels ?>'
