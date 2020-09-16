@@ -752,11 +752,10 @@ function getCasesForMain($cat_id)
                     <div class="row">
                         <?php foreach ($cases as $case):
                             $case_id = $case->ID;
-                            $featured_image = get_the_post_thumbnail($case_id);
+                            $featured_image = get_the_post_thumbnail_url($case_id);
                             ?>
                             <div class="col-md-4">
-                                <a href="<?= get_post_permalink($case_id) ?>" class="project__item">
-                                    <?= $featured_image ?>
+                                <a href="<?= get_post_permalink($case_id) ?>" class="project__item" style="background-image: url(<?= $featured_image ?>)">
                                     <div class="project__title"><?= $case->post_title ?></div>
                                 </a>
                             </div>
@@ -767,17 +766,29 @@ function getCasesForMain($cat_id)
                         <div class="swiper-wrapper">
                             <?php foreach ($cases as $case):
                                 $case_id = $case->ID;
-                                $featured_image = get_the_post_thumbnail($case_id);
+                                $featured_image = get_the_post_thumbnail_url($case_id);
                                 ?>
                                 <div class="swiper-slide">
-                                    <a href="<?= get_post_permalink($case_id) ?>" class="project__item">
-                                        <?= $featured_image ?>
+                                    <a href="<?= get_post_permalink($case_id) ?>" class="project__item" style="background-image: url(<?= $featured_image ?>)">
                                         <div class="project__title"><?= $case->post_title ?></div>
                                     </a>
                                 </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
+                <div class="position-relative main-project-slider__control">
+                    <div class="swiper-button-prev">
+                        <svg class="icon">
+                            <use xlink:href="#arrow"></use>
+                        </svg>
+                    </div>
+                    <div class="swiper-button-next">
+                        <svg class="icon">
+                            <use xlink:href="#arrow"></use>
+                        </svg>
+                    </div>
+                </div>
+
                 <?php endif; ?>
             </div>
         </section>

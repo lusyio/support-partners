@@ -1633,7 +1633,9 @@ p.no-comments .button:hover {
     position: relative;
     display: block;
     width: 100%;
-    min-height: 350px;
+    height: 350px;
+    width: 350px;
+    background-size: cover;
 }
 
 .project__item::before {
@@ -1644,6 +1646,7 @@ p.no-comments .button:hover {
     width: 100%;
     height: 100%;
     background: rgba(0, 88, 150, 0.8);
+    transition: all 0.3s ease;
 }
 
 .project__title {
@@ -1653,9 +1656,16 @@ p.no-comments .button:hover {
     left: 50%;
     transform: translate(-50%);
     font-size: 20px;
+    line-height: 24px;
     text-align: center;
     text-transform: uppercase;
     color: #ffffff;
+    font-weight: 500;
+    max-width: 200px;
+}
+
+.project__item:hover:before {
+    background: rgba(0, 75, 128, 0.85);
 }
 
 .clients {
@@ -3243,7 +3253,7 @@ p.no-comments .button:hover {
     transform: rotate(180deg);
 }
 
-.main-slider .main-slider__control > div {
+.main-slider .main-slider__control > div, .main-project-slider__control {
     width: 100%;
     max-width: 255px;
     background: #ED002F;
@@ -3252,11 +3262,50 @@ p.no-comments .button:hover {
     justify-content: space-between;
 }
 
+.main-project-slider__control {
+    height: 50px;
+    width: 220px;
+    margin: auto;
+    margin-top: -25px;
+    z-index: 2;
+}
+
+.main-project-slider__control svg {
+    width: 40px;
+    height: 5px;
+}
+
 .main-slider .main-slider__control .main-slider__btns {
     display: flex;
     justify-content: space-between;
     max-width: 120px;
     width: 100%;
+}
+
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev, .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+    background-image: none !important;
+}
+
+.main-project-slider__control .swiper-button-next, .main-project-slider__control .swiper-button-prev svg {
+    height: 100%;
+    fill: #fff;
+}
+
+.main-project-slider__control .swiper-button-next, .main-project-slider__control .swiper-button-prev {
+    position: relative !important;
+    top: auto !important;
+    width: auto !important;
+    height: auto !important;
+    margin-top: 0px !important;
+    transition: all 0.3s ease;
+}
+
+.main-project-slider__control .swiper-button-next:focus, .main-project-slider__control .swiper-button-prev:focus {
+    outline: none;
+}
+
+.main-project-slider__control .swiper-button-prev {
+    transform: rotate(180deg);
 }
 
 .carousel-control svg {
