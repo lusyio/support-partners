@@ -8,7 +8,7 @@
         </div>
         <div class="works__item-box">
             <div class="works__item-descr">
-                <?= $post->post_content ?>
+                <?= get_field('short_descr') ?>
             </div>
             <a href="<?= get_post_permalink($post->ID) ?>" class="works__item-link">
                 Узнать больше

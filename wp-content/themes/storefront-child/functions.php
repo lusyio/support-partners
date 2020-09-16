@@ -25,13 +25,7 @@ function sf_child_theme_dequeue_style()
  */
 function enqueue_child_theme_styles()
 {
-// load bootstrap css
     wp_enqueue_style('bootstrap-css', get_stylesheet_directory_uri() . '/inc/assets/css/bootstrap.min.css', false, NULL, 'all');
-// fontawesome cdn
-    wp_enqueue_style('wp-bootstrap-pro-fontawesome-cdn', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css');
-// load bootstrap css
-// load AItheme styles
-// load WP Bootstrap Starter styles
     wp_enqueue_style('wp-bootstrap-starter-style', get_stylesheet_uri(), array('theme'));
     if (get_theme_mod('theme_option_setting') && get_theme_mod('theme_option_setting') !== 'default') {
         wp_enqueue_style('wp-bootstrap-starter-' . get_theme_mod('theme_option_setting'), get_template_directory_uri() . '/inc/assets/css/presets/theme-option/' . get_theme_mod('theme_option_setting') . '.css', false, '');
@@ -40,19 +34,21 @@ function enqueue_child_theme_styles()
 
     wp_enqueue_script('jquery');
 
-    // Internet Explorer HTML5 support
     wp_enqueue_script('html5hiv', get_template_directory_uri() . '/inc/assets/js/html5.js', array(), '3.7.0', false);
     wp_script_add_data('html5hiv', 'conditional', 'lt IE 9');
 
-// load swiper js and css
-    wp_enqueue_script('wp-swiper-js', get_stylesheet_directory_uri() . '/inc/assets/js/swiper.min.js', array(), '', true);
-    wp_enqueue_style('wp-swiper-js', get_stylesheet_directory_uri() . '/inc/assets/css/swiper.min.css', array(), '', true);
+    wp_enqueue_script('chart-js', get_stylesheet_directory_uri() . '/inc/assets/js/Chart.bundle.min.js', array(), '1.0', false);
+    wp_enqueue_script('chartjs-plugin-labels', get_stylesheet_directory_uri() . '/inc/assets/js/chartjs-plugin-labels.min.js', array(), '1.0', false);
+    wp_enqueue_style('chart-css', get_stylesheet_directory_uri() . '/inc/assets/css/Chart.min.css', array(), '1.0', false);
 
-// load bootstrap js
-    wp_enqueue_script('wp-bootstrap-starter-popper', get_stylesheet_directory_uri() . '/inc/assets/js/popper.min.js', array(), '', true);
-    wp_enqueue_script('wp-bootstrap-starter-bootstrapjs', get_stylesheet_directory_uri() . '/inc/assets/js/bootstrap.min.js', array(), '', true);
-    wp_enqueue_script('wp-bootstrap-starter-themejs', get_stylesheet_directory_uri() . '/inc/assets/js/theme-script.min.js', array(), '', true);
-    wp_enqueue_script('wp-bootstrap-starter-skip-link-focus-fix', get_stylesheet_directory_uri() . '/inc/assets/js/skip-link-focus-fix.min.js', array(), '', true);
+    wp_enqueue_script('swiper-js', get_stylesheet_directory_uri() . '/inc/assets/js/swiper.min.js', array(), '1.0', false);
+    wp_enqueue_style('swiper-css', get_stylesheet_directory_uri() . '/inc/assets/css/swiper.min.css', array(), '1.0', false);
+
+    // load bootstrap js
+    wp_enqueue_script('wp-bootstrap-starter-popper', get_stylesheet_directory_uri() . '/inc/assets/js/popper.min.js', array(), '1.0', true);
+    wp_enqueue_script('wp-bootstrap-starter-bootstrapjs', get_stylesheet_directory_uri() . '/inc/assets/js/bootstrap.min.js', array(), '1.0', true);
+    wp_enqueue_script('wp-bootstrap-starter-themejs', get_stylesheet_directory_uri() . '/inc/assets/js/theme-script.min.js', array(), '1.0', true);
+    wp_enqueue_script('wp-bootstrap-starter-skip-link-focus-fix', get_stylesheet_directory_uri() . '/inc/assets/js/skip-link-focus-fix.min.js', array(), '1.0', true);
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
@@ -120,7 +116,7 @@ if ('Отключаем Emojis в WordPress') {
      * @param array $plugins
      * @return   array             Difference betwen the two arrays
      */
-    function disable_emojis_tinymce($plugins)
+    function disable_emojis_tinymce(array $plugins)
     {
         if (is_array($plugins)) {
             return array_diff($plugins, array('wpemoji'));
@@ -136,7 +132,7 @@ if ('Отключаем Emojis в WordPress') {
      * @param string $relation_type The relation type the URLs are printed for.
      * @return array                 Difference betwen the two arrays.
      */
-    function disable_emojis_remove_dns_prefetch($urls, $relation_type)
+    function disable_emojis_remove_dns_prefetch(array $urls, string $relation_type)
     {
 
         if ('dns-prefetch' === $relation_type) {
@@ -327,9 +323,7 @@ function jk_related_products_args($args)
 }
 
 /**
- * <<<<<<< HEAD
  * get post gallery images with info
- *
  * @param null $postvar
  * @param int $pos
  * @return array
@@ -482,7 +476,6 @@ function get_activities($cat_id)
  * Render services posts by category id
  * @param $cat_id
  * @return false|string
- * @todo Выводить актуальные вакансии
  */
 function get_services($cat_id)
 {
@@ -539,9 +532,62 @@ function get_services($cat_id)
                 </div>
             </div>
         </div>
-    <?php endforeach;
+    <?php endforeach; ?>
+        <?php $vacancies = array_filter(explode(";", get_field('vacancies', $postId))); ?>
+        <?= get_vacancies($vacancies) ?>
+    <?php
     endforeach;
     return ob_get_clean();
+}
+
+/**
+ * Render $vacancies by array of slugs
+ * @param $vacancies
+ * @return bool|false|string
+ */
+function get_vacancies($vacancies)
+{
+    if (count($vacancies)):
+        ob_start(); ?>
+        <section class="vacancies">
+            <div class="container">
+                <h2 class="vacancies__title">Актуальные вакансии</h2>
+                <div class="row">
+                    <?php
+                    foreach ($vacancies as $vacancy_slug):
+                        $args = array(
+                            'name' => $vacancy_slug,
+                            'post_type' => 'post',
+                            'post_status' => 'publish',
+                            'numberposts' => 1
+                        );
+                        $vacancy = get_posts($args);
+                        if ($vacancy_slug):
+                            ?>
+                            <div class="col-md-3">
+                                <a href="<?= get_post_permalink($vacancy[0]->ID) ?>" class="vacancies__item">
+                                    <div class="vacancies__item-title"><?= $vacancy[0]->post_title ?></div>
+                                    <svg class="icon">
+                                        <use xlink:href="#help"></use>
+                                    </svg>
+                                    <div class="vacancies__item-wrap">
+                                        Подробнее
+                                        <svg class="icon">
+                                            <use xlink:href="#arrow"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php
+                        endif;
+                    endforeach; ?>
+                </div>
+            </div>
+        </section>
+        <?php
+        return ob_get_clean();
+    endif;
+    return false;
 }
 
 /**
@@ -563,9 +609,9 @@ function get_online_products($cat_id)
         <div class="container">
             <div class="row">
                 <?php foreach ($onlineProducts as $onlineProduct):
-                    $postId = $onlineProduct->ID;
-                    $link = get_field('landing-link', $postId);
-                    $featured_image = get_the_post_thumbnail($postId);
+                    $post_id = $onlineProduct->ID;
+                    $link = get_field('landing-link', $post_id);
+                    $featured_image = get_the_post_thumbnail($post_id);
                     ?>
                     <div class="col-md-12">
                         <div class="product-item">
@@ -598,4 +644,446 @@ function get_online_products($cat_id)
     </div>
     <?php
     return ob_get_clean();
+}
+
+/**
+ * normalize menu
+ * @param $current_menu
+ * @return array
+ */
+function wp_get_menu_array($current_menu)
+{
+    $array_menu = wp_get_nav_menu_items($current_menu);
+    $menu = array();
+    foreach ($array_menu as $m) {
+        if (empty($m->menu_item_parent)) {
+            $menu[$m->ID] = array();
+            $menu[$m->ID]['ID'] = $m->ID;
+            $menu[$m->ID]['title'] = $m->title;
+            $menu[$m->ID]['url'] = $m->url;
+            $menu[$m->ID]['children'] = array();
+        }
+    }
+    $submenu = array();
+    foreach ($array_menu as $m) {
+        if ($m->menu_item_parent) {
+            $submenu[$m->ID] = array();
+            $submenu[$m->ID]['ID'] = $m->ID;
+            $submenu[$m->ID]['title'] = $m->title;
+            $submenu[$m->ID]['url'] = $m->url;
+            $menu[$m->menu_item_parent]['children'][$m->ID] = $submenu[$m->ID];
+        }
+    }
+    return $menu;
+}
+
+/**
+ * Get category slug by id
+ * @param $cat_id
+ * @return mixed
+ */
+function catSlug($cat_id)
+{
+    $cat_id = (int)$cat_id;
+    return get_category($cat_id)->slug;
+}
+
+function get_team($cat_id)
+{
+    $args = array(
+        'category' => $cat_id,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => -1
+    );
+    $team_posts = get_posts($args);
+    ob_start();
+    if ($team_posts): ?>
+        <section class="specialists">
+            <div class="container">
+                <h2 class="heading">Наша команда</h2>
+                <div class="row">
+                    <?php
+                    foreach ($team_posts as $team_post):
+                        $post_id = $team_post->ID;
+                        $featured_image = get_the_post_thumbnail($post_id);
+                        $content = $team_post->post_content;
+                        $content = apply_filters('the_content', $content);
+                        $content = str_replace(']]>', ']]&gt;', $content);
+                        ?>
+                        <div class="col-md-3">
+                            <div class="specialists__card">
+                                <div class="specialists__card-img">
+                                    <?= $featured_image ?>
+                                </div>
+                                <div class="specialists__card-title"><?= $team_post->post_title ?></div>
+                                <div class="specialists__card-descr">
+                                    <?= get_field('position', $post_id) ?>
+                                </div>
+                                <a class="specialists__card-link" data-title="<?= $team_post->post_title ?>"
+                                   data-info='<?= $content ?>' href="#teamModal">Подробнее</a>
+                            </div>
+                        </div>
+                    <?php
+                    endforeach; ?>
+                </div>
+            </div>
+        </section>
+    <?php
+    endif;
+    return ob_get_clean();
+}
+
+function getCasesForMain($cat_id)
+{
+    $args = array(
+        'category' => $cat_id,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => 9
+    );
+    $cases = get_posts($args);
+    ob_start();
+    if ($cases): ?>
+        <section class="project">
+            <div class="container">
+                <h2 class="heading">Кейсы и проекты</h2>
+                <?php if (count($cases) <= 3): ?>
+                    <div class="row">
+                        <?php foreach ($cases as $case):
+                            $case_id = $case->ID;
+                            $featured_image = get_the_post_thumbnail($case_id);
+                            ?>
+                            <div class="col-md-4">
+                                <a href="<?= get_post_permalink($case_id) ?>" class="project__item">
+                                    <?= $featured_image ?>
+                                    <div class="project__title"><?= $case->post_title ?></div>
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php else: ?>
+                    <div class="swiper-container swiper-container-case">
+                        <div class="swiper-wrapper">
+                            <?php foreach ($cases as $case):
+                                $case_id = $case->ID;
+                                $featured_image = get_the_post_thumbnail($case_id);
+                                ?>
+                                <div class="swiper-slide">
+                                    <a href="<?= get_post_permalink($case_id) ?>" class="project__item">
+                                        <?= $featured_image ?>
+                                        <div class="project__title"><?= $case->post_title ?></div>
+                                    </a>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </section>
+    <?php endif;
+    return ob_get_clean();
+}
+
+/**
+ * Render cycle with js scripts by cycle category id
+ * @param $cat_id
+ * @return false|string
+ */
+function getCycle($cat_id)
+{
+    $args = array('parent' => $cat_id);
+    $parent = get_categories($args);
+    $childrens_titles = [];
+    $childrens = [];
+    foreach ($parent as $child) {
+        $childrens_titles[] = $child->name;
+        $childrens[] = $child;
+    }
+    $childrens_titles_JSON = '';
+    try {
+        $childrens_titles_JSON = json_encode($childrens_titles, JSON_THROW_ON_ERROR);
+    } catch (JsonException $e) {
+    }
+    ob_start(); ?>
+    <section class="cycle">
+        <div class="container">
+            <h2 class="heading">Цикл создания сильных команды</h2>
+            <?php if ($childrens_titles): ?>
+                <div class="chart">
+                    <div class="chart-wrapper">
+                        <canvas data-labels='<?= $childrens_titles_JSON ?>'
+                                id="myChart" width="100%"
+                                height="100%">
+                        </canvas>
+                        <div id="tooltip">
+                            <div><p><span id="tooltip-target">1</span>/<?= count($childrens) ?></p></div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </section>
+    <?php
+    foreach ($childrens as $key => $children):
+        $child_cat_id = $children->term_id;
+        getCycleChildren($child_cat_id, $key);
+    endforeach;
+    ?>
+    <script>
+        const chartNode = document.getElementById('myChart')
+        const ctx = chartNode.getContext('2d');
+        const labels = JSON.parse(chartNode.dataset.labels)
+        const values = new Array(labels.length).fill(1)
+        const data = {
+            datasets: [{
+                data: values,
+                backgroundColor: '#E3EEF7',
+                hoverBackgroundColor: '#005896',
+                borderWidth: 1,
+                borderAlign: 'inner',
+            }],
+            labels: labels
+        };
+
+        let chart_config = {
+            type: 'doughnut',
+            data: data,
+            options: {
+                plugins: {
+                    labels: {
+                        render: function (args) {
+                            return args.index + 1;
+                        },
+                        fontSize: 36,
+                        fontStyle: 'bold',
+                        fontColor: '#fff',
+                        fontFamily: 'Roboto'
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    animateScale: true
+                },
+                cutoutPercentage: 60,
+                onHover: debounce(handleHover, 50),
+                legend: false,
+                tooltips: {
+                    enabled: false,
+                    custom: customTooltip
+                }
+            }
+        }
+
+        const chart = new Chart(ctx, chart_config);
+
+        function customTooltip(tooltipModel) {
+            // Tooltip Element
+            let tooltipEl = document.getElementById('chartjs-tooltip');
+
+            // Create element on first render
+            if (!tooltipEl) {
+                tooltipEl = document.createElement('div');
+                tooltipEl.id = 'chartjs-tooltip';
+                tooltipEl.innerHTML = '<table></table>';
+                document.body.appendChild(tooltipEl);
+            }
+
+            // Hide if no tooltip
+            if (tooltipModel.opacity === 0) {
+                tooltipEl.style.opacity = 0
+                return;
+            }
+
+            // Set caret Position
+            tooltipEl.classList.remove('above', 'below', 'no-transform');
+            if (tooltipModel.yAlign) {
+                tooltipEl.classList.add(tooltipModel.yAlign);
+            } else {
+                tooltipEl.classList.add('no-transform')
+            }
+
+            function getBody(bodyItem) {
+                return bodyItem.lines;
+            }
+
+            // Set Text
+            if (tooltipModel.body) {
+                let titleLines = tooltipModel.title || []
+                let bodyLines = tooltipModel.body.map(getBody)
+
+                let innerHtml = '<thead>'
+
+                titleLines.forEach(function (title) {
+                    innerHtml += '<tr><th>' + title + '</th></tr>'
+                });
+                innerHtml += '</thead><tbody>'
+
+                bodyLines.forEach(function (body, i) {
+                    let normalizedBody = body[0].replace(/[^A-Za-zА-Яа-я\s]/g, '')
+                    let style = 'background: #F4F8FB'
+                    style += '; border-color: #F4F8FB'
+                    style += '; border-width: 2px'
+                    const span = `<span style="${style}"></span>`
+                    innerHtml += `<tr><td>${span} ${normalizedBody}</td></tr>`
+                });
+                innerHtml += '</tbody>';
+
+                let tableRoot = tooltipEl.querySelector('table');
+                tableRoot.innerHTML = innerHtml;
+            }
+
+            // `this` will be the overall tooltip
+            let position = this._chart.canvas.getBoundingClientRect();
+
+            // Display, position, and set styles for font
+            tooltipEl.style.opacity = 1
+            tooltipEl.style.position = 'absolute'
+            tooltipEl.style.left = position.left + window.pageXOffset + tooltipModel.caretX + 'px'
+            tooltipEl.style.top = position.top + window.pageYOffset + tooltipModel.caretY + 'px'
+            tooltipEl.style.fontFamily = tooltipModel._bodyFontFamily
+            tooltipEl.style.fontSize = tooltipModel.bodyFontSize + 'px'
+            tooltipEl.style.fontStyle = tooltipModel._bodyFontStyle
+            tooltipEl.style.padding = tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px'
+            tooltipEl.style.pointerEvents = 'none'
+            tooltipEl.style.color = '#005896'
+            tooltipEl.style.textTransform = 'uppercase'
+            tooltipEl.style.zIndex = 2
+        }
+
+        /**
+         * Handle hover event on chart bar
+         * @todo show active bar
+         * @param e
+         */
+        function handleHover(e) {
+            let activeElement = chart.getElementAtEvent(e);
+
+            if (activeElement[0]) {
+                const index = activeElement[0]._index
+                // console.log(activeElement[0]._index)
+
+                changeCenterNumber(index + 1)
+                showTeamBlock(index)
+            }
+        }
+
+        /**
+         * Change number in center of chart
+         * @param number
+         */
+        function changeCenterNumber(number) {
+            const $target = document.getElementById('tooltip-target')
+            $target.textContent = number
+        }
+
+        /**
+         * Hide all team block and show selected by id
+         * @param id
+         */
+        function showTeamBlock(id) {
+            const items = document.querySelectorAll('.team')
+            const $target = document.getElementById(`team-${id}`)
+            items.forEach((item, _) => {
+                item.classList.add('d-none')
+            })
+            $target.classList.remove('d-none')
+        }
+
+        /**
+         * Debounce functions
+         * @param fn
+         * @param wait
+         * @return {function(...[*]=)}
+         */
+        function debounce(fn, wait) {
+            let timeout
+            return function (...args) {
+                const later = () => {
+                    clearTimeout(timeout)
+                    fn.apply(this, args)
+                }
+                clearTimeout(timeout)
+                timeout = setTimeout(later, wait)
+            }
+        }
+    </script>
+    <?php
+    return ob_get_clean();
+}
+
+/**
+ * Return children posts for cycle
+ * @param $child_cat_id
+ * @param $key
+ */
+function getCycleChildren($child_cat_id, $key)
+{
+    $args = array(
+        'category' => $child_cat_id,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => 6
+    );
+    $children_posts = get_posts($args);
+    ?>
+    <section id="team-<?= $key ?>" class="team <?= $key !== 0 ? 'd-none' : '' ?>">
+        <div class="container">
+            <h2 class="team__title">Создать команду</h2>
+            <div class="row">
+                <?php foreach ($children_posts as $children_post):
+                    $children_post_id = $children_post->ID;
+                    $card_type = get_field('card_type', $children_post_id);
+                    $card_desc = get_field('card_desc', $children_post_id);
+                    $card_color = get_field('card_color', $children_post_id);
+                    $card_img = get_field('card_img', $children_post_id);
+                    $landing_link = get_field('landing-link', $children_post_id);
+                    if ($card_type === 'big'):
+                        ?>
+                        <div class="col-md-4">
+                            <div class="team__item <?= $card_color === 'white' ? 'team__item_white' : '' ?>">
+                                <div class="team__item-title"><?= $children_post->post_title ?></div>
+                                <?php if ($card_desc): ?>
+                                    <div class="team__item-descr"><?= $card_desc ?></div>
+                                <?php endif; ?>
+                                <?php if ($card_img): ?>
+                                <img class="team__item-img"
+                                     src="<?= $card_img ?>"
+                                     alt="<?= $children_post->post_title ?>">
+                                <?php endif; ?>
+                                <a class="team__item-link"
+                                   href="<?= $landing_link ?: get_permalink($children_post_id) ?>">
+                                    Подробнее
+                                    <svg class="icon">
+                                        <use xlink:href="#arrow"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <div class="col-md-4">
+                            <div class="team__item team__item_small team__item_white">
+                                <div class="team__item-box">
+                                    <div class="team__item-title team__item-title_small"><?= $children_post->post_title ?></div>
+                                    <?php if ($card_desc): ?>
+                                        <div class="team__item-descr team__item-descr_small"><?= $card_desc ?></div>
+                                    <?php endif; ?>
+                                    <a class="team__item-link team__item-link_blue"
+                                       href="<?= $landing_link ?: get_permalink($children_post_id) ?>">
+                                        Подробнее
+                                        <svg class="icon">
+                                            <use xlink:href="#arrow"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    endif;
+                endforeach; ?>
+            </div>
+        </div>
+    </section>
+    <?php
 }

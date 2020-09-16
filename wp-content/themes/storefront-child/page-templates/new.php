@@ -8,44 +8,29 @@ Template Post Type: post, page, product
 <?php get_header(); ?>
 
 
-<div class="container">
-   <ul class="breadcrumb-primary">
-      <li>
-         <a class="breadcrumb-primary__link" href="#">Главная</a>
-      </li>
-      <li class="breadcrumb-primary__separator">/</li>
-      <li>
-         <a class="breadcrumb-primary__link breadcrumb-primary__link_active" href="#">Проект 1</a>
-      </li>
-      <li class="breadcrumb-primary__separator">/</li>
-      <li>
-         <a class="breadcrumb-primary__link breadcrumb-primary__link_active" href="#">Кейсы</a>
-      </li>
-   </ul>
-</div>
+    <div class="container">
+        <ul class="breadcrumb-primary">
+            <li>
+                <a class="breadcrumb-primary__link" href="#">Главная</a>
+            </li>
+            <li class="breadcrumb-primary__separator">/</li>
+            <li>
+                <a class="breadcrumb-primary__link breadcrumb-primary__link_active" href="#">Проект 1</a>
+            </li>
+            <li class="breadcrumb-primary__separator">/</li>
+            <li>
+                <a class="breadcrumb-primary__link breadcrumb-primary__link_active" href="#">Кейсы</a>
+            </li>
+        </ul>
+    </div>
 
-<div class="new-post">
-   <div class="container">
-      <img src="/wp-content/themes/storefront-child/img/hero/img-1.jpg" alt="">
-      <h1 class="new-post__title">Новость с очень длинным длинным названием</h1>
-      <p>
-         Товарищи! постоянный количественный рост и сфера нашей активности требуют определения и уточнения соответствующий условий активизации. Разнообразный и богатый опыт укрепление и развитие структуры позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач. Товарищи! рамки и место обучения кадров представляет собой интересный эксперимент проверки модели развития. Равным образом сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие в формировании позиций, занимаемых участниками в отношении поставленных задач. Повседневная практика показывает, что новая модель организационной деятельности обеспечивает широкому кругу (специалистов) участие в формировании новых предложений.
-      </p>
-      <p class="new-post__subtitle">Значимость этих проблем</p>
-      <p class="post__text">
-         Настолько очевидна, что рамки и место обучения кадров играет важную роль в формировании соответствующий условий активизации. С другой стороны сложившаяся структура организации представляет собой интересный эксперимент проверки позиций, занимаемых участниками в отношении поставленных задач.
-      </p>
-      <p class="new-post__subtitle">С другой стороны</p>
-      <p class="post__text">
-         Укрепление и развитие структуры обеспечивает широкому кругу (специалистов) участие в формировании соответствующий условий активизации. Товарищи! начало повседневной работы по формированию позиции обеспечивает широкому кругу (специалистов) участие в формировании форм развития. Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности требуют от нас анализа новых предложений.
-      </p>
-      <a href="#" class="new-post__link">
-         <svg class="icon">
-            <use xlink:href="#arrow"></use>
-         </svg>
-         Вернуться к другим новостям
-      </a>
-   </div>
-</div>
+    <div class="new-post">
+        <div class="container">
+            <!--            catSlug($post->post_category[0]) === 'cases')-->
+            <?= get_the_post_thumbnail($post->ID) ?>
+            <h1 class="new-post__title"><?= $post->post_title ?></h1>
+            <?php the_content() ?>
+        </div>
+    </div>
 
 <?php get_footer(); ?>
