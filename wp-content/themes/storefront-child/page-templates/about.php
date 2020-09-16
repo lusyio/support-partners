@@ -35,11 +35,11 @@ Template Post Type: post, page, product
 
 <?= get_team(11) ?>
 
-    <div class="heading__wrap heading__wrap_about">
-        <div class="container">
-            <h2 class="heading">Наши достижения</h2>
-        </div>
-    </div>
+<!--    <div class="heading__wrap heading__wrap_about">-->
+<!--        <div class="container">-->
+<!--            <h2 class="heading">Наши достижения</h2>-->
+<!--        </div>-->
+<!--    </div>-->
 
     <section class="clients">
         <div class="container">
