@@ -41,8 +41,8 @@ function enqueue_child_theme_styles()
     wp_enqueue_script('chartjs-plugin-labels', get_stylesheet_directory_uri() . '/inc/assets/js/chartjs-plugin-labels.min.js', array(), '1.0', false);
     wp_enqueue_style('chart-css', get_stylesheet_directory_uri() . '/inc/assets/css/Chart.min.css', array(), '1.0', false);
 
-    wp_enqueue_script('swiper-js', get_stylesheet_directory_uri() . '/inc/assets/js/swiper.min.js', array(), '1.0', true);
-    wp_enqueue_style('swiper-css', get_stylesheet_directory_uri() . '/inc/assets/css/swiper.min.css', array(), '1.0', true);
+    wp_enqueue_script('swiper-js', get_stylesheet_directory_uri() . '/inc/assets/js/swiper.min.js', array(), '1.0', false);
+    wp_enqueue_style('swiper-css', get_stylesheet_directory_uri() . '/inc/assets/css/swiper.min.css', array(), '1.0', false);
 
     // load bootstrap js
     wp_enqueue_script('wp-bootstrap-starter-popper', get_stylesheet_directory_uri() . '/inc/assets/js/popper.min.js', array(), '1.0', true);
@@ -713,9 +713,9 @@ function get_team($cat_id)
                         ?>
                         <div class="col-md-3">
                             <div class="specialists__card">
-                                <a href="#" class="specialists__card-img">
+                                <div class="specialists__card-img">
                                     <?= $featured_image ?>
-                                </a>
+                                </div>
                                 <div class="specialists__card-title"><?= $team_post->post_title ?></div>
                                 <div class="specialists__card-descr">
                                     <?= get_field('position', $post_id) ?>
@@ -731,5 +731,56 @@ function get_team($cat_id)
         </section>
     <?php
     endif;
+    return ob_get_clean();
+}
+
+function getCasesForMain($cat_id)
+{
+    $args = array(
+        'category' => $cat_id,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => -9
+    );
+    $cases = get_posts($args);
+    ob_start();
+    if ($cases): ?>
+        <section class="project">
+            <div class="container">
+                <h2 class="heading">Кейсы и проекты</h2>
+                <?php if (count($cases) <= 3): ?>
+                    <div class="row">
+                        <?php foreach ($cases as $case):
+                            $case_id = $case->ID;
+                            $featured_image = get_the_post_thumbnail($case_id);
+                            ?>
+                            <div class="col-md-4">
+                                <a href="<?= get_post_permalink($case_id) ?>" class="project__item">
+                                    <?= $featured_image ?>
+                                    <div class="project__title"><?= $case->post_title ?></div>
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php else: ?>
+                    <div class="swiper-container swiper-container-case">
+                        <div class="swiper-wrapper">
+                            <?php foreach ($cases as $case):
+                                $case_id = $case->ID;
+                                $featured_image = get_the_post_thumbnail($case_id);
+                                ?>
+                                <div class="swiper-slide">
+                                    <a href="<?= get_post_permalink($case_id) ?>" class="project__item">
+                                        <?= $featured_image ?>
+                                        <div class="project__title"><?= $case->post_title ?></div>
+                                    </a>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </section>
+    <?php endif;
     return ob_get_clean();
 }
