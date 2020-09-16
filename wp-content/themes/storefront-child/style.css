@@ -16,7 +16,7 @@ Author URI:   https://richbee.ru/
 .btn-primary {
     display: inline-block;
     padding: 17px 39px;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -409,13 +409,56 @@ header#masthead {
     margin-right: 0;
 }
 
+.dropdown-menu {
+    background-color: #F4F8FB !important;
+    box-shadow: 0px 8px 13px -4px rgba(0, 0, 0, 0.1);
+    color: #696969 !important;
+    font-size: 14px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin-top: 22px !important;
+    left: -40px !important;
+}
+
+.dropdown-menu::before {
+    position: absolute;
+    content: "";
+    display: block;
+    border-bottom: 15px solid #F4F8FB;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    width: 0;
+    height: 0;
+    left: 0;
+    right: 0;
+    top: -14px;
+    margin: auto;
+}
+
+.dropdown-item {
+    color: #696969 !important;
+}
+
+.dropdown-menu .nav-item {
+    margin-right: 0px !important;
+}
+
+.dropdown-item:focus, .dropdown-item:hover, .dropdown-item.active, .dropdown-item:active {
+    background-color: #E3EEF6 !important;
+    color: rgba(0, 88, 150, 0.8) !important;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
 .navbar-light .navbar-nav .nav-link {
     position: relative;
     display: block;
     margin: 0;
     padding: 0 0 13px !important;
     color: #363636 !important;
-    font-weight: normal;
+    font-weight: 400;
     font-size: 14px;
     line-height: 16px;
     overflow: hidden;
@@ -430,7 +473,7 @@ header#masthead {
     height: 1px;
     background-color: #ed002f;
     transform: translate3d(-100%, 0, 0);
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .navbar-light .navbar-nav .nav-link:hover::before {
@@ -576,11 +619,12 @@ header#masthead {
     font-size: 14px;
     line-height: 16px;
     color: #005896;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
-.phone-link:hover {
+.phone-link:hover, .breadcrumb-primary__link:hover {
     color: rgba(0, 88, 150, 0.8);
+    color: #1072bf;
 }
 
 /*--------------------------------------------------------------
@@ -1749,10 +1793,6 @@ p.no-comments .button:hover {
 .breadcrumb-primary__link {
     color: #005896;
     transition: all 0.3s ease;
-}
-
-.breadcrumb-primary__link:hover {
-    color: rgba(0, 88, 150, 0.8);
 }
 
 .breadcrumb-primary__link_active {
