@@ -454,19 +454,12 @@ header#masthead {
 }
 
 .search-div {
-    width: 46px;
-    height: 46px;
-    z-index: 2;
+    width: 100%;
+    margin-bottom: 48px;
 }
 
 #searchForm {
-    position: absolute;
-    left: -10rem;
-    width: 215px;
-    z-index: 5;
-    top: 40px;
-    display: none;
-    box-shadow: rgba(197, 197, 201, 0.15) 0px 14px 15px 2px;
+    width: 100%;
 }
 
 /*меню*/
@@ -593,12 +586,86 @@ header#masthead {
 /*--------------------------------------------------------------
 # FOOTER
 --------------------------------------------------------------*/
-.socials img {
+.social img {
     transition: 200ms;
+    width: 30px;
 }
 
-.socials:hover img {
+.social a:last-of-type {
+    margin-right: 0;
+}
+
+.social a {
+    margin-right: 15px;
+}
+
+.social > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.social {
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.social a:hover img {
     transform: translateY(-5px);
+}
+
+.social small {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.search-form{
+    position: relative;
+}
+
+html footer .search-form:after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    right: 0;
+    width: 21px;
+    height: 21px;
+    background-image: url('data:image/svg+xml,%3Csvg width="21" height="23" viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M20.6564 20.1124L15.5018 14.6483C16.8382 13.0207 17.5636 11.0056 17.5636 8.913C17.5636 3.99148 13.6309 0 8.78182 0C3.93273 0 0 3.99148 0 8.913C0 13.8345 3.93273 17.826 8.78182 17.826C10.6145 17.826 12.3327 17.2835 13.8218 16.1984L19.0145 21.7012C19.2436 21.9337 19.5109 22.05 19.8545 22.05C20.16 22.05 20.4273 21.9337 20.6564 21.74C21.1145 21.3137 21.1145 20.5774 20.6564 20.1124ZM8.78182 2.32513C12.3709 2.32513 15.2727 5.2703 15.2727 8.913C15.2727 12.5557 12.3709 15.5009 8.78182 15.5009C5.19273 15.5009 2.29091 12.5557 2.29091 8.913C2.29091 5.2703 5.19273 2.32513 8.78182 2.32513Z" fill="white"/%3E%3C/svg%3E%0A');
+}
+
+html footer .search-form input, html footer .search-form input:focus {
+    color: #fff;
+    padding: 0 0 5px;
+    border: 0;
+    background: transparent;
+    border-bottom: 1px solid #fff;
+    min-height: auto;
+    position: relative;
+}
+
+html footer .search-form input::placeholder {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 134.77%;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.richbee {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.richbee img {
+    transition: 145ms ease-in-out;
+}
+
+.richbee:hover img {
+    transform: scale(1.05);
 }
 
 .site-footer a:not(.button) {

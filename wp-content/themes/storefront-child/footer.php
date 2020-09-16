@@ -50,41 +50,49 @@
                 </div>
             <?php endif; ?>
             <div class="col-12 col-lg-3">
-                Тут поиск
-            </div>
-        </div>
-        <div class="row">
-            <div class="ml-auto col-12 footer-socials col-lg-3">
+                <?php get_search_form() ?>
                 <div class="social">
                     <small>Оставайтесь с нами</small>
-                    <a class="text-decoration-none socials" href="#">
-                        <img src="/wp-content/themes/storefront-child/svg/vk.svg" alt="">
-                    </a>
-                    <a class="text-decoration-none ml-3 socials" href="#">
-                        <img src="/wp-content/themes/storefront-child/svg/facebook.svg" alt="">
-                    </a>
+                    <div>
+                        <?php
+                        $vk = get_field('vkontakte', 21);
+                        $fb = get_field('facebook', 21);
+                        ?>
+                        <?php if ($vk): ?>
+                            <a class="text-decoration-none socials" href="<?= $vk ?>">
+                                <img src="/wp-content/themes/storefront-child/svg/vk.svg" alt="">
+                            </a>
+                        <?php endif; ?>
+                        <?php if ($fb): ?>
+                            <a class="text-decoration-none socials" href="<?= $fb ?>">
+                                <img src="/wp-content/themes/storefront-child/svg/facebook.svg" alt="">
+                            </a>
+                        <?php endif; ?>
+                    </div>
                 </div>
+                <a class="richbee" href="https://richbee.ru/">
+                    <img src="/wp-content/themes/storefront-child/svg/Richbee-white.svg" alt="RichBee">
+                </a>
             </div>
         </div>
-    </div>
 
-    <!-- </div>
-    </div> -->
+        <!-- </div>
+        </div> -->
 
 
-    <div class="col-full">
+        <div class="col-full">
 
-        <?php
-        /**
-         * Functions hooked in to storefront_footer action
-         *
-         * @hooked storefront_footer_widgets - 10
-         * @hooked storefront_credit         - 20
-         */
-        do_action('storefront_footer');
-        ?>
+            <?php
+            /**
+             * Functions hooked in to storefront_footer action
+             *
+             * @hooked storefront_footer_widgets - 10
+             * @hooked storefront_credit         - 20
+             */
+            do_action('storefront_footer');
+            ?>
 
-    </div><!-- .col-full -->
+        </div><!-- .col-full -->
 </footer><!-- #colophon -->
 
 <?php do_action('storefront_after_footer'); ?>
