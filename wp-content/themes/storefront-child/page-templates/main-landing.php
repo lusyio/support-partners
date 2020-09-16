@@ -124,7 +124,7 @@ Template Post Type: post, page, product
                 </div>
                 <div class="col-md-5">
                     <div class="about__img">
-                        <?= get_field('about_photo')
+                        <?= '<img src=' . get_field('about_photo') . '" alt="' . strip_tags(get_field('about_heading')) .'">'
                             ?: '<img src="/wp-content/themes/storefront-child/img/about.png" alt="">' ?>
                     </div>
                 </div>
