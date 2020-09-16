@@ -3203,6 +3203,16 @@ p.no-comments .button:hover {
     transform: rotate(-180deg);
 }
 
+.main-clients img {
+    max-height: 80px;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.main-clients img:hover {
+    opacity: 1;
+}
+
 .main-slider {
     position: relative;
 }
