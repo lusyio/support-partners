@@ -1087,3 +1087,25 @@ function getCycleChildren($child_cat_id, $key)
     </section>
     <?php
 }
+function get_post_gallery_images_logo($postvar = NULL, $pos = 0)
+{
+    if (!isset($postvar)) {
+        global $post;
+        $postvar = $post;
+    }
+    $post_content = $postvar->post_content;
+    if ($pos) {
+        $post_content = preg_split('~\(:\)~', $post_content)[1];
+    }
+    preg_match('/\[gallery.*ids=.(.*).\]/', $post_content, $ids);
+    $images_id = explode(",", $ids[1]);
+    $image_gallery_with_info = array();
+    foreach ($images_id as $image_id) {
+        $attachment = get_post($image_id);
+        array_push($image_gallery_with_info, array(
+                'src' => $attachment->guid
+            )
+        );
+    }
+    return $image_gallery_with_info;
+}

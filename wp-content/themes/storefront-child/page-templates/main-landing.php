@@ -140,21 +140,16 @@ Template Post Type: post, page, product
         <div class="container">
             <h2 class="heading">Наши клиенты</h2>
             <div class="row align-items-center">
+            <?php
+            $gallery = get_post_gallery_images_logo();
+            foreach ($gallery as $image_obj) :
+                ?>
                 <div class="col-md-2">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/luhta.svg" alt="">
+                            <img src="<?= $image_obj['src'] ?> ?>" alt="">
                 </div>
-                <div class="col-md-2">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/skolkovo.svg" alt="">
-                </div>
-                <div class="col-md-3">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/vtb.svg" alt="">
-                </div>
-                <div class="col-md-2">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/forex.svg" alt="">
-                </div>
-                <div class="col-md-3">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/enel.svg" alt="">
-                </div>
+            <?php
+            endforeach;
+            ?>
             </div>
         </div>
     </section>
