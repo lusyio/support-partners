@@ -495,7 +495,7 @@ function get_services($cat_id)
         ?>
         <div class="heading-wrap heading-wrap_services">
             <div class="container">
-                <h2 class="heading"><?= $servicesPost->post_title ?></h2>
+                <h2 id="<?= $servicesPost->post_name ?>" class="heading"><?= $servicesPost->post_title ?></h2>
                 <div class="descr"><?= strip_shortcode_gallery($servicesPost->post_content) ?></div>
             </div>
         </div>
@@ -1041,7 +1041,7 @@ function getCycleChildren($child_cat_id, $key)
         'post_status' => 'publish',
         'numberposts' => 6
     );
-    $children_posts = get_posts($args);
+    $children_posts = array_reverse(get_posts($args));
     ?>
     <section id="team-<?= $key ?>" class="team <?= $key !== 0 ? 'd-none' : '' ?>">
         <div class="container">
@@ -1054,6 +1054,10 @@ function getCycleChildren($child_cat_id, $key)
                     $card_color = get_field('card_color', $children_post_id);
                     $card_img = get_field('card_img', $children_post_id);
                     $landing_link = get_field('landing-link', $children_post_id);
+                    $link = $landing_link ?: get_permalink($children_post_id);
+                    if (in_array(4, (array)$children_post->post_category, true)) {
+                        $link = get_permalink(11) . '#' . $children_post->post_name;
+                    }
                     if ($card_type === 'big'):
                         ?>
                         <div class="col-md-4">
@@ -1068,7 +1072,7 @@ function getCycleChildren($child_cat_id, $key)
                                          alt="<?= $children_post->post_title ?>">
                                 <?php endif; ?>
                                 <a class="team__item-link"
-                                   href="<?= $landing_link ?: get_permalink($children_post_id) ?>">
+                                   href="<?= $link ?>">
                                     Подробнее
                                     <svg class="icon">
                                         <use xlink:href="#arrow"></use>
@@ -1118,9 +1122,8 @@ function get_post_gallery_images_logo($postvar = NULL, $pos = 0)
     $image_gallery_with_info = array();
     foreach ($images_id as $image_id) {
         $attachment = get_post($image_id);
-        array_push($image_gallery_with_info, array(
-                'src' => $attachment->guid
-            )
+        $image_gallery_with_info[] = array(
+            'src' => $attachment->guid
         );
     }
     return $image_gallery_with_info;
