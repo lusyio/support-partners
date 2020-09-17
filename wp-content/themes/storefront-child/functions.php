@@ -1055,6 +1055,7 @@ function getCycleChildren($child_cat_id, $key)
                     $card_img = get_field('card_img', $children_post_id);
                     $landing_link = get_field('landing-link', $children_post_id);
                     $link = $landing_link ?: get_permalink($children_post_id);
+
                     if (in_array(4, (array)$children_post->post_category, true)) {
                         $link = get_permalink(11) . '#' . $children_post->post_name;
                     }
@@ -1089,7 +1090,7 @@ function getCycleChildren($child_cat_id, $key)
                                         <div class="team__item-descr team__item-descr_small"><?= $card_desc ?></div>
                                     <?php endif; ?>
                                     <a class="team__item-link team__item-link_blue"
-                                       href="<?= $landing_link ?: get_permalink($children_post_id) ?>">
+                                       href="<?= $link ?>">
                                         Подробнее
                                         <svg class="icon">
                                             <use xlink:href="#arrow"></use>
