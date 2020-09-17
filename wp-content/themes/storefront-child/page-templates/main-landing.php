@@ -53,8 +53,8 @@ Template Post Type: post, page, product
                             <div class="col-md-6">
                                 <div class="main-screen__inner">
                                     <h1 class="main-screen__title">создаем <br> <span>сильные</span> команды</h1>
-                                    <div class="main-screen__descr">Масштабная конференция о создании <br> сильных
-                                        команд
+                                    <div class="main-screen__descr">
+                                        Масштабная конференция о создании <br> сильных команд
                                     </div>
                                     <div>
                                         <button class="main-screen__btn btn-primary">Посмотреть услуги</button>
@@ -63,7 +63,7 @@ Template Post Type: post, page, product
                             </div>
                             <div class="col-md-6">
                                 <div class="main-screen__img">
-                                    <img src="/wp-content/themes/storefront-child/img/main-screen/img-1.png" alt="">
+                                    <img src="/wp-content/themes/storefront-child/img/main-screen/img-1.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -124,8 +124,8 @@ Template Post Type: post, page, product
                 </div>
                 <div class="col-md-5">
                     <div class="about__img">
-                        <?= '<img src=' . get_field('about_photo') . '" alt="' . strip_tags(get_field('about_heading')) .'">'
-                            ?: '<img src="/wp-content/themes/storefront-child/img/about.png" alt="">' ?>
+                        <?= get_field('about_photo') ? '<img src=' . get_field('about_photo') . '" alt="' . strip_tags(get_field('about_heading')) . '">'
+                            : '<img src="/wp-content/themes/storefront-child/img/about.jpg" alt="">' ?>
                     </div>
                 </div>
             </div>
@@ -140,16 +140,13 @@ Template Post Type: post, page, product
         <div class="container">
             <h2 class="heading">Наши клиенты</h2>
             <div class="d-flex justify-content-between main-clients">
-            <?php
-            $gallery = get_post_gallery_images_logo();
-            foreach ($gallery as $image_obj) :
-                ?>
-               <div>
-                   <img src="<?= $image_obj['src'] ?>" alt="">
-               </div>
-            <?php
-            endforeach;
-            ?>
+                <?php
+                $gallery = get_post_gallery_images_logo();
+                foreach ($gallery as $image_obj): ?>
+                    <div>
+                        <img src="<?= $image_obj['src'] ?>" alt="">
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
