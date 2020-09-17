@@ -139,15 +139,7 @@ Template Post Type: post, page, product
     <section class="clients">
         <div class="container">
             <h2 class="heading">Наши клиенты</h2>
-            <div class="d-flex justify-content-between main-clients">
-                <?php
-                $gallery = get_post_gallery_images_logo();
-                foreach ($gallery as $image_obj): ?>
-                    <div>
-                        <img src="<?= $image_obj['src'] ?>" alt="">
-                    </div>
-                <?php endforeach; ?>
-            </div>
+               <?= get_field('client_gallery', 9) ?>
         </div>
     </section>
 

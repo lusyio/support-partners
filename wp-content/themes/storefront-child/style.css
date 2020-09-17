@@ -2220,6 +2220,12 @@ p.no-comments .button:hover {
     align-items: flex-end;
 }
 
+.gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .description__box_bottom {
     top: 30%;
     transform: translateY(0%);

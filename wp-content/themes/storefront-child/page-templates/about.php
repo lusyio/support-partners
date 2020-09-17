@@ -44,40 +44,7 @@ Template Post Type: post, page, product
     <section class="clients">
         <div class="container">
             <h2 class="heading">Наши клиенты</h2>
-            <div class="row align-items-center">
-                <div class="col-md-2">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/luhta.svg" alt="">
-                </div>
-                <div class="col-md-2">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/skolkovo.svg" alt="">
-                </div>
-                <div class="col-md-3">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/vtb.svg" alt="">
-                </div>
-                <div class="col-md-2">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/forex.svg" alt="">
-                </div>
-                <div class="col-md-3">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/enel.svg" alt="">
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-md-2">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/cargill.svg" alt="">
-                </div>
-                <div class="col-md-2">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/helloggs.svg" alt="">
-                </div>
-                <div class="col-md-3">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/unicredit.svg" alt="">
-                </div>
-                <div class="col-md-2">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/knauf.svg" alt="">
-                </div>
-                <div class="col-md-3">
-                    <img src="/wp-content/themes/storefront-child/svg/clients/avon.svg" alt="">
-                </div>
-            </div>
+            <?= get_field('client_gallery', 9) ?>
         </div>
     </section>
 
