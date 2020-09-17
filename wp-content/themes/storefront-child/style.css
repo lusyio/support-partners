@@ -2186,7 +2186,7 @@ p.no-comments .button:hover {
     align-items: flex-end;
 }
 
-.description.left-center .description__inner > img {
+.description .description__inner > img {
     max-width: 665px;
     width: 100%;
 }
