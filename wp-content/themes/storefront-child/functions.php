@@ -489,7 +489,7 @@ function get_services($cat_id)
     ob_start();
     foreach ($servicesPosts as $servicesPost):
         $postId = $servicesPost->ID;
-        $gallery = get_post_gallery_images_with_info($servicesPost);
+        $gallery = array_reverse(get_post_gallery_images_with_info($servicesPost));
         $servicesPoints = explode(";", get_field('service_points', $postId));
         $servicesPointsParts = array_chunk($servicesPoints, ceil(count($servicesPoints) / 2));
         ?>
@@ -518,7 +518,7 @@ function get_services($cat_id)
             </div>
         </section>
 
-        <?php foreach ($gallery as $image_obj): ?>
+        <?php foreach ($gallery as $key => $image_obj): ?>
         <div class="description <?= $image_obj['title'] ?>">
             <div class="container">
                 <div class="description__inner">
@@ -527,7 +527,9 @@ function get_services($cat_id)
                         <div class="description__text">
                             <?= $image_obj['description'] ?>
                         </div>
-                        <button class="btn-primary">Отправить заявку</button>
+                        <?php if (array_key_last($gallery) === $key): ?>
+                            <button class="btn-primary">Отправить заявку</button>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -755,7 +757,8 @@ function getCasesForMain($cat_id)
                             $featured_image = get_the_post_thumbnail_url($case_id);
                             ?>
                             <div class="col-md-4">
-                                <a href="<?= get_post_permalink($case_id) ?>" class="project__item" style="background-image: url(<?= $featured_image ?>)">
+                                <a href="<?= get_post_permalink($case_id) ?>" class="project__item"
+                                   style="background-image: url(<?= $featured_image ?>)">
                                     <div class="project__title"><?= $case->post_title ?></div>
                                 </a>
                             </div>
@@ -769,25 +772,26 @@ function getCasesForMain($cat_id)
                                 $featured_image = get_the_post_thumbnail_url($case_id);
                                 ?>
                                 <div class="swiper-slide">
-                                    <a href="<?= get_post_permalink($case_id) ?>" class="project__item" style="background-image: url(<?= $featured_image ?>)">
+                                    <a href="<?= get_post_permalink($case_id) ?>" class="project__item"
+                                       style="background-image: url(<?= $featured_image ?>)">
                                         <div class="project__title"><?= $case->post_title ?></div>
                                     </a>
                                 </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
-                <div class="position-relative main-project-slider__control">
-                    <div class="swiper-button-prev">
-                        <svg class="icon">
-                            <use xlink:href="#arrow"></use>
-                        </svg>
+                    <div class="position-relative main-project-slider__control">
+                        <div class="swiper-button-prev">
+                            <svg class="icon">
+                                <use xlink:href="#arrow"></use>
+                            </svg>
+                        </div>
+                        <div class="swiper-button-next">
+                            <svg class="icon">
+                                <use xlink:href="#arrow"></use>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="swiper-button-next">
-                        <svg class="icon">
-                            <use xlink:href="#arrow"></use>
-                        </svg>
-                    </div>
-                </div>
 
                 <?php endif; ?>
             </div>
@@ -1059,9 +1063,9 @@ function getCycleChildren($child_cat_id, $key)
                                     <div class="team__item-descr"><?= $card_desc ?></div>
                                 <?php endif; ?>
                                 <?php if ($card_img): ?>
-                                <img class="team__item-img"
-                                     src="<?= $card_img ?>"
-                                     alt="<?= $children_post->post_title ?>">
+                                    <img class="team__item-img"
+                                         src="<?= $card_img ?>"
+                                         alt="<?= $children_post->post_title ?>">
                                 <?php endif; ?>
                                 <a class="team__item-link"
                                    href="<?= $landing_link ?: get_permalink($children_post_id) ?>">
@@ -1098,6 +1102,7 @@ function getCycleChildren($child_cat_id, $key)
     </section>
     <?php
 }
+
 function get_post_gallery_images_logo($postvar = NULL, $pos = 0)
 {
     if (!isset($postvar)) {
