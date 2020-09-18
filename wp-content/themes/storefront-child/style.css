@@ -85,6 +85,68 @@ Author URI:   https://richbee.ru/
     color: #363636;
 }
 
+.sp-modal .modal-dialog {
+    max-width: 920px;
+}
+
+.sp-modal .modal-content {
+    border: 0;
+    border-radius: 0;
+}
+
+.sp-modal .modal-body {
+    padding: 65px 95px 80px;
+}
+
+.sp-modal .heading {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+    margin-bottom: 25px;
+}
+
+.sp-modal__content p, .sp-modal__content a,
+.sp-modal__content ul, .sp-modal__content ol {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
+    color: #696969;
+}
+
+.sp-modal__content ul, .sp-modal__content ol {
+    margin-bottom: 30px;
+    padding: 0 0 0 20px;
+    margin-left: 0;
+}
+
+.sp-modal__content p {
+    margin-bottom: 30px;
+}
+
+.sp-modal__content p:last-child {
+    margin-bottom: 0;
+}
+
+.sp-modal .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.sp-modal .close:focus {
+    box-shadow: none;
+    outline: 0;
+}
+
+.sp-modal .close img {
+    transition: 145ms ease-in-out;
+}
+
+.sp-modal .close img:hover {
+    transform: rotate(180deg);
+}
+
 .heading {
     position: relative;
     padding: 0 0 15px;

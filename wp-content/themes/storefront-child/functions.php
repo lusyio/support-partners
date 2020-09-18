@@ -716,7 +716,8 @@ function get_team($cat_id)
                                     <?= get_field('position', $post_id) ?>
                                 </div>
                                 <a class="specialists__card-link" data-title="<?= $team_post->post_title ?>"
-                                   data-info='<?= $content ?>' href="#teamModal">Подробнее</a>
+                                   data-toggle="modal" data-target="#teamModal"
+                                   data-info='<?= $content ?>' href="#">Подробнее</a>
                             </div>
                         </div>
                     <?php
@@ -724,6 +725,68 @@ function get_team($cat_id)
                 </div>
             </div>
         </section>
+
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                document.addEventListener('click', function (e) {
+                    for (let target = e.target; target && target !== this; target = target.parentNode) {
+                        if (target.matches('[data-target="#teamModal"]')) {
+                            clickHandler.call(target, e);
+                            break;
+                        }
+                    }
+                }, false);
+
+                function clickHandler() {
+                    const title = this.dataset.title
+                    const content = this.dataset.info
+                    const $modalTitle = document.getElementById('teamModalTitle')
+                    const $modalContent = document.getElementById('teamModalContent')
+
+                    $modalTitle.textContent = title
+                    $modalContent.innerHTML = content
+                }
+            })
+        </script>
+
+        <div class="modal sp-modal fade" id="teamModal" tabindex="-1" aria-labelledby="teamModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h5 class="heading" id="teamModalTitle">Станислав Сметана</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <img src="/wp-content/themes/storefront-child/svg/close.svg" alt="close modal">
+                        </button>
+                        <div id="teamModalContent" class="sp-modal__content">
+                            <p>Более 15 лет в индустрии поиска ключевых сотрудников</p>
+                            <p>Сертифицированный коуч.</p>
+                            <p>С 2011 года в команде Support Partners.</p>
+                            <p>Более 100 успешно реализованных проектов, в том числе:</p>
+                            <ul>
+                                <li>Генеральный директор проектного института для крупного металлургического холдинга
+                                </li>
+                                <li>Генеральный директор проектного института для крупного металлургического холдинга
+                                </li>
+                                <li>Генеральный директор проектного института для крупного металлургического холдинга
+                                </li>
+                                <li>Генеральный директор проектного института для крупного металлургического холдинга
+                                </li>
+                                <li>Генеральный директор проектного института для крупного металлургического холдинга
+                                </li>
+                                <li>Генеральный директор проектного института для крупного металлургического холдинга
+                                </li>
+                                <li>Генеральный директор проектного института для крупного металлургического холдинга
+                                </li>
+                            </ul>
+                            <p>Кроме этого: ультрамарафонец, дистанции до 162 км</p>
+                            <p>Страница в FB: <a href="https://www.facebook.com/smetana3000">https://www.facebook.com/smetana3000</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <?php
     endif;
     return ob_get_clean();
