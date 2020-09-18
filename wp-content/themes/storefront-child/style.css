@@ -2046,16 +2046,68 @@ p.no-comments .button:hover {
 }
 
 .reviews__item {
-    padding: 29px 65px;
     background: #ffffff;
-    box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.15);
+    padding: 29px 30px 70px 65px;
 }
 
 .reviews__item-header {
     margin: 0 0 32px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+}
+
+.reviews__item--small {
+    padding: 11px 18px 28px;
+}
+
+.reviews__item-img {
+    margin-right: 30px;
+}
+
+.reviews__item-img > img {
+    max-width: 95px;
+    max-height: 95px;
+    width: 100%;
+    height: 95px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.reviews-control {
+    margin: auto;
+    background: #ED002F;
+    padding: 10px 40px;
+    max-width: 220px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -25px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 5;
+    height: 50px;
+}
+
+.reviews-control__item {
+    cursor: pointer;
+}
+
+.reviews-control__item > svg {
+    max-width: 50px;
+    height: 100%;
+    fill: #fff;
+    transition: 145ms ease-in-out;
+}
+
+.reviews-control__item:hover > svg {
+    fill: #e4e4e4;
+}
+
+.reviews-control__prev {
+    transform: rotate(180deg);
 }
 
 .reviews__item-title {
@@ -2072,6 +2124,7 @@ p.no-comments .button:hover {
 .reviews__item-descr {
     font-size: 16px;
     color: #696969;
+    padding-right: 30px;
 }
 
 .product .col-md-12:nth-of-type(even) .product-item {

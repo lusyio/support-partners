@@ -190,18 +190,6 @@ function header_add_to_cart_fragment($fragments)
 }
 
 /**
- * Замена надписи на кнопке Добавить в корзину
- */
-add_filter('woocommerce_product_single_add_to_cart_text', 'woocust_change_label_button_add_to_cart_single');
-function woocust_change_label_button_add_to_cart_single($label)
-{
-
-    $label = 'Добавить в корзину';
-
-    return $label;
-}
-
-/**
  * Удаляем поля адрес и телефон, если нет доставки
  */
 
@@ -1128,4 +1116,90 @@ function get_post_gallery_images_logo($postvar = NULL, $pos = 0)
         );
     }
     return $image_gallery_with_info;
+}
+
+function getReviews($cat_id)
+{
+    $args = array(
+        'category' => $cat_id,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => 9
+    );
+    $reviews = get_posts($args);
+    ob_start(); ?>
+    <?php if ($reviews): ?>
+    <section class="reviews">
+        <div class="container">
+            <h2 class="heading">Отзывы</h2>
+            <div class="row">
+                <div class="col-3 d-lg-block d-none mt-auto mb-auto">
+                    <div class="reviews__item reviews__item--small">
+                        <img src="/wp-content/themes/storefront-child/svg/review-placeholder.svg" alt="placeholder">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="position-relative">
+                        <div class="swiper-container swiper-container-reviews reviews__item p-0">
+                            <div class="swiper-wrapper">
+                                <?php foreach ($reviews as $review):
+                                    $review_id = $review->ID;
+                                    $featured_image_url = get_the_post_thumbnail_url($review_id);
+                                    ?>
+                                    <div class="swiper-slide">
+                                        <div class="reviews__item">
+                                            <div class="reviews__item-header">
+                                                <div class="reviews__item-img">
+                                                    <img src="<?= $featured_image_url ?>"
+                                                         alt="<?= $review->post_title ?>">
+                                                </div>
+                                                <div>
+                                                    <div class="reviews__item-title"><?= $review->post_title ?></div>
+                                                    <div class="reviews__item-subtitle"><?= get_field('position', $review_id) ?></div>
+                                                </div>
+                                            </div>
+                                            <div class="reviews__item-descr">
+                                                <?= mb_strimwidth($review->post_content, 0, 120, '...') ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                        <div class="reviews-control">
+                            <div class="reviews-control__prev reviews-control__item"
+                                 data-slide="prev">
+                                <svg class="icon">
+                                    <use xlink:href="#arrow"></use>
+                                </svg>
+                            </div>
+                            <div class="reviews-control__next reviews-control__item"
+                                 data-slide="next">
+                                <svg class="icon">
+                                    <use xlink:href="#arrow"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 d-lg-block d-none mt-auto mb-auto">
+                    <div class="reviews__item reviews__item--small">
+                        <img src="/wp-content/themes/storefront-child/svg/review-placeholder.svg" alt="placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const swiperReviews = new Swiper('.swiper-container-reviews', {
+            spaceBetween: 0,
+            effect: 'fade',
+            navigation: {
+                nextEl: '.reviews-control__next',
+                prevEl: '.reviews-control__prev',
+            },
+        });
+    </script>
+<?php endif;
+    return ob_get_clean();
 }

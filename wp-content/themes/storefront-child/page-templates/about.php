@@ -110,32 +110,6 @@ Template Post Type: post, page, product
         </div>
     </section>
 
-    <section class="reviews">
-        <div class="container">
-            <h2 class="heading">Отзывы</h2>
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <div class="reviews__item">
-                        <div class="reviews__item-header">
-                            <div class="reviews__item-img">
-                                <img src="/wp-content/themes/storefront-child/img/reviews/img-1.png" alt="">
-                            </div>
-                            <div>
-                                <div class="reviews__item-title">Иванов Иван</div>
-                                <div class="reviews__item-subtitle">Генеральный директор «Ромашка»</div>
-                            </div>
-                        </div>
-                        <div class="reviews__item-descr">
-                            Мы работаем быстрее, чем большие компании executive search со сложной иерархией
-                            и бюрократическими процедурами
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3"></div>
-            </div>
-        </div>
-    </section>
-
+    <?= getReviews(18) ?>
 
 <?php get_footer(); ?>
