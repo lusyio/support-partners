@@ -18,7 +18,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+              rel="stylesheet">
         <?php wp_head(); ?>
     </head>
 
@@ -100,6 +101,12 @@
 
 
     </header><!-- #masthead -->
+
+<?php if (function_exists('yoast_breadcrumb') && !is_front_page()): ?>
+    <div class="container">
+        <?php yoast_breadcrumb('<p class="breadcrumb-primary" id="breadcrumbs">', '</p>'); ?>
+    </div>
+<?php endif; ?>
 
 <?php
 /**

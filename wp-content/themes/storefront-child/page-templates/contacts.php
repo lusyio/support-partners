@@ -7,19 +7,6 @@ Template Post Type: post, page, product
 
 <?php get_header(); ?>
 
-
-<div class="container">
-   <ul class="breadcrumb-primary">
-      <li>
-         <a class="breadcrumb-primary__link" href="#">Главная</a>
-      </li>
-      <li class="breadcrumb-primary__separator">/</li>
-      <li>
-         <a class="breadcrumb-primary__link breadcrumb-primary__link_active" href="#">Контакты</a>
-      </li>
-   </ul>
-</div>
-
 <div class="contacts">
    <div class="container">
       <div class="row no-gutters align-items-center">

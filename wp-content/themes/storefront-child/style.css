@@ -1860,23 +1860,16 @@ p.no-comments .button:hover {
     padding: 42px 0;
     display: flex;
     list-style: none;
+    color: #828282;
+
 }
 
-.breadcrumb-primary__link {
+.breadcrumb-primary a {
     color: #005896;
     transition: all 0.3s ease;
 }
 
-.breadcrumb-primary__link_active {
-    color: #828282;
-}
-
-.breadcrumb-primary__link_active:hover {
-    color: rgba(130, 130, 130, 0.8);
-}
-
-.breadcrumb-primary__separator {
-    margin: 0 5px;
+.breadcrumb-primary .breadcrumb_last {
     color: #828282;
 }
 
