@@ -678,6 +678,11 @@ function catSlug($cat_id)
     return get_category($cat_id)->slug;
 }
 
+/**
+ * Render Our team block by category id
+ * @param $cat_id
+ * @return false|string
+ */
 function get_team($cat_id)
 {
     $args = array(
@@ -724,6 +729,11 @@ function get_team($cat_id)
     return ob_get_clean();
 }
 
+/**
+ * Render cases on main page by category id
+ * @param $cat_id
+ * @return false|string
+ */
 function getCasesForMain($cat_id)
 {
     $args = array(
@@ -1096,6 +1106,12 @@ function getCycleChildren($child_cat_id, $key)
     <?php
 }
 
+/**
+ * Get post gallery images
+ * @param null $postvar
+ * @param int $pos
+ * @return array
+ */
 function get_post_gallery_images_logo($postvar = NULL, $pos = 0)
 {
     if (!isset($postvar)) {
@@ -1118,6 +1134,11 @@ function get_post_gallery_images_logo($postvar = NULL, $pos = 0)
     return $image_gallery_with_info;
 }
 
+/**
+ * Render reviews by category id
+ * @param $cat_id
+ * @return false|string
+ */
 function getReviews($cat_id)
 {
     $args = array(
