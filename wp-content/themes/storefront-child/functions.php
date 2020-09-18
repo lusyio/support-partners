@@ -804,7 +804,7 @@ function getCases($cat_id, $page = false)
         'category' => $cat_id,
         'post_type' => 'post',
         'post_status' => 'publish',
-        'numberposts' => 9
+        'numberposts' => (!$page || $page === 'main') ? 9 : -1
     );
     $cases = get_posts($args);
     ob_start();
@@ -894,6 +894,53 @@ function getCases($cat_id, $page = false)
         <?php
         endif;
     endif;
+    return ob_get_clean();
+}
+
+function getNews($cat_id)
+{
+    $args = array(
+        'category' => $cat_id,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => -1
+    );
+    $news = get_posts($args);
+    ob_start();
+    ?>
+    <?php if ($news): ?>
+    <section class="news">
+        <div class="container">
+            <div class="row">
+                <?php foreach ($news as $new):
+                    $new_id = $new->ID;
+                    $link = get_post_permalink($new_id);
+                    $featured_image_url = get_the_post_thumbnail_url($new_id);
+                    ?>
+                    <div class="col-md-12">
+                        <div class="news-item">
+                            <a href="<?= $link ?>" class="news-item__img">
+                                <img src="<?= $featured_image_url ?>" alt="<?= $new->post_title ?>">
+                            </a>
+                            <div class="news-item__content">
+                                <div class="news-item__content-title"><?= $new->post_title ?></div>
+                                <div class="news-item__content-date"><?= get_the_date('d.m.Y', $new_id) ?></div>
+                                <div class="news-item__content-descr">
+                                    <?= get_field('short_descr', $new_id) ?>
+                                </div>
+                                <a href="<?= $link ?>" class="news-item__content-link">
+                                    <svg class="icon">
+                                        <use xlink:href="#arrow"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+<?php endif;
     return ob_get_clean();
 }
 
