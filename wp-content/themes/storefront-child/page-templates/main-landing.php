@@ -134,7 +134,7 @@ Template Post Type: post, page, product
 
 <?= getCycle(12) ?>
 
-<?= getCasesForMain(7) ?>
+<?= getCases(7) ?>
 
     <section class="clients">
         <div class="container">

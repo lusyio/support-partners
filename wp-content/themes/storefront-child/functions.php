@@ -793,11 +793,12 @@ function get_team($cat_id)
 }
 
 /**
- * Render cases on main page by category id
+ * Render cases by category id and page
  * @param $cat_id
+ * @param $page
  * @return false|string
  */
-function getCasesForMain($cat_id)
+function getCases($cat_id, $page = false)
 {
     $args = array(
         'category' => $cat_id,
@@ -808,31 +809,17 @@ function getCasesForMain($cat_id)
     $cases = get_posts($args);
     ob_start();
     if ($cases): ?>
-        <section class="project">
-            <div class="container">
-                <h2 class="heading">Кейсы и проекты</h2>
-                <?php if (count($cases) <= 3): ?>
-                    <div class="row">
-                        <?php foreach ($cases as $case):
-                            $case_id = $case->ID;
-                            $featured_image = get_the_post_thumbnail_url($case_id);
-                            ?>
-                            <div class="col-md-4">
-                                <a href="<?= get_post_permalink($case_id) ?>" class="project__item"
-                                   style="background-image: url(<?= $featured_image ?>)">
-                                    <div class="project__title"><?= $case->post_title ?></div>
-                                </a>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php else: ?>
-                    <div class="swiper-container swiper-container-case">
-                        <div class="swiper-wrapper">
+        <?php if (!$page || $page === 'main'): ?>
+            <section class="project">
+                <div class="container">
+                    <h2 class="heading">Кейсы и проекты</h2>
+                    <?php if (count($cases) <= 3): ?>
+                        <div class="row">
                             <?php foreach ($cases as $case):
                                 $case_id = $case->ID;
                                 $featured_image = get_the_post_thumbnail_url($case_id);
                                 ?>
-                                <div class="swiper-slide">
+                                <div class="col-md-4">
                                     <a href="<?= get_post_permalink($case_id) ?>" class="project__item"
                                        style="background-image: url(<?= $featured_image ?>)">
                                         <div class="project__title"><?= $case->post_title ?></div>
@@ -840,24 +827,73 @@ function getCasesForMain($cat_id)
                                 </div>
                             <?php endforeach; ?>
                         </div>
-                    </div>
-                    <div class="position-relative main-project-slider__control">
-                        <div class="swiper-button-prev">
-                            <svg class="icon">
-                                <use xlink:href="#arrow"></use>
-                            </svg>
+                    <?php else: ?>
+                        <div class="swiper-container swiper-container-case">
+                            <div class="swiper-wrapper">
+                                <?php foreach ($cases as $case):
+                                    $case_id = $case->ID;
+                                    $featured_image = get_the_post_thumbnail_url($case_id);
+                                    ?>
+                                    <div class="swiper-slide">
+                                        <a href="<?= get_post_permalink($case_id) ?>" class="project__item"
+                                           style="background-image: url(<?= $featured_image ?>)">
+                                            <div class="project__title"><?= $case->post_title ?></div>
+                                        </a>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
-                        <div class="swiper-button-next">
-                            <svg class="icon">
-                                <use xlink:href="#arrow"></use>
-                            </svg>
+                        <div class="position-relative main-project-slider__control">
+                            <div class="swiper-button-prev">
+                                <svg class="icon">
+                                    <use xlink:href="#arrow"></use>
+                                </svg>
+                            </div>
+                            <div class="swiper-button-next">
+                                <svg class="icon">
+                                    <use xlink:href="#arrow"></use>
+                                </svg>
+                            </div>
                         </div>
-                    </div>
 
-                <?php endif; ?>
+                    <?php endif; ?>
+                </div>
+            </section>
+        <?php else: ?>
+            <div class="container pb-5">
+                <div class="row">
+                    <?php foreach ($cases as $case):
+                        $case_id = $case->ID;
+                        $featured_image = get_the_post_thumbnail($case_id);
+                        $link = get_post_permalink($case_id);
+                        ?>
+                        <div class="col-md-4">
+                            <div class="works__item">
+                                <div class="works__item-title"><?= $case->post_title ?></div>
+                                <div class="works__item-img">
+                                    <a href="<?= $link ?>">
+                                        <?= $featured_image ?>
+                                    </a>
+                                </div>
+                                <div class="works__item-box">
+                                    <div class="works__item-descr">
+                                        <?= get_field('short_descr', $case_id) ?>
+                                    </div>
+                                    <a href="<?= $link ?>" class="works__item-link">
+                                        Узнать больше
+                                        <svg class="icon">
+                                            <use xlink:href="#arrow"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </section>
-    <?php endif;
+        <?php
+        endif;
+    endif;
     return ob_get_clean();
 }
 
