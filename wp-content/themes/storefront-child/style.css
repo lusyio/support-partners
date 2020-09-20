@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.3
+Version:      	1.0.4
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 
@@ -1867,6 +1867,11 @@ p.no-comments .button:hover {
 .breadcrumb-primary a {
     color: #005896;
     transition: all 0.3s ease;
+}
+
+.swiper-container-client .swiper-slide img {
+    display: block;
+    margin: auto;
 }
 
 .breadcrumb-primary .breadcrumb_last {
