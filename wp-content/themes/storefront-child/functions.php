@@ -1253,20 +1253,23 @@ function getCycleChildren($child_cat_id, $key)
 }
 
 /**
- * Get post gallery images
+ * Get post or custom field gallery images
  * @param null $postvar
  * @param int $pos
+ * @param string $post_content
  * @return array
  */
-function get_post_gallery_images_logo($postvar = NULL, $pos = 0)
+function get_post_gallery_or_custom_field($postvar = NULL, $pos = 0, $post_content = '')
 {
     if (!isset($postvar)) {
         global $post;
         $postvar = $post;
     }
-    $post_content = $postvar->post_content;
-    if ($pos) {
-        $post_content = preg_split('~\(:\)~', $post_content)[1];
+    if (!$post_content) {
+        $post_content = $postvar->post_content;
+        if ($pos) {
+            $post_content = preg_split('~\(:\)~', $post_content)[1];
+        }
     }
     preg_match('/\[gallery.*ids=.(.*).\]/', $post_content, $ids);
     $images_id = explode(",", $ids[1]);
@@ -1274,10 +1277,48 @@ function get_post_gallery_images_logo($postvar = NULL, $pos = 0)
     foreach ($images_id as $image_id) {
         $attachment = get_post($image_id);
         $image_gallery_with_info[] = array(
-            'src' => $attachment->guid
+            'src' => $attachment->guid,
+            'alt' => get_post_meta($attachment->ID, '_wp_attachment_image_alt', true)
         );
     }
     return $image_gallery_with_info;
+}
+
+/**
+ * Render clients images
+ * @param $post_content
+ * @return false|string
+ */
+function get_clients($post_content)
+{
+    $gallery = get_post_gallery_or_custom_field(_, _, $post_content);
+    ob_start();
+    if ($gallery): ?>
+        <section class="clients">
+            <div class="container">
+                <h2 class="heading">Наши клиенты</h2>
+                <div class="swiper-container swiper-container-client">
+                    <div class="swiper-wrapper">
+                        <?php
+                        foreach ($gallery as $image_obj) :?>
+                            <div class="swiper-slide">
+                                <img src="<?= $image_obj['src'] ?>"
+                                     alt="<?= $image_obj['alt'] ?>"/>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            const swiperClient = new Swiper('.swiper-container-client', {
+                slidesPerView: 5,
+                spaceBetween: 30,
+            });
+        </script>
+    <?php
+    endif;
+    return ob_get_clean();
 }
 
 /**

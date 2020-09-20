@@ -136,12 +136,7 @@ Template Post Type: post, page, product
 
 <?= getCases(7) ?>
 
-    <section class="clients">
-        <div class="container">
-            <h2 class="heading">Наши клиенты</h2>
-               <?= get_field('client_gallery', 9) ?>
-        </div>
-    </section>
+<?= get_clients(get_field('client_gallery', 9, false)) ?>
 
     <section class="feedback">
         <div class="container">
