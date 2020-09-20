@@ -370,6 +370,7 @@ function strip_shortcode_gallery($content)
  * Render activities by category id
  * @param $cat_id
  * @return false|string
+ * @throws Exception
  */
 function get_activities($cat_id)
 {
@@ -380,37 +381,39 @@ function get_activities($cat_id)
         'numberposts' => -1
     );
     $activities = get_posts($args);
-    $upcomingActivities = [];
-    $pastActivities = [];
+    $upcoming_activities = [];
+    $past_activities = [];
+    $now_date = new DateTime('now');
     foreach ($activities as $activity) {
-        $activityId = $activity->ID;
-        if (get_field('relevance', $activityId) === 'upcoming') {
-            $upcomingActivities[] = $activity;
+        $activity_id = $activity->ID;
+        $activity_date = get_field('date', $activity_id);
+        if (new DateTime($activity_date) > $now_date) {
+            $upcoming_activities[] = $activity;
         } else {
-            $pastActivities[] = $activity;
+            $past_activities[] = $activity;
         }
     }
     ob_start();
-    if (count($upcomingActivities)):?>
+    if (count($upcoming_activities)):?>
         <section class="upcoming-events">
             <div class="container">
                 <h2 class="upcoming-events__title">Предстоящие мероприятия</h2>
-                <?php foreach ($upcomingActivities as $upcomingActivity):
-                    $upcomingActivityId = $upcomingActivity->ID;
-                    $upcomingActivityLink = get_field('landing-link', $upcomingActivityId);
-                    $upcomingActivityImage = get_the_post_thumbnail($upcomingActivityId);
+                <?php foreach ($upcoming_activities as $upcoming_activity):
+                    $upcoming_activity_id = $upcoming_activity->ID;
+                    $upcoming_activity_link = get_field('landing-link', $upcoming_activity_id);
+                    $upcoming_activity_image = get_the_post_thumbnail($upcoming_activity_id);
                     ?>
                     <div class="upcoming-events__inner">
-                        <a href="<?= $upcomingActivityLink ?>" class="upcoming-events__img">
-                            <?= $upcomingActivityImage ?>
+                        <a href="<?= $upcoming_activity_link ?>" class="upcoming-events__img">
+                            <?= $upcoming_activity_image ?>
                         </a>
                         <div class="upcoming-events__content">
-                            <div class="upcoming-events__content-title"><?= $upcomingActivity->post_title ?></div>
+                            <div class="upcoming-events__content-title"><?= $upcoming_activity->post_title ?></div>
                             <div class="upcoming-events__content-descr">
-                                <?= $upcomingActivity->post_content ?>
+                                <?= $upcoming_activity->post_content ?>
                             </div>
-                            <div class="upcoming-events__content-date"><?= get_field('date', $upcomingActivityId) ?></div>
-                            <a href="<?= $upcomingActivityLink ?>"
+                            <div class="upcoming-events__content-date"><?= get_field('date', $upcoming_activity_id) ?></div>
+                            <a href="<?= $upcoming_activity_link ?>"
                                class="upcoming-events__content-link">
                                 Узнать больше
                                 <svg class="icon">
@@ -424,30 +427,30 @@ function get_activities($cat_id)
         </section>
     <?php
     endif;
-    if (count($pastActivities)): ?>
+    if (count($past_activities)): ?>
         <section class="past-events">
             <div class="container">
                 <h2 class="past-events__title">Прошедшие мероприятия</h2>
                 <div class="row">
-                    <?php foreach ($pastActivities as $pastActivity):
-                        $pastActivityId = $pastActivity->ID;
-                        $pastActivityLink = get_field('landing-link', $pastActivityId);
-                        $pastActivityImage = get_the_post_thumbnail($pastActivityId);
+                    <?php foreach ($past_activities as $past_activity):
+                        $past_activity_id = $past_activity->ID;
+                        $past_activity_link = get_field('landing-link', $past_activity_id);
+                        $past_activity_image = get_the_post_thumbnail($past_activity_id);
                         ?>
                         <div class="col-md-4">
-                            <a href="<?= $pastActivityLink ?>" class="past-events__item">
+                            <a href="<?= $past_activity_link ?>" class="past-events__item">
                                 <div class="past-events__item-header">
                                     <div class="past-events__item-img">
-                                        <?= $pastActivityImage ?>
+                                        <?= $past_activity_image ?>
                                     </div>
-                                    <div class="past-events__item-date"><?= get_field('date', $pastActivityId) ?></div>
+                                    <div class="past-events__item-date"><?= get_field('date', $past_activity_id) ?></div>
                                 </div>
                                 <div class="past-events__item-content">
                                     <div class="past-events__item-wrap">
-                                        <div class="past-events__item-title"><?= $pastActivity->post_title ?></div>
+                                        <div class="past-events__item-title"><?= $past_activity->post_title ?></div>
                                     </div>
                                     <div class="past-events__item-descr">
-                                        <?= $pastActivity->post_content ?>
+                                        <?= $past_activity->post_content ?>
                                     </div>
                                 </div>
                             </a>
