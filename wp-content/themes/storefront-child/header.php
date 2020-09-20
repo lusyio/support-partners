@@ -54,8 +54,13 @@
                         'walker' => new wp_bootstrap_navwalker()
                     ));
                     ?>
-
-                    <a class="phone-link" href="tel:"><?= get_field('phone', 21) ?></a>
+                    <?php
+                    $phone_header = get_field('phone', 21);
+                    if ($phone_header): ?>
+                        <a class="phone-link" href="tel:<?= $phone_header ?>">
+                            <?= $phone_header ?>
+                        </a>
+                    <?php endif; ?>
                     <div class="outer-menu">
                         <button class="navbar-toggler position-relative" type="button" style="z-index: 1">
                             <span class="navbar-toggler-icon"></span>
