@@ -9,67 +9,8 @@ Template Post Type: post, page, product
 
     <div class="swiper-container swiper-container-header main-slider mt-5">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="main-screen main-screen_video">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-md-6">
-                                <div class="main-screen__inner">
-                                    <div class="main-screen__date">27.06.2020</div>
-                                    <h1 class="main-screen__title">название мероприятия</h1>
-                                    <div class="main-screen__descr">Масштабная конференция о создании <br> сильных
-                                        команд
-                                    </div>
-                                    <div>
-                                        <button class="main-screen__btn btn-primary">Узнать больше</button>
-                                        <a class="main-screen__link" href="#">
-                                            <img src="/wp-content/themes/storefront-child/svg/play.svg" alt="">
-                                            Смотреть видео
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="main-screen__video">
-                                    <video poster="/wp-content/themes/storefront-child/img/main-screen/video-plug.png"
-                                           preload="none" controls>
-                                        <source src="https://youtu.be/sZBM492Ufco"
-                                                type='video/webm; codecs="vp8, vorbis"'/>
-                                        <source src="https://youtu.be/sZBM492Ufco"
-                                                type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
-                                        <source src="https://youtu.be/sZBM492Ufco"
-                                                type='video/ogg; codecs="theora, vorbis"'/>
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="main-screen main-screen_photo">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="main-screen__inner">
-                                    <h1 class="main-screen__title">создаем <br> <span>сильные</span> команды</h1>
-                                    <div class="main-screen__descr">
-                                        Масштабная конференция о создании <br> сильных команд
-                                    </div>
-                                    <div>
-                                        <button class="main-screen__btn btn-primary">Посмотреть услуги</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="main-screen__img">
-                                    <img src="/wp-content/themes/storefront-child/img/main-screen/img-1.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?= get_events_slides() ?>
+            <?= get_main_slides() ?>
         </div>
         <div class="container">
             <div class="main-slider__control">
@@ -88,7 +29,7 @@ Template Post Type: post, page, product
                     Контакты
                 </a>
                 <div>
-                    <div class="main-slider__count">
+                    <div id="numberSlides" class="main-slider__count">
                         <span>3</span>/6
                     </div>
                     <div class="main-slider__btns">
@@ -164,10 +105,21 @@ Template Post Type: post, page, product
     </section>
 
     <script>
-        const swiper = new Swiper('.swiper-container-header', {
+        const swiperHeader = new Swiper('.swiper-container-header', {
             navigation: {
                 nextEl: '.carousel-control-next',
                 prevEl: '.carousel-control-prev',
+            },
+            runCallbacksOnInit: true,
+            on: {
+                init: function () {
+                    const offer = document.querySelector('#numberSlides');
+                    offer.innerHTML = `<span>${this.activeIndex + 1}</span>/${this.slides.length}`
+                },
+                slideChange: function () {
+                    const offer = document.querySelector('#numberSlides');
+                    offer.innerHTML = `<span>${this.activeIndex + 1}</span>/${this.slides.length}`
+                }
             },
         });
 

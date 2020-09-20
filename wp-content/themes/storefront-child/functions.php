@@ -897,6 +897,11 @@ function getCases($cat_id, $page = false)
     return ob_get_clean();
 }
 
+/**
+ * Render news by category id
+ * @param $cat_id
+ * @return false|string
+ */
 function getNews($cat_id)
 {
     $args = array(
@@ -1411,5 +1416,112 @@ function getReviews($cat_id)
         });
     </script>
 <?php endif;
+    return ob_get_clean();
+}
+
+/**
+ * Render simple slides on main-page
+ * @return false|string
+ */
+function get_main_slides()
+{
+    $gallery = get_post_gallery_images_with_info();
+    ob_start();
+    if ($gallery): ?>
+        <?php foreach ($gallery as $image_obj): ?>
+            <div class="swiper-slide">
+                <div class="main-screen main-screen_photo">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="main-screen__inner">
+                                    <h1 class="main-screen__title"><?= $image_obj['title'] ?></h1>
+                                    <div class="main-screen__descr">
+                                        <?= $image_obj['description'] ?>
+                                    </div>
+                                    <div>
+                                        <a href="<?= get_permalink(11) ?>" class="main-screen__btn btn-primary">Посмотреть
+                                            услуги</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="main-screen__img">
+                                    <img src="<?= $image_obj['src'] ?>" alt="<?= $image_obj['title'] ?>">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php
+    endif;
+    return ob_get_clean();
+}
+
+/**
+ * Render events slides for main-page
+ * @return false|string
+ * @todo Выводить ссылку на видео и само видео
+ */
+function get_events_slides()
+{
+    $event_slides = get_field('events_slider');
+    ob_start();
+    foreach ($event_slides as $event_slide):
+        $event_id = $event_slide->ID;
+        $event_link = get_field('landing-link', $event_id);
+        $event_date = get_field('date', $event_id);
+        $event_img = get_the_post_thumbnail_url($event_id);
+        $event_video = '';
+        ?>
+        <div class="swiper-slide">
+            <div class="main-screen <?= $event_video ? 'main-screen_video' : 'main-screen_photo' ?>">
+                <div class="container">
+                    <div class="row <?= $event_video ? 'align-items-center' : '' ?>">
+                        <div class="col-md-6">
+                            <div class="main-screen__inner">
+                                <div class="main-screen__date"><?= $event_date ?></div>
+                                <h1 class="main-screen__title"><?= $event_slide->post_title ?></h1>
+                                <div class="main-screen__descr">
+                                    <?= $event_slide->post_content ?>
+                                </div>
+                                <div>
+                                    <a href="<?= $event_link ?>" class="main-screen__btn btn-primary">Узнать больше</a>
+                                    <?php if ($event_video): ?>
+                                        <a class="main-screen__link" href="#">
+                                            <img src="/wp-content/themes/storefront-child/svg/play.svg" alt="">
+                                            Смотреть видео
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <?php if ($event_video): ?>
+                                <div class="main-screen__video">
+                                    <video poster="<?= $event_img ?>"
+                                           preload="none" controls>
+                                        <source src="https://youtu.be/dQw4w9WgXcQ"
+                                                type='video/webm; codecs="vp8, vorbis"'/>
+                                        <source src="https://youtu.be/dQw4w9WgXcQ"
+                                                type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
+                                        <source src="https://youtu.be/dQw4w9WgXcQ"
+                                                type='video/ogg; codecs="theora, vorbis"'/>
+                                    </video>
+                                </div>
+                            <?php else: ?>
+                                <div class="main-screen__img">
+                                    <img src="<?= $event_img ?>" alt="<?= $event_slide->post_title ?>">
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php
+    endforeach;
     return ob_get_clean();
 }
