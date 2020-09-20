@@ -132,6 +132,7 @@ Author URI:   https://richbee.ru/
     position: absolute;
     top: 20px;
     right: 20px;
+    min-height: auto;
 }
 
 .sp-modal .close:focus {
@@ -2484,13 +2485,20 @@ p.no-comments .button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 226px;
     background-color: #f4f8fb;
     overflow: hidden;
+    max-height: 226px;
+    height: 100vh;
+}
+
+.works__item-img > a {
+    display: flex;
+    height: 100%;
 }
 
 .works__item-img img {
     transition: all 0.3s;
+    object-fit: cover;
 }
 
 .works__item-box {
@@ -2506,6 +2514,7 @@ p.no-comments .button:hover {
     font-weight: 300;
     font-size: 16px;
     color: #696969;
+    margin-bottom: 15px;
 }
 
 .works__item-link {

@@ -1299,8 +1299,7 @@ function get_clients($post_content)
                 <h2 class="heading">Наши клиенты</h2>
                 <div class="swiper-container swiper-container-client">
                     <div class="swiper-wrapper">
-                        <?php
-                        foreach ($gallery as $image_obj) :?>
+                        <?php foreach ($gallery as $image_obj): ?>
                             <div class="swiper-slide">
                                 <img src="<?= $image_obj['src'] ?>"
                                      alt="<?= $image_obj['alt'] ?>"/>
@@ -1314,10 +1313,13 @@ function get_clients($post_content)
             const swiperClient = new Swiper('.swiper-container-client', {
                 slidesPerView: 5,
                 spaceBetween: 30,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
             });
         </script>
-    <?php
-    endif;
+    <?php endif;
     return ob_get_clean();
 }
 
