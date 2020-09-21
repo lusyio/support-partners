@@ -969,7 +969,7 @@ function getCycle($cat_id)
     }
     $childrens_titles_JSON = '';
     try {
-        $childrens_titles_JSON = json_encode(array_reverse($childrens_titles), JSON_THROW_ON_ERROR);
+        $childrens_titles_JSON = json_encode($childrens_titles, JSON_THROW_ON_ERROR);
     } catch (JsonException $e) {
     }
     ob_start(); ?>
@@ -992,8 +992,7 @@ function getCycle($cat_id)
         </div>
     </section>
     <?php
-    $childrens_reverse = array_reverse($childrens);
-    foreach ($childrens_reverse as $key => $children):
+    foreach ($childrens as $key => $children):
         $child_cat_id = $children->term_id;
         getCycleChildren($child_cat_id, $key);
     endforeach;
