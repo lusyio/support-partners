@@ -992,7 +992,8 @@ function getCycle($cat_id)
         </div>
     </section>
     <?php
-    foreach ($childrens as $key => $children):
+    $childrens_reverse = array_reverse($childrens);
+    foreach ($childrens_reverse as $key => $children):
         $child_cat_id = $children->term_id;
         getCycleChildren($child_cat_id, $key);
     endforeach;
