@@ -1204,7 +1204,7 @@ function getCycleChildren($child_cat_id, $key)
                     $children_post_id = $children_post->ID;
                     $card_type = get_field('card_type', $children_post_id);
                     $card_desc = get_field('card_desc', $children_post_id);
-                    $card_color = get_field('card_color', $children_post_id);
+                    $card_color = get_field('card_bg', $children_post_id);
                     $card_img = get_field('card_img', $children_post_id);
                     $landing_link = get_field('landing-link', $children_post_id);
                     $link = $landing_link ?: get_permalink($children_post_id);
