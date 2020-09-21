@@ -1198,7 +1198,7 @@ function getCycleChildren($child_cat_id, $key)
     ?>
     <section id="team-<?= $key ?>" class="team <?= $key !== 0 ? 'd-none' : '' ?>">
         <div class="container">
-            <h2 class="team__title">Создать команду</h2>
+            <h2 class="team__title"><?= get_cat_name($child_cat_id) ?></h2>
             <div class="row">
                 <?php foreach ($children_posts as $children_post):
                     $children_post_id = $children_post->ID;
