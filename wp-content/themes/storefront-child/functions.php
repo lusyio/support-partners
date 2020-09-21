@@ -1593,7 +1593,7 @@ function template_category_template_redirect()
         $current_url = home_url($_SERVER['REQUEST_URI']);
         $current_url_hash = parse_url($current_url, PHP_URL_PATH);
         wp_redirect(site_url($current_url_hash));
-        die;
+        wp_die();
     }
 }
 
