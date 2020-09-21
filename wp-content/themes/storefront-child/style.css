@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.9
+Version:      	1.0.10
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 
@@ -2388,8 +2388,8 @@ p.no-comments .button:hover {
 
 .search {
     width: 100%;
-    padding: 58px 0 72px;
     background-color: #f4f8fb;
+    padding: 0 0 72px;
 }
 
 .search__list {
@@ -2918,7 +2918,7 @@ p.no-comments .button:hover {
     min-height: 287px;
     margin-right: 30px;
     overflow: hidden;
-    border-right: 1.3px solid #ed002f;
+    border-right: 1px solid #ed002f;
 }
 
 .news-item__img img {
@@ -2927,6 +2927,9 @@ p.no-comments .button:hover {
     object-fit: cover;
     display: block;
     transition: all 0.3s;
+    max-height: 287px;
+    object-position: top;
+    max-width: 350px;
 }
 
 .news-item__content {

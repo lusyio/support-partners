@@ -1616,3 +1616,19 @@ function yoast_seo_breadcrumb_modify_link($links)
 
 add_filter('wpseo_breadcrumb_links', 'yoast_seo_breadcrumb_modify_link');
 
+
+/**
+ * Search only posts
+ * @param $query
+ * @return mixed
+ */
+function search_filter($query)
+{
+    if ($query->is_search) {
+        $query->set('post_type', 'post');
+    }
+    return $query;
+}
+
+add_filter('pre_get_posts', 'search_filter');
+
