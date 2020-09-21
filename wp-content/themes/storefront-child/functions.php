@@ -1587,14 +1587,14 @@ function get_events_slides()
     return ob_get_clean();
 }
 
-function template_category_template_redirect()
-{
-    if (is_category()) {
-        $current_url = home_url($_SERVER['REQUEST_URI']);
-        $current_url_hash = parse_url($current_url, PHP_URL_PATH);
-        wp_redirect(site_url($current_url_hash));
-        wp_die();
-    }
-}
-
-add_action('template_redirect', 'template_category_template_redirect');
+//function template_category_template_redirect()
+//{
+//    if (is_category()) {
+//        $current_url = home_url($_SERVER['REQUEST_URI']);
+//        $current_url_hash = parse_url($current_url, PHP_URL_PATH);
+//        wp_redirect(site_url($current_url_hash));
+//        die;
+//    }
+//}
+//
+//add_action('template_redirect', 'template_category_template_redirect');
