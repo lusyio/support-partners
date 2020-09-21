@@ -1505,7 +1505,7 @@ function get_events_slides()
         $event_link = get_field('landing-link', $event_id);
         $event_date = get_field('date', $event_id);
         $event_img = get_the_post_thumbnail_url($event_id);
-        $event_video = '';
+        $event_video = get_field('youtube_link', $event_id);
         ?>
         <div class="swiper-slide">
             <div class="main-screen <?= $event_video ? 'main-screen_video' : 'main-screen_photo' ?>">
@@ -1521,7 +1521,7 @@ function get_events_slides()
                                 <div>
                                     <a href="<?= $event_link ?>" class="main-screen__btn btn-primary">Узнать больше</a>
                                     <?php if ($event_video): ?>
-                                        <a class="main-screen__link" href="#">
+                                        <a class="main-screen__link start-video">
                                             <img src="/wp-content/themes/storefront-child/svg/play.svg" alt="">
                                             Смотреть видео
                                         </a>
@@ -1531,17 +1531,47 @@ function get_events_slides()
                         </div>
                         <div class="col-md-6">
                             <?php if ($event_video): ?>
-                                <div class="main-screen__video">
-                                    <video poster="<?= $event_img ?>"
-                                           preload="none" controls>
-                                        <source src="https://youtu.be/dQw4w9WgXcQ"
-                                                type='video/webm; codecs="vp8, vorbis"'/>
-                                        <source src="https://youtu.be/dQw4w9WgXcQ"
-                                                type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
-                                        <source src="https://youtu.be/dQw4w9WgXcQ"
-                                                type='video/ogg; codecs="theora, vorbis"'/>
-                                    </video>
+                                <div class="thumbnail_container position-relative text-center">
+                                    <div id="player">
+                                        <div id="ytplayer"></div>
+                                    </div>
+                                    <div class="thumbnail-block" style="background-image: url('<?= $event_img ?>');">
+                                    </div>
                                 </div>
+                                <script>
+                                    // Load the IFrame Player API code asynchronously.
+                                    let tag = document.createElement('script');
+                                    tag.src = "https://www.youtube.com/player_api";
+                                    let firstScriptTag = document.getElementsByTagName('script')[0];
+                                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                                    // YouTube player after the API code downloads.
+                                    let player;
+
+                                    function onYouTubePlayerAPIReady() {
+                                        player = new YT.Player('ytplayer', {
+                                            height: '334',
+                                            width: '594',
+                                            videoId: '<?= $event_video ?>'
+                                        });
+                                    }
+
+                                    document.addEventListener('click', function (e) {
+                                        // loop parent nodes from the target to the delegation node
+                                        for (let target = e.target; target && target !== this; target = target.parentNode) {
+                                            if (target.matches('.start-video')) {
+                                                handlerClick.call(target, e);
+                                                break;
+                                            }
+                                        }
+                                    }, false);
+
+                                    function handlerClick() {
+                                        document.getElementById('player').style.display = 'block'
+                                        document.querySelector('.thumbnail-block').style.display = 'none'
+                                        player.playVideo();
+                                    }
+                                </script>
                             <?php else: ?>
                                 <div class="main-screen__img">
                                     <img src="<?= $event_img ?>" alt="<?= $event_slide->post_title ?>">
