@@ -1550,8 +1550,8 @@ function get_events_slides()
 
                                     function onYouTubePlayerAPIReady() {
                                         player = new YT.Player('ytplayer', {
-                                            height: '334',
-                                            width: '594',
+                                            height: '300px',
+                                            width: '100%',
                                             videoId: '<?= $event_video ?>'
                                         });
                                     }
