@@ -2709,7 +2709,7 @@ p.no-comments .button:hover {
     position: relative;
 }
 
-.past-events__item-img img{
+.past-events__item-img img {
     height: 280px;
     max-height: 280px;
     object-fit: cover;
@@ -3370,6 +3370,11 @@ p.no-comments .button:hover {
     display: flex;
     width: 50px;
     opacity: 1;
+    cursor: pointer;
+}
+
+.main-slider .main-slider__control .carousel-control:hover svg {
+    fill: #e4e4e4;
 }
 
 .main-slider .main-slider__control > a {

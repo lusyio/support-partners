@@ -969,7 +969,7 @@ function getCycle($cat_id)
     }
     $childrens_titles_JSON = '';
     try {
-        $childrens_titles_JSON = json_encode($childrens_titles, JSON_THROW_ON_ERROR);
+        $childrens_titles_JSON = json_encode(array_reverse($childrens_titles), JSON_THROW_ON_ERROR);
     } catch (JsonException $e) {
     }
     ob_start(); ?>
