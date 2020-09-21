@@ -561,7 +561,40 @@ header#masthead {
 
 .search-div {
     width: 100%;
-    margin-bottom: 48px;
+    margin-bottom: 0px;
+}
+
+.search-field-group .search-field {
+    background: #FFFFFF;
+    border: 0;
+    padding: 14px 25px;
+    border-radius: 0;
+    max-height: 51px;
+    min-height: auto;
+    height: 51px;
+}
+
+.search-field-group .search-field::placeholder {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 123.5%;
+    color: #767676;
+}
+
+.search-field-group .search-field:focus {
+    background: #FFFFFF;
+}
+
+.search-field-group .btn.btn-primary {
+    min-width: 160px;
+    max-height: 51px;
+    min-height: auto;
+    height: 51px;
+    border-radius: 0;
+}
+
+.search-div form {
+    margin-bottom: 0;
 }
 
 #searchForm {
@@ -695,7 +728,7 @@ header#masthead {
 --------------------------------------------------------------*/
 .social img {
     transition: 200ms;
-    width: 30px;
+    width: 25px;
 }
 
 .social a:last-of-type {
@@ -710,11 +743,14 @@ header#masthead {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
 .social {
-    margin-bottom: 48px;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
 }
 
 .social a:hover img {
@@ -762,13 +798,19 @@ html footer .search-form input::placeholder {
 }
 
 .richbee {
-    display: table;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 160px;
+    width: 100%;
 }
 
 .richbee img {
     transition: 145ms ease-in-out;
+    width: 100%;
+}
+
+.site-footer hr {
+    margin-top: 30px;
+    margin-bottom: 22px;
+    border-color: #E3EEF6;
 }
 
 .richbee:hover img {
@@ -819,8 +861,8 @@ html footer .search-form input::placeholder {
 }
 
 footer.site-footer {
-    padding-top: 47px;
-    padding-bottom: 48px;
+    padding-top: 35px;
+    padding-bottom: 40px;
     font-size: 1rem;
     background-color: #005896;
     color: #ffffff;
@@ -1802,6 +1844,40 @@ p.no-comments .button:hover {
     font-weight: 300;
     font-size: 18px;
     color: #767676;
+}
+
+.before-footer {
+    background: #E3EEF7;
+}
+
+.before-footer .container {
+    padding-top: 27px;
+    padding-bottom: 27px;
+}
+
+
+.before-footer__left {
+    display: flex;
+    justify-content: space-between;
+}
+
+.before-footer .before-footer__left p {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    color: #363636;
+    margin-bottom: 0;
+    align-self: center;
+    margin-right: 10px;
+}
+
+.before-footer .before-footer__left img {
+    max-height: 90px;
+}
+
+.before-footer .before-footer__left p span {
+    color: #767676;
+    display: block;
 }
 
 .feedback input[type="email"] {

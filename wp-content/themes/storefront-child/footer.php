@@ -15,8 +15,24 @@
 
 <?php do_action('storefront_before_footer'); ?>
 
+<div class="before-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-12 before-footer__left">
+                <img src="/wp-content/themes/storefront-child/svg/search-footer.svg" alt="search">
+                <p>
+                    Поиск информации на сайте
+                    <span>Мероприятия, вакансии, продукты</span>
+                </p>
+            </div>
+            <div class="col-lg-6 col-12 m-auto">
+                <?php get_search_form() ?>
+            </div>
+        </div>
+    </div>
+</div>
 <footer id="colophon" class="site-footer" role="contentinfo">
-    <div class="container pt-3 pb-3">
+    <div class="container">
         <div class="row">
             <?php
             if ($menu_items = wp_get_menu_array('second')):
@@ -50,32 +66,35 @@
                 </div>
             <?php endif; ?>
             <div class="col-12 col-lg-3">
-                <?php get_search_form() ?>
-                <div class="social">
-                    <small>Оставайтесь с нами</small>
-                    <div>
-                        <?php
-                        $vk = get_field('vkontakte', 21);
-                        $fb = get_field('facebook', 21);
-                        ?>
-                        <?php if ($vk): ?>
-                            <a class="text-decoration-none socials" href="<?= $vk ?>">
-                                <img src="/wp-content/themes/storefront-child/svg/vk.svg" alt="">
-                            </a>
-                        <?php endif; ?>
-                        <?php if ($fb): ?>
-                            <a class="text-decoration-none socials" href="<?= $fb ?>">
-                                <img src="/wp-content/themes/storefront-child/svg/facebook.svg" alt="">
-                            </a>
-                        <?php endif; ?>
-                    </div>
-                </div>
-                <a class="richbee" href="https://richbee.ru/">
-                    <img src="/wp-content/themes/storefront-child/svg/Richbee-white.svg" alt="RichBee">
+                <a href="/">
+                    <img src="/wp-content/themes/storefront-child/img/big-sp.png" alt="support-partners">
                 </a>
             </div>
         </div>
 
+        <hr>
+
+        <div class="social">
+            <a class="richbee" href="https://richbee.ru/">
+                <img src="/wp-content/themes/storefront-child/svg/Richbee-white.svg" alt="RichBee">
+            </a>
+            <div>
+                <?php
+                $tg = get_field('telegram', 21);
+                $fb = get_field('facebook', 21);
+                ?>
+                <?php if ($tg): ?>
+                    <a class="text-decoration-none socials" href="<?= $tg ?>">
+                        <img src="/wp-content/themes/storefront-child/svg/tg-white.svg" alt="telegram">
+                    </a>
+                <?php endif; ?>
+                <?php if ($fb): ?>
+                    <a class="text-decoration-none socials" href="<?= $fb ?>">
+                        <img src="/wp-content/themes/storefront-child/svg/facebook.svg" alt="facebook">
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
 
         <div class="col-full">
 
