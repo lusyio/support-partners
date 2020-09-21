@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.7
+Version:      	1.0.8
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 
@@ -3003,7 +3003,7 @@ p.no-comments .button:hover {
 }
 
 .vacancy__body-list li {
-    margin: 0 0 25px;
+    margin: 0 0 25px !important;
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
@@ -3022,45 +3022,45 @@ p.no-comments .button:hover {
     color: #363636;
 }
 
-.vacancy__body-sublist {
+.vacancy__body-sublist, .vacancy__body ol, .vacancy__body ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.vacancy__body-sublist li {
-    margin: 0 0 25px;
+.vacancy__body-sublist li, .vacancy__body li {
+    margin: 0 0 5px;
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
     color: #696969;
 }
 
-.vacancy__body-sublist li:last-child {
+.vacancy__body-sublist li:last-child, .vacancy__body ol li:last-child, .vacancy__body ul li:last-child {
     margin: 0;
 }
 
-.vacancy__body-sublist_unmarked {
+.vacancy__body-sublist_unmarked, .vacancy__body ul {
     margin: 0 0 35px 0;
 }
 
-.vacancy__body-sublist_marked {
+.vacancy__body-sublist_marked, .vacancy__body ol {
     margin: 0;
 }
 
-.vacancy__body-sublist_marked li {
+.vacancy__body-sublist_marked li, .vacancy__body ol li {
     position: relative;
     padding-left: 10px;
 }
 
-.vacancy__body-sublist_marked li::before {
+.vacancy__body-sublist_marked li::before, .vacancy__body ol li::before {
     content: "-";
     position: absolute;
     top: 0;
     left: 0;
 }
 
-.vacancy__subtitle {
+.vacancy__subtitle, .vacancy__body h2 {
     position: relative;
     margin: 0 0 30px;
     padding-left: 57px;
@@ -3069,7 +3069,7 @@ p.no-comments .button:hover {
     line-height: 28px;
 }
 
-.vacancy__subtitle::before {
+.vacancy__subtitle::before, .vacancy__body h2::before {
     content: "";
     position: absolute;
     top: 16px;
