@@ -1587,14 +1587,32 @@ function get_events_slides()
     return ob_get_clean();
 }
 
-//function template_category_template_redirect()
-//{
-//    if (is_category()) {
-//        $current_url = home_url($_SERVER['REQUEST_URI']);
-//        $current_url_hash = parse_url($current_url, PHP_URL_PATH);
-//        wp_redirect(site_url($current_url_hash));
-//        die;
-//    }
-//}
-//
-//add_action('template_redirect', 'template_category_template_redirect');
+
+/**
+ * Modify yoast breadcrumbs
+ * /category/news -> /news/
+ * @param $links
+ * @return mixed
+ */
+function yoast_seo_breadcrumb_modify_link($links)
+{
+    if (is_single()) {
+        $current_url = home_url($_SERVER['REQUEST_URI']);
+        $current_url_hash = parse_url($current_url, PHP_URL_PATH);
+
+        $category_url_hash = array_filter(explode("/", $current_url_hash));
+
+        $breadcrumb[] = array(
+            'url' => site_url($category_url_hash[1]),
+            'text' => $links[1]['text'],
+        );
+
+        unset($links[1]);
+
+        array_splice($links, 1, -2, $breadcrumb);
+    }
+    return $links;
+}
+
+add_filter('wpseo_breadcrumb_links', 'yoast_seo_breadcrumb_modify_link');
+
