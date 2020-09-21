@@ -1243,18 +1243,20 @@ function getCycleChildren($child_cat_id, $key)
 
                 $small_cards_normalize = array_filter($small_cards);
                 $count = 1;
-                foreach ($small_cards_normalize as $small_card_key => $small_card):
-                    $small_card_id = $small_card->ID;
-                    $card_desc = get_field('card_desc', $small_card_id);
-                    $landing_link = get_field('landing-link', $small_card_id);
-                    $link = $landing_link ?: get_permalink($small_card_id);
-                    if (in_array(4, (array)$small_card->post_category, true)) {
-                        $link = get_permalink(11) . '#' . $small_card->post_name;
-                    }
-                    if ($count === 1): ?>
-                        <div class="col-md-4">
-                    <?php endif; ?>
+                foreach ($small_cards_normalize
+
+                as $small_card_key => $small_card):
+                $small_card_id = $small_card->ID;
+                $card_desc = get_field('card_desc', $small_card_id);
+                $landing_link = get_field('landing-link', $small_card_id);
+                $link = $landing_link ?: get_permalink($small_card_id);
+                if (in_array(4, (array)$small_card->post_category, true)) {
+                    $link = get_permalink(11) . '#' . $small_card->post_name;
+                }
+                if ($count === 1): ?>
+                <div class="col-md-4">
                     <div class="team__item team__item_small team__item_white">
+                        <?php endif; ?>
                         <div class="team__item-box">
                             <div class="team__item-title team__item-title_small"><?= $small_card->post_title ?></div>
                             <?php if ($card_desc): ?>
@@ -1269,18 +1271,21 @@ function getCycleChildren($child_cat_id, $key)
                             </a>
                         </div>
                     </div>
-                    <?php if ($count === 2):
+                    <?php if ($count === 2 && array_key_last($small_cards_normalize) !== $small_card_key):
                     $count = 1; ?>
-                    </div>
-                    <div class="col-md-4">
-                    <?php if (array_key_last($small_cards_normalize) === $small_card_key): ?>
-                    </div>
-                <?php
-                endif;
-                endif;
-                    $count++;
-                endforeach; ?>
+                </div>
             </div>
+            <div class="col-md-4">
+                <div class="team__item team__item_small team__item_white">
+                    <?php if (array_key_last($small_cards_normalize) === $small_card_key): ?>
+                </div>
+            </div>
+            <?php
+            endif;
+            endif;
+            $count++;
+            endforeach; ?>
+        </div>
         </div>
     </section>
     <?php
