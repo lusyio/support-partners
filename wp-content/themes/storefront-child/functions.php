@@ -1199,7 +1199,9 @@ function getCycleChildren($child_cat_id, $key)
         <div class="container">
             <h2 class="team__title"><?= get_cat_name($child_cat_id) ?></h2>
             <div class="row">
-                <?php foreach ($children_posts as $children_post):
+                <?php
+                $small_cards = [];
+                foreach ($children_posts as $children_post):
                     $children_post_id = $children_post->ID;
                     $card_type = get_field('card_type', $children_post_id);
                     $card_desc = get_field('card_desc', $children_post_id);
@@ -1207,6 +1209,8 @@ function getCycleChildren($child_cat_id, $key)
                     $card_img = get_field('card_img', $children_post_id);
                     $landing_link = get_field('landing-link', $children_post_id);
                     $link = $landing_link ?: get_permalink($children_post_id);
+
+                    $small_cards[] = $card_type === 'small' ? $children_post : '';
 
                     if (in_array(4, (array)$children_post->post_category, true)) {
                         $link = get_permalink(11) . '#' . $children_post->post_name;
@@ -1233,26 +1237,48 @@ function getCycleChildren($child_cat_id, $key)
                                 </a>
                             </div>
                         </div>
-                    <?php else: ?>
-                        <div class="col-md-4">
-                            <div class="team__item team__item_small team__item_white">
-                                <div class="team__item-box">
-                                    <div class="team__item-title team__item-title_small"><?= $children_post->post_title ?></div>
-                                    <?php if ($card_desc): ?>
-                                        <div class="team__item-descr team__item-descr_small"><?= $card_desc ?></div>
-                                    <?php endif; ?>
-                                    <a class="team__item-link team__item-link_blue"
-                                       href="<?= $link ?>">
-                                        Подробнее
-                                        <svg class="icon">
-                                            <use xlink:href="#arrow"></use>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
                     <?php
                     endif;
+                endforeach;
+
+                $small_cards_normalize = array_filter($small_cards);
+                $count = 1;
+                foreach ($small_cards_normalize as $small_card_key => $small_card):
+                    $small_card_id = $small_card->ID;
+                    $card_desc = get_field('card_desc', $small_card_id);
+                    $landing_link = get_field('landing-link', $small_card_id);
+                    $link = $landing_link ?: get_permalink($small_card_id);
+                    if (in_array(4, (array)$small_card->post_category, true)) {
+                        $link = get_permalink(11) . '#' . $small_card->post_name;
+                    }
+                    if ($count === 1): ?>
+                        <div class="col-md-4">
+                    <?php endif; ?>
+                    <div class="team__item team__item_small team__item_white">
+                        <div class="team__item-box">
+                            <div class="team__item-title team__item-title_small"><?= $small_card->post_title ?></div>
+                            <?php if ($card_desc): ?>
+                                <div class="team__item-descr team__item-descr_small"><?= $card_desc ?></div>
+                            <?php endif; ?>
+                            <a class="team__item-link team__item-link_blue"
+                               href="<?= $link ?>">
+                                Подробнее
+                                <svg class="icon">
+                                    <use xlink:href="#arrow"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <?php if ($count === 2):
+                    $count = 1; ?>
+                    </div>
+                    <div class="col-md-4">
+                    <?php if (array_key_last($small_cards_normalize) === $small_card_key): ?>
+                    </div>
+                <?php
+                endif;
+                endif;
+                    $count++;
                 endforeach; ?>
             </div>
         </div>
