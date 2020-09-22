@@ -14,7 +14,7 @@ Template Post Type: post, page, product
         </div>
         <div class="container">
             <div class="main-slider__control">
-                <a href="">
+                <a href="<?= get_permalink(21) ?>">
                     <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="1.32353" cy="1.32353" r="1.32353" fill="black" fill-opacity="0.5"/>
                         <circle cx="1.32353" cy="7.5" r="1.32353" fill="black" fill-opacity="0.5"/>
@@ -82,25 +82,7 @@ Template Post Type: post, page, product
     <section class="feedback">
         <div class="container">
             <h2 class="heading">Обсудить сотрудничество</h2>
-            <form action="#" class="feedback__form">
-                <div class="row">
-                    <div class="col-md-6">
-                        <input type="text" name="name" placeholder="Имя Фамилия Отчество">
-                        <input type="tel" name="phone" placeholder="Мобильный телефон">
-                        <input type="email" name="email" placeholder="Электронная почта">
-                        <div class="feedback__form-group">
-                            <input type="checkbox" name="" id="check">
-                            <label for="check">
-                                Я принимаю условия <a href="#">передачи данных</a>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <textarea name="message" placeholder="Ваше сообщение"></textarea>
-                        <button class="feedback__form-btn btn-primary">Отправить</button>
-                    </div>
-                </div>
-            </form>
+            <?= do_shortcode('[caldera_form id="CF5f69e12d73670"]') ?>
         </div>
     </section>
 
@@ -126,6 +108,7 @@ Template Post Type: post, page, product
         const swiperCase = new Swiper('.swiper-container-case', {
             slidesPerView: 3,
             spaceBetween: 30,
+            loop: true,
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',

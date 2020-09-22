@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.11
+Version:      	1.0.12
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 
@@ -1825,7 +1825,7 @@ p.no-comments .button:hover {
 
 .feedback input[type="text"],
 .feedback input[type="email"],
-.feedback input[type="tel"] {
+.feedback input[type="phone"] {
     width: 100%;
     min-height: 74px;
     margin: 0 0 37px;
@@ -1840,10 +1840,16 @@ p.no-comments .button:hover {
 
 .feedback input[type="text"]::placeholder,
 .feedback input[type="email"]::placeholder,
-.feedback input[type="tel"]::placeholder {
+.feedback input[type="phone"]::placeholder {
     font-weight: 300;
     font-size: 18px;
     color: #767676;
+}
+
+body .feedback__form-btn{
+    color: #fff;
+    max-width: 160px;
+    width: 100%;
 }
 
 .before-footer {
