@@ -1270,8 +1270,7 @@ function getCycleChildren($child_cat_id, $key)
                             </svg>
                         </a>
                     </div>
-                    <?php if ($count === 2 && array_key_last($small_cards_normalize) !== $small_card_key):
-                    $count = 0; ?>
+                    <?php if ($count === 2 && array_key_last($small_cards_normalize) !== $small_card_key): ?>
                     </div>
                     </div>
                     <div class="col-md-4">
@@ -1283,6 +1282,9 @@ function getCycleChildren($child_cat_id, $key)
                 endif;
                 endif;
                     $count++;
+                    if ($count === 2 && array_key_last($small_cards_normalize) !== $small_card_key){
+                        $count = 1;
+                    }
                 endforeach; ?>
             </div>
         </div>
