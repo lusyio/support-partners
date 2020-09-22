@@ -706,7 +706,7 @@ function get_team($cat_id)
                 <div class="row">
                     <?php
                     $vacancy = [];
-                    $featured_image = '';
+                    $vacancy_img = '';
                     foreach ($team_posts as $team_post):
                         $post_id = $team_post->ID;
                         $featured_image = get_the_post_thumbnail($post_id);
@@ -732,7 +732,7 @@ function get_team($cat_id)
                             </div>
                         <?php else:
                             $vacancy = $team_post;
-                            $featured_image = get_the_post_thumbnail($vacancy->ID);
+                            $vacancy_img = get_the_post_thumbnail($vacancy->ID);
                         endif;
                     endforeach; ?>
                     <?php if ($vacancy): ?>
@@ -740,7 +740,7 @@ function get_team($cat_id)
                             <a href="<?= get_permalink($vacancy->ID) ?>"
                                class="specialists__card specialists__card_empty">
                                 <div class="specialists__card-title"><?= $vacancy->post_title ?></div>
-                                <?= $featured_image ?>
+                                <?= $vacancy_img ?>
                                 <svg class="icon">
                                     <use xlink:href="#arrow"></use>
                                 </svg>
