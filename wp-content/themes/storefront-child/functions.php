@@ -1252,6 +1252,7 @@ function getCycleChildren($child_cat_id, $key)
                     if (in_array(4, (array)$small_card->post_category, true)) {
                         $link = get_permalink(11) . '#' . $small_card->post_name;
                     }
+                    var_dump($count);
                     if ($count === 1): ?>
                         <div class="col-md-4">
                         <div class="team__item team__item_small team__item_white">
