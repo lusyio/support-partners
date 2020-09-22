@@ -2135,8 +2135,8 @@ body .feedback__form-btn {
 }
 
 .specialists__card_empty img {
-    margin: 0 auto;
     max-width: 70px;
+    margin: 0 auto 30px;
 }
 
 .specialists__card-img:hover img {

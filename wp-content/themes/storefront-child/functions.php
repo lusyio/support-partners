@@ -705,6 +705,8 @@ function get_team($cat_id)
                 <h2 class="heading">Наша команда</h2>
                 <div class="row">
                     <?php
+                    $vacancy = [];
+                    $featured_image = '';
                     foreach ($team_posts as $team_post):
                         $post_id = $team_post->ID;
                         $featured_image = get_the_post_thumbnail($post_id);
@@ -728,20 +730,23 @@ function get_team($cat_id)
                                        data-info='<?= $content ?>' href="#">Подробнее</a>
                                 </div>
                             </div>
-                        <?php else: ?>
-                            <div class="col-md-3">
-                                <a href="<?= get_permalink($post_id) ?>"
-                                   class="specialists__card specialists__card_empty">
-                                    <div class="specialists__card-title"><?= $team_post->post_title ?></div>
-                                    <?= $featured_image ?>
-                                    <svg class="icon">
-                                        <use xlink:href="#arrow"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        <?php
+                        <?php else:
+                            $vacancy = $team_post;
+                            $featured_image = get_the_post_thumbnail($vacancy->ID);
                         endif;
                     endforeach; ?>
+                    <?php if ($vacancy): ?>
+                        <div class="col-md-3">
+                            <a href="<?= get_permalink($vacancy->ID) ?>"
+                               class="specialists__card specialists__card_empty">
+                                <div class="specialists__card-title"><?= $vacancy->post_title ?></div>
+                                <?= $featured_image ?>
+                                <svg class="icon">
+                                    <use xlink:href="#arrow"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
