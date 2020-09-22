@@ -1252,7 +1252,7 @@ function getCycleChildren($child_cat_id, $key)
                     if (in_array(4, (array)$small_card->post_category, true)) {
                         $link = get_permalink(11) . '#' . $small_card->post_name;
                     }
-                    if ($count === 1): ?>
+                    if ($count === 1 && array_key_first($small_cards_normalize) === $small_card_key): ?>
                         <div class="col-md-4">
                         <div class="team__item team__item_small team__item_white">
                     <?php endif; ?>
@@ -1269,7 +1269,8 @@ function getCycleChildren($child_cat_id, $key)
                             </svg>
                         </a>
                     </div>
-                    <?php if ($count === 2 && array_key_last($small_cards_normalize) !== $small_card_key): ?>
+                    <?php if ($count === 2 && array_key_last($small_cards_normalize) !== $small_card_key):
+                    $count = 1; ?>
                     </div>
                     </div>
                     <div class="col-md-4">
@@ -1281,9 +1282,6 @@ function getCycleChildren($child_cat_id, $key)
                 endif;
                 endif;
                     $count++;
-                    if ($count === 2 && array_key_last($small_cards_normalize) !== $small_card_key){
-                        $count = 1;
-                    }
                 endforeach; ?>
             </div>
         </div>
