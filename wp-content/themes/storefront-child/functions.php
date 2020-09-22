@@ -697,7 +697,7 @@ function get_team($cat_id)
         'post_status' => 'publish',
         'numberposts' => -1
     );
-    $team_posts = get_posts($args);
+    $team_posts = array_reverse(get_posts($args));
     ob_start();
     if ($team_posts): ?>
         <section class="specialists">
@@ -708,25 +708,39 @@ function get_team($cat_id)
                     foreach ($team_posts as $team_post):
                         $post_id = $team_post->ID;
                         $featured_image = get_the_post_thumbnail($post_id);
-                        $content = $team_post->post_content;
-                        $content = apply_filters('the_content', $content);
-                        $content = str_replace(']]>', ']]&gt;', $content);
-                        ?>
-                        <div class="col-md-3">
-                            <div class="specialists__card">
-                                <div class="specialists__card-img">
-                                    <?= $featured_image ?>
+                        $team_post_type = get_field('team_vacancy', $post_id);
+                        if ($team_post_type === 'team'):
+                            $content = $team_post->post_content;
+                            $content = apply_filters('the_content', $content);
+                            $content = str_replace(']]>', ']]&gt;', $content);
+                            ?>
+                            <div class="col-md-3">
+                                <div class="specialists__card">
+                                    <div class="specialists__card-img">
+                                        <?= $featured_image ?>
+                                    </div>
+                                    <div class="specialists__card-title"><?= $team_post->post_title ?></div>
+                                    <div class="specialists__card-descr">
+                                        <?= get_field('position', $post_id) ?>
+                                    </div>
+                                    <a class="specialists__card-link" data-title="<?= $team_post->post_title ?>"
+                                       data-toggle="modal" data-target="#teamModal"
+                                       data-info='<?= $content ?>' href="#">Подробнее</a>
                                 </div>
-                                <div class="specialists__card-title"><?= $team_post->post_title ?></div>
-                                <div class="specialists__card-descr">
-                                    <?= get_field('position', $post_id) ?>
-                                </div>
-                                <a class="specialists__card-link" data-title="<?= $team_post->post_title ?>"
-                                   data-toggle="modal" data-target="#teamModal"
-                                   data-info='<?= $content ?>' href="#">Подробнее</a>
                             </div>
-                        </div>
-                    <?php
+                        <?php else: ?>
+                            <div class="col-md-3">
+                                <a href="<?= get_permalink($post_id) ?>"
+                                   class="specialists__card specialists__card_empty">
+                                    <div class="specialists__card-title"><?= $team_post->post_title ?></div>
+                                    <?= $featured_image ?>
+                                    <svg class="icon">
+                                        <use xlink:href="#arrow"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        <?php
+                        endif;
                     endforeach; ?>
                 </div>
             </div>
