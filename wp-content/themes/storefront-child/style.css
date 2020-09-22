@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.12
+Version:      	1.0.13
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 
@@ -2085,11 +2085,12 @@ body .feedback__form-btn {
 }
 
 .specialists__card_empty .specialists__card-title {
-    margin: 0 0 36px;
     padding: 0;
     font-size: 20px;
     line-height: 23px;
     color: #363636;
+    max-width: 80%;
+    margin: 0 auto 36px;
 }
 
 .specialists__card_empty .specialists__card-title::before {
@@ -2113,10 +2114,6 @@ body .feedback__form-btn {
     color: #005896;
 }
 
-.specialists__card_empty .specialists__card-img {
-    margin: 0 auto;
-}
-
 .specialists__card_empty .icon {
     width: 81px;
     height: 10px;
@@ -2135,6 +2132,11 @@ body .feedback__form-btn {
 .specialists__card-img img {
     max-width: 100%;
     transition: all 0.3s;
+}
+
+.specialists__card_empty img {
+    margin: 0 auto;
+    max-width: 70px;
 }
 
 .specialists__card-img:hover img {
