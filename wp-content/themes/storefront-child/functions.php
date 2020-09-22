@@ -1271,7 +1271,7 @@ function getCycleChildren($child_cat_id, $key)
                         </a>
                     </div>
                     <?php if ($count === 2 && array_key_last($small_cards_normalize) !== $small_card_key):
-                    $count = 1; ?>
+                    $count = 0; ?>
                     </div>
                     </div>
                     <div class="col-md-4">
