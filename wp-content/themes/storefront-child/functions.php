@@ -1247,8 +1247,10 @@ function getCycleChildren($child_cat_id, $key)
                 foreach ($small_cards_normalize as $small_card_key => $small_card):
                     $small_card_id = $small_card->ID;
                     $card_desc = get_field('card_desc', $small_card_id);
-                    $landing_link = get_field('landing-link', $small_card_id);
+                    $landing_link = get_field('landing-link', $small_card_id)
+                        ?: get_field('vacancies_link', $small_card_id);
                     $link = $landing_link ?: get_permalink($small_card_id);
+
                     if (in_array(4, (array)$small_card->post_category, true)) {
                         $link = get_permalink(11) . '#' . $small_card->post_name;
                     }
