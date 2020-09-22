@@ -519,7 +519,8 @@ function get_services($cat_id)
                             <?= $image_obj['description'] ?>
                         </div>
                         <?php if (array_key_last($gallery) === $key): ?>
-                            <button data-toggle="modal" data-target="#vacancyModal"
+                            <button data-title="<?= $servicesPost->post_title ?>"
+                                    data-toggle="modal" data-target="#vacancyModal"
                                     class="btn-primary">Отправить заявку
                             </button>
                         <?php endif; ?>

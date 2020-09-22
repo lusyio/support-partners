@@ -24,4 +24,21 @@ Template Post Type: post, page, product
         </div>
     </div>
 
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('click', function (e) {
+                for (let target = e.target; target && target !== this; target = target.parentNode) {
+                    if (target.matches('[data-target="#vacancyModal"]')) {
+                        handleModal.call(target, e);
+                        break;
+                    }
+                }
+            }, false);
+
+            function handleModal() {
+                document.getElementById('fld_1939953_1').value = this.dataset.title
+            }
+        })
+    </script>
+
 <?php get_footer(); ?>
