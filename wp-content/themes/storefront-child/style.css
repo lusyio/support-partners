@@ -1790,7 +1790,7 @@ p.no-comments .button:hover {
     text-transform: uppercase;
     color: #ffffff;
     font-weight: 500;
-    max-width: 200px;
+    max-width: 230px;
 }
 
 .project__item:hover:before {
@@ -2392,6 +2392,10 @@ p.no-comments .button:hover {
     padding: 0 0 72px;
 }
 
+body .search {
+    padding-top: 58px;
+}
+
 .search__list {
     margin: 0;
     padding: 0 0 0 65px;
@@ -2415,6 +2419,10 @@ p.no-comments .button:hover {
     width: 10px;
     height: 10px;
     border: 1px solid #005896;
+}
+
+.search__list-item:last-of-type {
+    margin-bottom: 0;
 }
 
 .description {

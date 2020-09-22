@@ -1207,7 +1207,8 @@ function getCycleChildren($child_cat_id, $key)
                     $card_desc = get_field('card_desc', $children_post_id);
                     $card_color = get_field('card_bg', $children_post_id);
                     $card_img = get_field('card_img', $children_post_id);
-                    $landing_link = get_field('landing-link', $children_post_id);
+                    $landing_link = get_field('landing-link', $children_post_id)
+                        ?: get_field('vacancies_link', $children_post_id);
                     $link = $landing_link ?: get_permalink($children_post_id);
 
                     $small_cards[] = $card_type === 'small' ? $children_post : '';
@@ -1587,7 +1588,6 @@ function get_events_slides()
     return ob_get_clean();
 }
 
-
 /**
  * Modify yoast breadcrumbs
  * /category/news -> /news/
@@ -1616,7 +1616,6 @@ function yoast_seo_breadcrumb_modify_link($links)
 
 add_filter('wpseo_breadcrumb_links', 'yoast_seo_breadcrumb_modify_link');
 
-
 /**
  * Search only posts
  * @param $query
@@ -1624,8 +1623,9 @@ add_filter('wpseo_breadcrumb_links', 'yoast_seo_breadcrumb_modify_link');
  */
 function search_filter($query)
 {
-    if ($query->is_search) {
+    if ($query->is_search && !is_admin()) {
         $query->set('post_type', 'post');
+        $query->set('cat', '-19');
     }
     return $query;
 }
