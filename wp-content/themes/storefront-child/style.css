@@ -1846,7 +1846,7 @@ p.no-comments .button:hover {
     color: #767676;
 }
 
-body .feedback__form-btn{
+body .feedback__form-btn {
     color: #fff;
     max-width: 160px;
     width: 100%;
@@ -1926,6 +1926,10 @@ body .feedback__form-btn{
     border-radius: 0;
     background-color: #f4f8fb;
     resize: none;
+}
+
+.feedback textarea:focus {
+    background-color: #f4f8fb;
 }
 
 .feedback textarea::placeholder {
