@@ -15,6 +15,9 @@ Template Post Type: post, page, product
             <div class="modal-content">
                 <div class="modal-body">
                     <h5 class="heading">Обсудить сотрудничество</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <img src="/wp-content/themes/storefront-child/svg/close.svg" alt="close modal">
+                    </button>
                     <?= do_shortcode('[caldera_form id="CF5f69e53cf2a2c"]') ?>
                 </div>
             </div>
