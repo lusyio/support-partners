@@ -707,7 +707,7 @@ function get_team($cat_id)
                             $content = apply_filters('the_content', $content);
                             $content = str_replace(']]>', ']]&gt;', $content);
                             ?>
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-6">
                                 <div class="specialists__card">
                                     <div class="specialists__card-img">
                                         <?= $featured_image ?>
@@ -727,7 +727,7 @@ function get_team($cat_id)
                         endif;
                     endforeach; ?>
                     <?php if ($vacancy): ?>
-                        <div class="col-md-3">
+                        <div class="col-lg-3 col-6">
                             <a href="<?= get_permalink($vacancy->ID) ?>"
                                class="specialists__card specialists__card_empty">
                                 <div class="specialists__card-title"><?= $vacancy->post_title ?></div>

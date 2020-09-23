@@ -90,7 +90,7 @@
                 </div>
             </nav>
         </div>
-        <?php if (!is_front_page() && !is_single() && !is_search()): ?>
+        <?php if (!is_front_page() && !is_single() && !is_search() && !is_404()): ?>
             <section class="intro">
                 <div class="container">
                     <div class="intro__inner"
