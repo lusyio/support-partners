@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.14
+Version:      	1.0.15
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 */
@@ -3630,6 +3630,7 @@ body .search {
     height: auto !important;
     margin-top: 0px !important;
     transition: all 0.3s ease;
+    align-self: center;
 }
 
 .main-project-slider__control .swiper-button-next:focus, .main-project-slider__control .swiper-button-prev:focus {
@@ -4062,7 +4063,7 @@ body .search {
         margin-bottom: 45px;
     }
 
-    .reviews{
+    .reviews {
         padding-bottom: 100px;
     }
 }
@@ -4080,9 +4081,572 @@ body .search {
         margin-left: 0;
     }
 
-    .chart{
-        
+    .chart {
+        margin-top: 25px;
     }
+
+    .chart .chart-wrapper {
+        width: 250px;
+        height: 250px;
+    }
+
+    .chart #tooltip span {
+        font-size: 36px !important;
+    }
+
+    .chart #tooltip p {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    .heading {
+        font-size: 18px;
+        line-height: 20px;
+        padding-bottom: 5px;
+    }
+
+    .cycle {
+        padding-bottom: 20px;
+    }
+
+    .team {
+        padding-top: 20px;
+    }
+
+    .team__title {
+        font-size: 14px;
+        line-height: 16px;
+        color: #005896;
+        margin-bottom: 20px;
+    }
+
+    .team .col-12 {
+        padding: 0;
+    }
+
+    .team__item-box {
+        background: rgba(244, 248, 251, 0.5);
+        box-shadow: none;
+    }
+
+    .team__item, .team__item.team__item_small {
+        background: rgba(244, 248, 251, 0.5);
+        height: auto;
+        padding: 15px 20px;
+        margin-bottom: 0;
+        min-height: auto;
+        box-shadow: none;
+    }
+
+    .team__item-title, .team__item_white .team__item-title {
+        font-size: 12px;
+        line-height: 14px;
+        text-decoration-line: underline;
+        color: #005896;
+        font-weight: normal;
+        margin-bottom: 10px;
+        max-width: 55%;
+    }
+
+    .team__item-descr, .team__item_white .team__item-descr {
+        font-weight: 300;
+        font-size: 11px;
+        line-height: 123%;
+        color: #828282;
+        margin-bottom: 4px;
+    }
+
+    .team__item-link, .team__item_white .team__item-link {
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 123%;
+        color: #005896;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .team__item-link svg, .team__item_white .team__item-link svg {
+        fill: #005896 !important;
+        width: 35px !important;
+        margin-left: 20px;
+    }
+
+    .team .col-12:last-of-type .team__item {
+        border: 0;
+    }
+
+    .team__item-link .icon {
+        margin-top: 0;
+    }
+
+    .team__item {
+        border: 0;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    .team__item-img {
+        display: none;
+    }
+
+    .team__item:not(.team__item_small) .team__item-title {
+        padding-top: 15px;
+    }
+
+    .team__item:not(.team__item_small) .team__item-link {
+        padding-bottom: 15px;
+        border-bottom: 1px solid #ECEBEB;
+    }
+
+    .team__item.team__item_small .team__item-box {
+        padding: 0;
+    }
+
+    .team__item.team__item_small .team__item-box {
+        height: auto;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #ECEBEB;
+        background: transparent;
+    }
+
+    .team__item {
+        align-items: normal;
+    }
+
+    .team__item-title, .team__item-descr {
+        text-align: left;
+    }
+
+    .team, .project, .clients, .feedback {
+        padding-bottom: 20px;
+    }
+
+    .project, .clients, .feedback {
+        padding-top: 20px;
+    }
+
+    .project .heading, .clients .heading, .feedback .heading {
+        margin-bottom: 35px;
+    }
+
+    html .btn-primary {
+        font-weight: normal !important;
+    }
+
+    .feedback textarea {
+        min-height: auto;
+    }
+
+    .feedback input[type="text"], .feedback input[type="email"], .feedback input[type="phone"] {
+        margin-bottom: 10px;
+    }
+
+    .feedback label {
+        font-size: 14px;
+    }
+
+    .search-field-group .btn.btn-primary {
+        min-width: 100px;
+    }
+
+    .values .col-md-8::before {
+        left: 0;
+    }
+
+    .intro__title {
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 105.5%;
+        letter-spacing: 0.025em;
+        color: #FFFFFF;
+    }
+
+    .intro__descr {
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 12px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .intro .container {
+        padding: 0;
+    }
+
+    .intro__inner {
+        max-height: 250px;
+        height: 100vh;
+        min-height: auto;
+    }
+
+    .values__inner {
+        padding: 20px 0;
+    }
+
+    .values, .specialists {
+        padding-bottom: 30px;
+    }
+
+    .specialists {
+        padding-top: 30px;
+    }
+
+    .specialists .heading {
+        margin-bottom: 35px;
+    }
+
+    .specialists__card-title {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: #363636;
+        margin-bottom: 5px;
+    }
+
+    .specialists__card-descr {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 14px;
+        color: #696969;
+        margin-bottom: 15px;
+    }
+
+    .benefits__item-descr {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 123.5%;
+        text-align: center;
+        color: #363636;
+    }
+
+    .specialists__card {
+        min-height: auto;
+        display: flex;
+    }
+
+    .specialists .col-6 {
+        display: flex;
+    }
+
+    .specialists .container, .specialists .col-6 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .specialists__card_empty img {
+        max-width: 36px;
+    }
+
+    .specialists__card_empty .specialists__card-title {
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        color: #363636;
+        margin-bottom: 20px;
+    }
+
+    .specialists__card_empty {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .reviews {
+        padding-top: 40px;
+    }
+
+    .reviews__item {
+        padding: 20px 10px 50px;
+    }
+
+    .reviews__item-img > img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .reviews__item-img {
+        margin-right: 15px;
+    }
+
+    .reviews__item-title {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+        color: #363636;
+        margin-bottom: 5px;
+    }
+
+    .reviews__item-subtitle {
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 123%;
+        color: #767676;
+    }
+
+    .reviews__item-header {
+        margin-bottom: 15px;
+    }
+
+    .reviews__item-descr {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 123.5%;
+        color: #696969;
+        padding-right: 60px;
+        padding-left: 85px;
+    }
+
+    .product-item__content-title {
+        font-size: 12px;
+        line-height: 14px;
+        text-transform: uppercase;
+        color: #363636;
+        margin-bottom: 10px;
+    }
+
+    .product-item__content-descr {
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 143.4%;
+        color: #363636;
+        margin-bottom: 22px;
+    }
+
+    .product-item__content-link {
+        font-weight: normal;
+        font-size: 8px;
+        line-height: 9px;
+        color: #005896;
+    }
+
+    .product-item__content-link .icon {
+        width: 60px;
+    }
+
+    .product-item {
+        margin-bottom: 20px;
+    }
+
+    .works__item-img {
+        max-height: 100px;
+    }
+
+    .works__item-title {
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #005896;
+        padding-bottom: 10px;
+    }
+
+    .works__item-descr {
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 143.4%;
+        color: #363636;
+    }
+
+    .works__item-link .icon {
+        max-width: 60px;
+    }
+
+    .works__item-link {
+        font-weight: normal;
+        font-size: 8px;
+        line-height: 9px;
+        color: #005896;
+    }
+
+    .works__item-box {
+        min-height: 100px;
+    }
+
+    .upcoming-events__title {
+        margin-bottom: 25px;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: #005896;
+    }
+
+    .upcoming-events .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .upcoming-events__content {
+        max-width: 70%;
+    }
+
+    .upcoming-events__content {
+        padding: 20px 20px 20px 60px;
+    }
+
+    .upcoming-events__content-title {
+        font-size: 12px;
+        line-height: 14px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        margin-bottom: 10px;
+    }
+
+    .upcoming-events__content-descr {
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 143.4%;
+        color: #FFFFFF;
+    }
+
+    .upcoming-events__content-date {
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        left: 0;
+    }
+
+    .upcoming-events__inner {
+        margin-bottom: 30px;
+    }
+
+    .past-events__title {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: #005896;
+        margin-bottom: 25px;
+    }
+
+    .past-events__item-img img {
+        max-height: 120px;
+    }
+
+    .past-events__item-date {
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        text-transform: uppercase;
+        bottom: 15px;
+    }
+
+    .past-events__item-title {
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+        text-transform: uppercase;
+        color: #363636;
+    }
+
+    .past-events__item-descr {
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 143.4%;
+        color: #363636;
+    }
+
+    .past-events__item {
+        margin-bottom: 20px;
+    }
+
+    .past-events .row {
+        margin-bottom: 40px;
+    }
+
+    .breadcrumb-primary {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
+    .news-item {
+        padding-bottom: 30px;
+        border-bottom: 1px solid #ECEBEB;
+        margin-bottom: 15px;
+    }
+
+    .news .col-md-12:last-of-type .news-item {
+        margin-bottom: 0;
+    }
+
+    .news-item__content-title {
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+        text-transform: uppercase;
+        color: #005896;
+        margin-bottom: 5px;
+    }
+
+    .news-item__content-date {
+        font-weight: normal;
+        font-size: 8px;
+        line-height: 9px;
+        text-transform: uppercase;
+        color: #828282;
+        margin-bottom: 15px;
+    }
+
+    .news-item__content-descr {
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 143.4%;
+        color: #363636;
+    }
+
+    .news-item__img {
+        margin-right: 20px;
+    }
+
+    .news-item__content {
+        max-width: 50%;
+    }
+
+    .news-item__content {
+        padding: 0;
+    }
+
+    .before-footer .before-footer__left p {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .before-footer .before-footer__left img {
+        max-width: 50px;
+    }
+
+    header#masthead {
+        padding-top: 20px !important;
+    }
+
+    .intro__inner {
+        margin-top: 20px;
+    }
+
+    .contacts__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        height: 300px;
+        min-height: auto;
+    }
+
+    .contacts__content-address::before {
+        right: 0;
+        margin: auto;
+    }
+
+    .contacts .container {
+        padding: 0;
+    }
+
+    .contacts {
+        padding-bottom: 0;
+    }
+
 }
 
 /*--------------------------------------------------------------

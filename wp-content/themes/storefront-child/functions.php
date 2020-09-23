@@ -1231,7 +1231,7 @@ function getCycleChildren($child_cat_id, $key)
                     }
                     if ($card_type === 'big'):
                         ?>
-                        <div class="col-lg-4 col-6">
+                        <div class="col-lg-4 col-md-6 col-12">
                             <div class="team__item <?= $card_color === 'white' ? 'team__item_white' : '' ?>">
                                 <div class="team__item-title"><?= $children_post->post_title ?></div>
                                 <?php if ($card_desc): ?>
@@ -1268,7 +1268,7 @@ function getCycleChildren($child_cat_id, $key)
                         $link = get_permalink(11) . '#' . $small_card->post_name;
                     }
                     if ($count === 1 && array_key_first($small_cards_normalize) === $small_card_key): ?>
-                        <div class="col-lg-4 col-6">
+                        <div class="col-lg-4 col-md-6 col-12">
                         <div class="team__item team__item_small team__item_white">
                     <?php endif; ?>
                     <div class="team__item-box">
@@ -1288,7 +1288,7 @@ function getCycleChildren($child_cat_id, $key)
                     $count = 0; ?>
                     </div>
                     </div>
-                    <div class="col-lg-4 col-6">
+                    <div class="col-lg-4 col-md-6 col-12">
                     <div class="team__item team__item_small team__item_white">
                     <?php if (array_key_last($small_cards_normalize) === $small_card_key): ?>
                     </div>
