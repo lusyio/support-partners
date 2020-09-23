@@ -548,10 +548,9 @@ function get_vacancies($vacancies)
         <section class="vacancies">
             <div class="container">
                 <h2 class="vacancies__title">Актуальные вакансии</h2>
-                <div class="row">
-                    <?php
-                    foreach ($vacancies as $vacancy): ?>
-                        <div class="col-md-3">
+                <div class="row vacancies__wrapper">
+                    <?php foreach ($vacancies as $key => $vacancy): ?>
+                        <div class="col-md-3 vacancies__target <?= $key > 3 ? 'd-none' : '' ?>">
                             <a href="<?= get_post_permalink($vacancy->ID) ?>" class="vacancies__item">
                                 <div class="vacancies__item-title"><?= $vacancy->post_title ?></div>
                                 <svg class="icon">
@@ -568,12 +567,14 @@ function get_vacancies($vacancies)
                     <?php
                     endforeach; ?>
                 </div>
+                <?php if (count($vacancies) > 3): ?>
+                    <button class="btn-empty">Смотреть все вакансии</button>
+                <?php endif; ?>
             </div>
         </section>
-        <?php
-        return ob_get_clean();
+    <?php
     endif;
-    return false;
+    return ob_get_clean();
 }
 
 /**

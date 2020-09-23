@@ -35,10 +35,30 @@ Template Post Type: post, page, product
                 }
             }, false);
 
+            document.addEventListener('click', function (e) {
+                for (let target = e.target; target && target !== this; target = target.parentNode) {
+                    if (target.matches('.btn-empty')) {
+                        showVacancies.call(target, e);
+                        break;
+                    }
+                }
+            }, false);
+
+            function showVacancies() {
+                const vacancies = this.previousElementSibling.children
+                if (typeof vacancies === 'object') {
+                    [...vacancies].map(el => {
+                        el.classList.remove('d-none')
+                    })
+                }
+                this.remove()
+            }
+
             function handleModal() {
                 document.getElementById('fld_1939953_1').value = this.dataset.title
             }
         })
+
     </script>
 
 <?php get_footer(); ?>
