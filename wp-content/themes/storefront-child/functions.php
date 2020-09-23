@@ -437,7 +437,7 @@ function get_activities($cat_id)
                         $past_activity_link = get_field('landing-link', $past_activity_id);
                         $past_activity_image = get_the_post_thumbnail($past_activity_id);
                         ?>
-                        <div class="col-md-4">
+                        <div class="col-xl-4 col-lg-6 col-12">
                             <a href="<?= $past_activity_link ?>" class="past-events__item">
                                 <div class="past-events__item-header">
                                     <div class="past-events__item-img">
@@ -600,7 +600,7 @@ function get_online_products($cat_id)
                     $link = get_field('landing-link', $post_id);
                     $featured_image = get_the_post_thumbnail($post_id);
                     ?>
-                    <div class="col-md-12">
+                    <div class="col-xl-12 col-lg-6 col-12">
                         <div class="product-item">
                             <div class="product-item__content">
                                 <div class="product-item__content-title"><?= $onlineProduct->post_title ?></div>
@@ -883,7 +883,7 @@ function getCases($cat_id, $page = false)
                         $featured_image = get_the_post_thumbnail($case_id);
                         $link = get_post_permalink($case_id);
                         ?>
-                        <div class="col-md-4">
+                        <div class="col-xl-4 col-lg-6 col-12">
                             <div class="works__item">
                                 <div class="works__item-title"><?= $case->post_title ?></div>
                                 <div class="works__item-img">

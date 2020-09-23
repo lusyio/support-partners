@@ -115,6 +115,17 @@
 
 </div><!-- #page -->
 
+<script>
+    const $checkbox = document.querySelector('.checkbox-toggle')
+    $checkbox.addEventListener('change', function () {
+        if (this.checked) {
+            document.body.classList.add('overflow-hidden')
+        } else {
+            document.body.classList.remove('overflow-hidden')
+        }
+    });
+</script>
+
 <?php wp_footer(); ?>
 
 <svg width="0" height="0" class="hidden">
@@ -130,20 +141,6 @@
         <path d="M37.121 61.396l-.008-.007a1.195 1.195 0 0 1-.365-.871c0-.321.136-.641.373-.879.23-.23.547-.358.879-.358.332 0 .648.129.878.358.236.236.373.57.373.879 0 .321-.136.641-.373.878a1.255 1.255 0 0 1-.878.373c-.322 0-.641-.135-.879-.373zm-.373-52.608c0-.689.563-1.252 1.252-1.252.691 0 1.251.55 1.251 1.252V11.4c0 .689-.563 1.252-1.251 1.252a1.255 1.255 0 0 1-1.252-1.252V8.788zm-5.566 6.051l-.008.008a1.245 1.245 0 0 1-.878.373 1.23 1.23 0 0 1-.879-.359l-1.84-1.84a1.256 1.256 0 0 1 0-1.772 1.256 1.256 0 0 1 1.771 0l1.841 1.84c.49.49.483 1.28-.007 1.75zm17.171-1.778l-.004.004-1.826 1.826a1.245 1.245 0 0 1-.879.373c-.322 0-.637-.118-.878-.358a1.256 1.256 0 0 1 0-1.772l1.826-1.826a1.256 1.256 0 0 1 1.772 0 1.225 1.225 0 0 1-.011 1.753z"></path>
     </symbol>
 </svg>
-
-
-<!--
-
-<svg class="icon">
-   <use xlink:href="#arrow"></use>
-</svg>
-
-<svg class="icon">
-  <use xlink:href="#help"></use>
-</svg>
-
--->
-
 
 </body>
 
