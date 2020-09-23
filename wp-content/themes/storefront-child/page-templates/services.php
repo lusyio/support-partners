@@ -26,6 +26,8 @@ Template Post Type: post, page, product
 
     <script>
         window.addEventListener('DOMContentLoaded', function () {
+
+
             document.addEventListener('click', function (e) {
                 for (let target = e.target; target && target !== this; target = target.parentNode) {
                     if (target.matches('[data-target="#vacancyModal"]')) {
