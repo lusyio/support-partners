@@ -437,7 +437,7 @@ function get_activities($cat_id)
                         $past_activity_link = get_field('landing-link', $past_activity_id);
                         $past_activity_image = get_the_post_thumbnail($past_activity_id);
                         ?>
-                        <div class="col-xl-4 col-lg-6 col-12">
+                        <div class="col-xl-4 col-lg-6 col-6">
                             <a href="<?= $past_activity_link ?>" class="past-events__item">
                                 <div class="past-events__item-header">
                                     <div class="past-events__item-img">
@@ -550,7 +550,7 @@ function get_vacancies($vacancies)
                 <h2 class="vacancies__title">Актуальные вакансии</h2>
                 <div class="row vacancies__wrapper">
                     <?php foreach ($vacancies as $key => $vacancy): ?>
-                        <div class="col-md-3 vacancies__target <?= $key > 3 ? 'd-none' : '' ?>">
+                        <div class="col-lg-3 col-6 vacancies__target <?= $key > 3 ? 'd-none' : '' ?>">
                             <a href="<?= get_post_permalink($vacancy->ID) ?>" class="vacancies__item">
                                 <div class="vacancies__item-title"><?= $vacancy->post_title ?></div>
                                 <svg class="icon">
@@ -883,7 +883,7 @@ function getCases($cat_id, $page = false)
                         $featured_image = get_the_post_thumbnail($case_id);
                         $link = get_post_permalink($case_id);
                         ?>
-                        <div class="col-xl-4 col-lg-6 col-12">
+                        <div class="col-xl-4 col-lg-6 col-6">
                             <div class="works__item">
                                 <div class="works__item-title"><?= $case->post_title ?></div>
                                 <div class="works__item-img">
@@ -1231,7 +1231,7 @@ function getCycleChildren($child_cat_id, $key)
                     }
                     if ($card_type === 'big'):
                         ?>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-6">
                             <div class="team__item <?= $card_color === 'white' ? 'team__item_white' : '' ?>">
                                 <div class="team__item-title"><?= $children_post->post_title ?></div>
                                 <?php if ($card_desc): ?>
@@ -1268,7 +1268,7 @@ function getCycleChildren($child_cat_id, $key)
                         $link = get_permalink(11) . '#' . $small_card->post_name;
                     }
                     if ($count === 1 && array_key_first($small_cards_normalize) === $small_card_key): ?>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-6">
                         <div class="team__item team__item_small team__item_white">
                     <?php endif; ?>
                     <div class="team__item-box">
@@ -1288,7 +1288,7 @@ function getCycleChildren($child_cat_id, $key)
                     $count = 0; ?>
                     </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4 col-6">
                     <div class="team__item team__item_small team__item_white">
                     <?php if (array_key_last($small_cards_normalize) === $small_card_key): ?>
                     </div>
@@ -1369,6 +1369,12 @@ function get_clients($post_content)
                     delay: 2500,
                     disableOnInteraction: false,
                 },
+                breakpoints: {
+                    991: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                }
             });
         </script>
     <?php endif;
@@ -1400,7 +1406,7 @@ function getReviews($cat_id)
                         <img src="/wp-content/themes/storefront-child/svg/review-placeholder.svg" alt="placeholder">
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6 col-12">
                     <div class="position-relative">
                         <div class="swiper-container swiper-container-reviews reviews__item p-0">
                             <div class="swiper-wrapper">

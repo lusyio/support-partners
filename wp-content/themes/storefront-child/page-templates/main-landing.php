@@ -113,6 +113,16 @@ Template Post Type: post, page, product
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
+            breakpoints: {
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                },
+                991: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+            }
         });
     </script>
 

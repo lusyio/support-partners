@@ -655,7 +655,7 @@ header .dropdown-menu {
     width: 200vw;
     height: 200vw;
     color: #fefefe;
-    background: #fff;
+    background: #005896;
     border-radius: 50%;
     transition: all 0.4s ease;
     flex: none;
@@ -665,6 +665,10 @@ header .dropdown-menu {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.navbar-light .outer-menu .navbar-nav .nav-link {
+    color: #FFFFFF !important;
 }
 
 .outer-menu .menu > div > div {
@@ -2070,6 +2074,7 @@ body .feedback__form-btn:hover {
     min-height: 410px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
 }
 
 .specialists__card_empty {
@@ -3683,6 +3688,10 @@ body .search {
     line-height: 42px !important;
 }
 
+.site-brand img {
+    max-width: 250px;
+}
+
 /*--------------------------------------------------------------
 # MEDIA
 --------------------------------------------------------------*/
@@ -3735,7 +3744,6 @@ body .search {
     }
 
     .outer-menu .dropdown-menu {
-        background: #fff;
         border: 0;
         padding: 0 !important;
         margin: 0;
@@ -3744,6 +3752,11 @@ body .search {
         color: #363636 !important;
         font-weight: 400;
         font-size: 14px;
+        background: transparent;
+    }
+
+    .outer-menu .dropdown-menu li > a {
+        color: #fff !important;
     }
 
     .outer-menu .dropdown-menu:before {
@@ -3766,6 +3779,97 @@ body .search {
 
     .navbar-light .navbar-nav .nav-link {
         display: table;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .team__item {
+        margin-bottom: 30px;
+    }
+
+    .before-footer__left {
+        margin-bottom: 25px;
+    }
+
+    .site-brand {
+        display: table;
+        margin-top: 30px;
+    }
+
+    .main-screen__link {
+        display: table;
+        margin-top: 30px;
+    }
+
+    .main-screen__descr {
+        margin-bottom: 40px;
+    }
+
+    .main-screen__title {
+        font-size: 2.2rem;
+    }
+
+    .specialists__card-img img {
+        width: 100%;
+    }
+
+    .description .description__inner > img {
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+        max-width: 100%;
+    }
+
+    .description__box {
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 50%;
+    }
+
+    .description.left-center .description__box {
+        right: 0;
+    }
+
+    .description {
+        padding: 100px 0 150px;
+    }
+
+    .vacancies {
+        margin-top: 150px !important;
+    }
+
+    .product-item__content {
+        max-width: 100%;
+    }
+
+    .product-item img {
+        width: 100%;
+    }
+
+    .works__item-box {
+        padding: 36px 35px 29px;
+    }
+
+    .past-events__item-content {
+        padding: 0 35px 35px;
+        min-height: auto;
+    }
+
+    .upcoming-events__img {
+        max-width: 30%;
+    }
+
+    .news-item__content {
+        max-width: 60%;
+    }
+
+    .news-item__content-date {
+        margin-bottom: 25px;
+    }
+
+    .news-item__content, .news-item__img {
+        min-height: auto;
     }
 }
 

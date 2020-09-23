@@ -38,7 +38,7 @@
             if ($menu_items = wp_get_menu_array('second')):
                 $menu_list = '';
                 ?>
-                <div class="col-12 col-md-2">
+                <div class="col-12 col-md">
                 <div class="footer-menu">
                 <ul class="menu">
                 <?php
@@ -48,7 +48,7 @@
                         </ul>
                         </div>
                         </div>
-                        <div class="col-12 <?= array_key_last($menu_items) === $key ? 'col-md-3' : 'col-md-2' ?>">
+                        <div class="col-12 col-md">
                         <div class="footer-menu">
                         <ul class="menu">
                             <li><a href="<?= $menu_item['url'] ?>"><?= $menu_item['title'] ?></a></li>
@@ -66,7 +66,7 @@
                 </div>
             <?php endif; ?>
             <div class="col-12 col-lg-3">
-                <a href="/">
+                <a class="site-brand" href="/">
                     <img src="/wp-content/themes/storefront-child/img/big-sp.png" alt="support-partners">
                 </a>
             </div>

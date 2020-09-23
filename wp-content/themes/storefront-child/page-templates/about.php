@@ -31,7 +31,7 @@ Template Post Type: post, page, product
     <section class="benefits">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-lg-4 col-6">
                     <div class="benefits__item">
                         <div class="benefits__item-img"><img
                                     src="/wp-content/themes/storefront-child/svg/benefits/rocket.svg" alt=""></div>
@@ -41,7 +41,7 @@ Template Post Type: post, page, product
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4 col-6">
                     <div class="benefits__item">
                         <div class="benefits__item-img"><img
                                     src="/wp-content/themes/storefront-child/svg/benefits/like.svg" alt=""></div>
@@ -52,7 +52,7 @@ Template Post Type: post, page, product
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4 col-6">
                     <div class="benefits__item">
                         <div class="benefits__item-img"><img
                                     src="/wp-content/themes/storefront-child/svg/benefits/boss.svg" alt=""></div>
@@ -62,7 +62,7 @@ Template Post Type: post, page, product
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4 col-6">
                     <div class="benefits__item">
                         <div class="benefits__item-img"><img
                                     src="/wp-content/themes/storefront-child/svg/benefits/job.svg" alt=""></div>
@@ -72,7 +72,7 @@ Template Post Type: post, page, product
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4 col-6">
                     <div class="benefits__item">
                         <div class="benefits__item-img"><img
                                     src="/wp-content/themes/storefront-child/svg/benefits/speak.svg" alt=""></div>
