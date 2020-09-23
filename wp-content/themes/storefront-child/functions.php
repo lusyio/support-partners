@@ -1529,7 +1529,7 @@ function get_events_slides()
         $event_img = get_the_post_thumbnail_url($event_id);
         $event_video = get_field('youtube_link', $event_id);
         ?>
-        <div class="swiper-slide">
+        <div class="swiper-slide <?= $event_video ? 'swiper-slide-video' : '' ?>">
             <div class="main-screen <?= $event_video ? 'main-screen_video' : 'main-screen_photo' ?>">
                 <div class="container">
                     <div class="row <?= $event_video ? 'align-items-center' : '' ?>">

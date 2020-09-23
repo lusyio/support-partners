@@ -139,7 +139,7 @@ Author URI:   https://richbee.ru/
     position: relative;
     padding: 0 0 15px;
     font-weight: 500;
-    font-size: 36px;
+    font-size: 2.25rem;
     line-height: 42px;
     color: #005896;
 }
@@ -2862,6 +2862,7 @@ body .search {
 .past-events__item {
     display: block;
     transition: all 0.3s;
+    margin-bottom: 30px;
 }
 
 .past-events__item:hover {
@@ -3877,6 +3878,193 @@ body .search {
     footer.site-footer {
         padding-bottom: 75px;
     }
+
+    .project__item {
+        max-width: 100%;
+    }
+
+    .team__item-box {
+        padding: 25px;
+    }
+
+    .heading {
+        text-align: center;
+        font-weight: normal;
+    }
+
+    .heading::before {
+        left: 0;
+        margin: auto;
+        right: 0;
+    }
+
+    .about__img {
+        margin-left: auto;
+        margin-right: auto;
+        display: table;
+    }
+
+    .about__inner {
+        padding-left: 0;
+        padding-bottom: 40px;
+    }
+
+    .phone-link {
+        display: none;
+    }
+
+    body .feedback__form-btn {
+        display: table;
+        margin: auto;
+    }
+
+    .footer-menu .sub-menu {
+        display: none;
+    }
+
+    .footer-menu .menu {
+        text-align: center;
+    }
+
+    footer.site-footer {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .site-brand {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px;
+    }
+
+    .site-brand img {
+        max-width: 150px;
+    }
+
+    .description__inner, .description.left-center .description__inner {
+        flex-direction: column;
+    }
+
+    .description__box {
+        position: relative;
+    }
+
+    .description {
+        padding: 80px 0 50px;
+    }
+
+    .vacancies {
+        margin-top: 0 !important;
+    }
+
+    .product-item__content {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .product-item__content-descr {
+        margin-bottom: 30px;
+    }
+
+    .works__item-box {
+        padding: 15px 10px;
+        min-height: 150px;
+    }
+
+    .works__item-title {
+        padding-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .works__item-descr {
+        font-size: 14px;
+    }
+
+    .works__item {
+        margin-bottom: 30px;
+    }
+
+    .upcoming-events__img, .upcoming-events__content {
+        min-height: auto;
+    }
+
+    .upcoming-events__content-date {
+        top: 40%;
+        left: -15px;
+    }
+
+    .upcoming-events__content {
+        padding: 30px 60px 30px 70px;
+    }
+
+    .upcoming-events__content-descr {
+        margin-bottom: 15px;
+    }
+
+    .upcoming-events__content-link {
+        color: transparent;
+    }
+
+    .past-events__item-content {
+        padding: 25px 10px;
+    }
+
+    .past-events__item-img img {
+        max-height: 200px;
+    }
+
+    .past-events__item-wrap {
+        min-height: auto;
+    }
+
+    .past-events__item-title {
+        margin-bottom: 10px;
+    }
+
+    .values .col-md-8::before {
+        left: -6%;
+    }
+
+    .values .heading {
+        margin-bottom: 25px;
+    }
+
+    .intro__inner {
+        padding: 35px 20px;
+    }
+
+    .intro__title {
+        margin-bottom: 10px;
+    }
+
+    .benefits {
+        padding: 0;
+    }
+
+    .benefits__item {
+        align-items: center;
+    }
+
+    .benefits__item-descr {
+        text-align: center;
+    }
+
+
+    .benefits__item:nth-of-type(4), .benefits__item:last-of-type {
+        margin-top: 30px;
+    }
+
+    .benefits .container {
+        padding-bottom: 25px;
+    }
+
+    .reviews .heading {
+        margin-bottom: 45px;
+    }
+
+    .reviews{
+        padding-bottom: 100px;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -3890,6 +4078,10 @@ body .search {
 
     .outer-menu .menu li {
         margin-left: 0;
+    }
+
+    .chart{
+        
     }
 }
 
