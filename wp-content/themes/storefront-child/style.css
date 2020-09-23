@@ -2218,6 +2218,19 @@ body .feedback__form-btn:hover {
     color: #696969;
 }
 
+html .alert-success {
+    color: #363636;
+    background-color: #F4F8FB;
+    border-color: #F4F8FB;
+    text-align: center;
+}
+
+html .alert {
+    padding: 2.75rem 2.25rem;
+    color: #363636;
+    text-align: center;
+}
+
 .reviews {
     width: 100%;
     padding: 72px 0 200px;
