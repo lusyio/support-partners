@@ -1852,6 +1852,10 @@ body .feedback__form-btn {
     width: 100%;
 }
 
+body .feedback__form-btn:hover {
+    color: #fff !important;
+}
+
 .before-footer {
     background: #E3EEF7;
 }
@@ -3268,7 +3272,7 @@ body .search {
 }
 
 .vacancy label {
-    margin: 0 0 47px;
+    margin: 0;
     font-weight: 400;
     font-size: 18px;
     color: #363636;
@@ -3291,21 +3295,21 @@ body .search {
 
 .vacancy__footer-file {
     position: relative;
-    display: flex;
+    display: block;
     margin: 0;
-    padding: 0;
     background-color: transparent;
     cursor: pointer;
+    padding: 0 0 0 60px;
 }
 
 .vacancy__footer-file::before {
     content: "";
     position: absolute;
-    bottom: 0px;
-    left: 5px;
-    width: 40px;
-    height: 1.3px;
-    background-color: #ed002f;
+    top: 0;
+    left: -60px;
+    width: 45px;
+    height: 50px;
+    background: url("/wp-content/themes/storefront-child/svg/upload-file.svg");
 }
 
 .vacancy__footer-file img {
