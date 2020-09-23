@@ -529,7 +529,7 @@ function get_services($cat_id)
             </div>
         </div>
     <?php endforeach; ?>
-        <?php $vacancies = array_filter(explode(";", get_field('vacancies', $postId))); ?>
+        <?php $vacancies = get_field('service_vacancy', $postId); ?>
         <?= get_vacancies($vacancies) ?>
     <?php
     endforeach;
@@ -537,45 +537,35 @@ function get_services($cat_id)
 }
 
 /**
- * Render $vacancies by array of slugs
+ * Render vacancies from custom field
  * @param $vacancies
  * @return bool|false|string
  */
 function get_vacancies($vacancies)
 {
-    if (count($vacancies)):
+    if ($vacancies):
         ob_start(); ?>
         <section class="vacancies">
             <div class="container">
                 <h2 class="vacancies__title">Актуальные вакансии</h2>
                 <div class="row">
                     <?php
-                    foreach ($vacancies as $vacancy_slug):
-                        $args = array(
-                            'name' => $vacancy_slug,
-                            'post_type' => 'post',
-                            'post_status' => 'publish',
-                            'numberposts' => 1
-                        );
-                        $vacancy = get_posts($args);
-                        if ($vacancy_slug):
-                            ?>
-                            <div class="col-md-3">
-                                <a href="<?= get_post_permalink($vacancy[0]->ID) ?>" class="vacancies__item">
-                                    <div class="vacancies__item-title"><?= $vacancy[0]->post_title ?></div>
+                    foreach ($vacancies as $vacancy): ?>
+                        <div class="col-md-3">
+                            <a href="<?= get_post_permalink($vacancy->ID) ?>" class="vacancies__item">
+                                <div class="vacancies__item-title"><?= $vacancy->post_title ?></div>
+                                <svg class="icon">
+                                    <use xlink:href="#help"></use>
+                                </svg>
+                                <div class="vacancies__item-wrap">
+                                    Подробнее
                                     <svg class="icon">
-                                        <use xlink:href="#help"></use>
+                                        <use xlink:href="#arrow"></use>
                                     </svg>
-                                    <div class="vacancies__item-wrap">
-                                        Подробнее
-                                        <svg class="icon">
-                                            <use xlink:href="#arrow"></use>
-                                        </svg>
-                                    </div>
-                                </a>
-                            </div>
-                        <?php
-                        endif;
+                                </div>
+                            </a>
+                        </div>
+                    <?php
                     endforeach; ?>
                 </div>
             </div>
