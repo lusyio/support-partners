@@ -6,3 +6,4 @@
 !wp-content/themes
 wp-content/themes/*
 !wp-content/themes/storefront-child
+wp-content/themes/storefront-child/.idea/

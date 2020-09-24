@@ -3873,6 +3873,14 @@ body .search {
     .news-item__content, .news-item__img {
         min-height: auto;
     }
+
+    header#masthead {
+        padding: 20px 0 !important;
+    }
+
+    .swiper-container.mt-5{
+        margin-top: 0 !important;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -4065,6 +4073,28 @@ body .search {
 
     .reviews {
         padding-bottom: 100px;
+    }
+
+    .main-screen__inner {
+        text-align: center;
+    }
+
+    .main-screen__descr {
+        margin: 0 auto 70px;
+    }
+
+    .main-screen__link {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .main-screen__btn {
+        margin-right: 0;
+    }
+
+    .main-screen__title {
+        margin: 0 auto 29px;
+        max-width: 200px;
     }
 }
 

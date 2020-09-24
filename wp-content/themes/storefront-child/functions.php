@@ -1343,7 +1343,7 @@ function get_post_gallery_or_custom_field($postvar = NULL, $pos = 0, $post_conte
  */
 function get_clients($post_content)
 {
-    $gallery = get_post_gallery_or_custom_field(_, _, $post_content);
+    $gallery = get_post_gallery_or_custom_field(null, 0, $post_content);
     ob_start();
     if ($gallery): ?>
         <section class="clients">
