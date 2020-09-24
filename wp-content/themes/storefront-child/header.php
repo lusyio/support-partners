@@ -62,11 +62,11 @@
                         </a>
                     <?php endif; ?>
                     <div class="outer-menu">
+                        <input class="checkbox-toggle" data-toggle="collapse" data-target="#main-nav" aria-controls=""
+                               aria-expanded="false" aria-label="Toggle navigation" type="checkbox"/>
                         <button class="navbar-toggler position-relative" type="button" style="z-index: 1">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <input class="checkbox-toggle" data-toggle="collapse" data-target="#main-nav" aria-controls=""
-                               aria-expanded="false" aria-label="Toggle navigation" type="checkbox"/>
                         <div class="menu">
                             <div>
                                 <div class="border-header">
