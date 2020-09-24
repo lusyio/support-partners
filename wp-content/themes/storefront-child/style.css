@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.17
+Version:      	1.0.18
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 */
@@ -4852,6 +4852,14 @@ body .search {
 
     .vacancies{
         padding-bottom: 40px;
+    }
+
+    .benefits{
+        padding-bottom: 20px;
+    }
+
+    .reviews{
+        padding-top: 20px;
     }
 
 }
