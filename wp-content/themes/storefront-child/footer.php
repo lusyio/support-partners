@@ -121,14 +121,11 @@
 
     document.querySelectorAll('a[href*="#"]').forEach(el => {
         el.addEventListener('click', function () {
-            const blockId = el.getAttribute('href').slice(1)
-            console.log($checkbox.checked)
-            console.log(blockId)
             if ($checkbox.checked) {
                 $checkbox.click()
             }
             $page.animate({
-                scrollTop: document.getElementById(blockId).offset().top - 50
+                scrollTop: document.getElementById(location.hash).offset().top - 50
             }, 1500)
             return false
         })
