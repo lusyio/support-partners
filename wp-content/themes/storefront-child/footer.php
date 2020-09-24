@@ -116,6 +116,21 @@
 </div><!-- #page -->
 
 <script>
+    const $page = document.querySelector('html, body')
+    document.querySelectorAll('a[href*="#"]').forEach(el => {
+        el.addEventListener('click', function () {
+            const blockId = el.getAttribute('href').slice(1)
+            console.log(blockId)
+            if ($checkbox.checked) {
+                $checkbox.click()
+            }
+            $page.animate({
+                scrollTop: document.getElementById(blockId).offset().top - 50
+            }, 1500)
+            return false
+        })
+    })
+
     const $checkbox = document.querySelector('.checkbox-toggle')
     $checkbox.addEventListener('change', function () {
         if (this.checked) {
