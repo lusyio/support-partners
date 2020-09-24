@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.21
+Version:      	1.0.22
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 */
@@ -4865,6 +4865,7 @@ html .navbar-light .navbar-toggler-icon {
 
     .benefits {
         padding-bottom: 20px;
+        padding-top: 20px;
     }
 
     .reviews {
