@@ -2335,7 +2335,7 @@ html .alert {
     padding-right: 30px;
 }
 
-.product .col-md-12:nth-of-type(even) .product-item {
+.product .col-12:nth-of-type(even) .product-item {
     flex-direction: row-reverse;
 }
 
