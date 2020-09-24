@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.15
+Version:      	1.0.16
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 */
@@ -3878,7 +3878,7 @@ body .search {
         padding: 20px 0 !important;
     }
 
-    .swiper-container.mt-5{
+    .swiper-container.mt-5 {
         margin-top: 0 !important;
     }
 }
@@ -4675,6 +4675,179 @@ body .search {
 
     .contacts {
         padding-bottom: 0;
+    }
+
+
+    .main-screen_video .col-md-6:first-child::before,
+    .main-screen_photo .col-md-6:first-child::before {
+        right: 0;
+        left: 0;
+    }
+
+    .main-screen__img img {
+        height: 300px;
+    }
+
+    .main-screen__inner {
+        padding: 74px 0 43px;
+        height: auto;
+        min-height: 400px;
+    }
+
+    .main-screen .col-md-6:last-of-type {
+        padding: 0;
+    }
+
+    .main-screen__title {
+        font-weight: 500;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .main-screen__descr {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        color: #363636;
+        margin-bottom: 40px;
+    }
+
+    .about {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .about .col-md-5::before {
+        height: 300px;
+    }
+
+    .cycle .heading {
+        margin-top: 0;
+    }
+
+    .about__heading {
+        font-weight: normal;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .about__subheading {
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 12px;
+        padding-bottom: 20px;
+        margin-bottom: 15px;
+    }
+
+    .about__descr {
+        font-weight: 300;
+        font-size: 12px;
+    }
+
+    .about__inner {
+        padding-bottom: 20px;
+    }
+
+    .about__img::before {
+        bottom: -93px;
+        left: 0;
+        right: 370px;
+        width: 70px;
+        height: 70px;
+    }
+
+    .heading-wrap_services .descr {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        margin-bottom: 20px;
+    }
+
+    .search__list {
+        padding-left: 0;
+    }
+
+    body .search {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .search__list-item {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 14px;
+        color: #363636;
+        margin-bottom: 10px;
+    }
+
+    .search__list-item:last-of-type {
+        margin-bottom: 10px;
+    }
+
+    .description {
+        padding-top: 0;
+        padding-bottom: 15px;
+    }
+
+    .description .container {
+        padding: 0;
+    }
+
+    .description__box {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .description__text {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 143.4%;
+        color: #363636;
+        padding: 15px;
+    }
+
+    .description__text::before {
+        left: 0;
+    }
+
+    .description .btn-primary {
+        display: table;
+        margin: 30px auto;
+    }
+
+    .vacancies__title {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: #005896;
+        margin-bottom: 20px;
+    }
+
+    .vacancies__item {
+        padding: 15px 30px;
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+
+    .vacancies__item-title {
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .vacancies__item > .icon {
+        width: 55px;
+        height: 55px;
+    }
+
+    .vacancies__item-wrap {
+        margin-top: 20px;
+    }
+
+    .vacancies{
+        padding-bottom: 40px;
     }
 
 }
