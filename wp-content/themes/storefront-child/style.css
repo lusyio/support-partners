@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.23
+Version:      	1.0.24
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 */
@@ -98,7 +98,7 @@ html {
 
 .sp-modal__content p, .sp-modal__content a,
 .sp-modal__content ul, .sp-modal__content ol {
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: 23px;
@@ -5007,6 +5007,10 @@ html .navbar-light .navbar-toggler-icon {
 
     .new-post img {
         height: 180px;
+    }
+
+    .sp-modal__content p, .sp-modal__content ul, .sp-modal__content ol {
+        margin-bottom: 10px;
     }
 
 }
