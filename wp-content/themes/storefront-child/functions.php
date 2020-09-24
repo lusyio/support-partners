@@ -691,7 +691,7 @@ function get_team($cat_id)
     $team_posts = array_reverse(get_posts($args));
     ob_start();
     if ($team_posts): ?>
-        <section class="specialists">
+        <section id="specialists" class="specialists">
             <div class="container">
                 <h2 class="heading">Наша команда</h2>
                 <div class="row">
@@ -1346,7 +1346,7 @@ function get_clients($post_content)
     $gallery = get_post_gallery_or_custom_field(null, 0, $post_content);
     ob_start();
     if ($gallery): ?>
-        <section class="clients">
+        <section id="clients" class="clients">
             <div class="container">
                 <h2 class="heading">Наши клиенты</h2>
                 <div class="swiper-container swiper-container-client">
@@ -1397,7 +1397,7 @@ function getReviews($cat_id)
     $reviews = get_posts($args);
     ob_start(); ?>
     <?php if ($reviews): ?>
-    <section class="reviews">
+    <section id="reviews" class="reviews">
         <div class="container">
             <h2 class="heading">Отзывы</h2>
             <div class="row">

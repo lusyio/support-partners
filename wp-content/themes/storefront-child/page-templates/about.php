@@ -7,7 +7,7 @@ Template Post Type: post, page, product
 
 <?php get_header(); ?>
 
-    <section class="values">
+    <section id="values" class="values">
         <div class="container">
             <h2 class="heading">Наши ценности</h2>
             <div class="row justify-content-center">
@@ -28,7 +28,7 @@ Template Post Type: post, page, product
         <h2 class="heading mb-5">Преимущества</h2>
     </div>
 
-    <section class="benefits">
+    <section id="benefits" class="benefits">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-6">
