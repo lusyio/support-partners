@@ -117,9 +117,12 @@
 
 <script>
     const $page = document.querySelector('html, body')
+    const $checkbox = document.querySelector('.checkbox-toggle')
+
     document.querySelectorAll('a[href*="#"]').forEach(el => {
         el.addEventListener('click', function () {
             const blockId = el.getAttribute('href').slice(1)
+            console.log($checkbox.checked)
             console.log(blockId)
             if ($checkbox.checked) {
                 $checkbox.click()
@@ -131,7 +134,6 @@
         })
     })
 
-    const $checkbox = document.querySelector('.checkbox-toggle')
     $checkbox.addEventListener('change', function () {
         if (this.checked) {
             document.body.classList.add('overflow-hidden')
