@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.19
+Version:      	1.0.21
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 */
@@ -653,6 +653,7 @@ header .dropdown-menu {
 
 .overflow-hidden {
     overflow: hidden;
+    position: relative
 }
 
 .outer-menu .menu > div {
