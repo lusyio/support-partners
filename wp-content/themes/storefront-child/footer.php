@@ -125,7 +125,7 @@
                 $checkbox.click()
             }
             $page.animate({
-                scrollTop: document.getElementById(location.hash).offset().top - 50
+                scrollTop: document.getElementById(location.hash.slice(1)).offset().top - 50
             }, 1500)
             return false
         })
