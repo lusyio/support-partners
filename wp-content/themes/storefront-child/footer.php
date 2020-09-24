@@ -116,7 +116,7 @@
 </div><!-- #page -->
 
 <script>
-    const $page = document.querySelector('html, body')
+    const $page = document.querySelector('html')
     const $checkbox = document.querySelector('.checkbox-toggle')
 
     document.querySelectorAll('a[href*="#"]').forEach(el => {
@@ -124,9 +124,11 @@
             if ($checkbox.checked) {
                 $checkbox.click()
             }
+            const blockId = el.getAttribute('href').replace(/^.*?(#|$)/, '')
+            $page.scrollIntoView()
             $page.animate({
-                scrollTop: document.getElementById(location.hash.slice(1)).offset().top - 50
-            }, 1500)
+                scrollTop: document.getElementById(blockId).offsetTop - 50 + 'px'
+            })
             return false
         })
     })
