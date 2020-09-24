@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.22
+Version:      	1.0.23
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 */
@@ -2243,6 +2243,8 @@ html .alert {
 .reviews {
     width: 100%;
     padding: 72px 0 200px;
+    position: relative;
+    overflow: hidden;
 }
 
 .reviews .heading {
@@ -2297,6 +2299,7 @@ html .alert {
 
 .reviews-control__item {
     cursor: pointer;
+    align-self: center;
 }
 
 .reviews-control__item > svg {
@@ -2304,6 +2307,7 @@ html .alert {
     height: 100%;
     fill: #fff;
     transition: 145ms ease-in-out;
+    height: 10px;
 }
 
 .reviews-control__item:hover > svg {
@@ -2475,7 +2479,7 @@ html .navbar-light .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='15' height='15' x='0' y='0' viewBox='0 0 384 384' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''%3E%3Cg transform='matrix(1,0,0,1,0,50)'%3E%3Cpath xmlns='http://www.w3.org/2000/svg' d='m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0' fill='%23005896' data-original='%23000000' style='' class=''/%3E%3Cpath xmlns='http://www.w3.org/2000/svg' d='m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0' fill='%23005896' data-original='%23000000' style='' class=''/%3E%3Cpath xmlns='http://www.w3.org/2000/svg' d='m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0' fill='%23005896' data-original='%23000000' style='' class=''/%3E%3C/g%3E%3C/svg%3E");
 }
 
-.checkbox-toggle:checked + .navbar-toggler .navbar-toggler-icon{
+.checkbox-toggle:checked + .navbar-toggler .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M7.84334 7.49825L14.929 0.412607C15.0234 0.318149 15.0234 0.165034 14.929 0.0705763C14.8345 -0.023851 14.6814 -0.023851 14.5869 0.0705763L7.5013 7.15622L0.41566 0.0705763C0.31957 -0.0222182 0.166454 -0.0195574 0.0736292 0.0765328C-0.0168976 0.170265 -0.0168976 0.318875 0.0736292 0.412607L7.15927 7.49825L0.0736292 14.5839C-0.022461 14.6767 -0.0251218 14.8298 0.067703 14.9259C0.160528 15.022 0.313643 15.0247 0.409734 14.9319C0.411759 14.9299 0.413725 14.9279 0.41566 14.9259L7.5013 7.84028L14.5869 14.9259C14.683 15.0188 14.8362 15.0161 14.929 14.92C15.0195 14.8263 15.0195 14.6776 14.929 14.5839L7.84334 7.49825Z' fill='white' stroke='white' stroke-width='0.6'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Crect width='15' height='15' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
 }
 
