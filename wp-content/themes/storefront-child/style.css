@@ -4,7 +4,7 @@ Theme Name:   	Richbee
 Author:       	Richbee
 Template:     	storefront
 Description:  	Дочерняя тема для storefront
-Version:      	1.0.19
+Version:      	1.0.20
 Theme URI:    https://richbee.ru/
 Author URI:   https://richbee.ru/
 */
@@ -3720,6 +3720,9 @@ html .navbar-light .navbar-toggler-icon {
         padding: 3.41575em 0;
         margin: 0 0 0.706326em;
     }
+    .overflow-hidden {
+        overflow: hidden;
+    }
 }
 
 @media screen and (max-width: 1199px) {
@@ -3793,6 +3796,9 @@ html .navbar-light .navbar-toggler-icon {
 
     .navbar-light .navbar-nav .nav-link {
         display: table;
+    }
+    .overflow-hidden {
+        overflow: hidden;
     }
 }
 
@@ -3892,6 +3898,9 @@ html .navbar-light .navbar-toggler-icon {
 
     .swiper-container.mt-5 {
         margin-top: 0 !important;
+    }
+    .overflow-hidden {
+        overflow: hidden;
     }
 }
 
@@ -4107,6 +4116,9 @@ html .navbar-light .navbar-toggler-icon {
     .main-screen__title {
         margin: 0 auto 29px;
         max-width: 200px;
+    }
+    .overflow-hidden {
+        overflow: hidden;
     }
 }
 
@@ -5001,6 +5013,9 @@ html .navbar-light .navbar-toggler-icon {
 
     .new-post img {
         height: 180px;
+    }
+    .overflow-hidden {
+        overflow: hidden;
     }
 
 }
