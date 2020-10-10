@@ -716,9 +716,11 @@ function get_team($cat_id)
                                     <div class="specialists__card-descr">
                                         <?= get_field('position', $post_id) ?>
                                     </div>
-                                    <a class="specialists__card-link" data-title="<?= $team_post->post_title ?>"
-                                       data-toggle="modal" data-target="#teamModal"
-                                       data-info='<?= $content ?>' href="#">Подробнее</a>
+                                    <?php if ($content): ?>
+                                        <a class="specialists__card-link" data-title="<?= $team_post->post_title ?>"
+                                           data-toggle="modal" data-target="#teamModal"
+                                           data-info='<?= $content ?>' href="#">Подробнее</a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         <?php else:
@@ -1500,7 +1502,8 @@ function get_main_slides()
                             </div>
                             <div class="col-md-6">
                                 <div class="main-screen__img">
-                                    <img style="<?= $image_obj['caption'] ?>" src="<?= $image_obj['src'] ?>" alt="<?= $image_obj['title'] ?>">
+                                    <img style="<?= $image_obj['caption'] ?>" src="<?= $image_obj['src'] ?>"
+                                         alt="<?= $image_obj['title'] ?>">
                                 </div>
                             </div>
                         </div>
