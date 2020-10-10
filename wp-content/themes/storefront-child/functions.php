@@ -883,7 +883,7 @@ function getCases($cat_id, $page = false)
                         $featured_image = get_the_post_thumbnail($case_id);
                         $link = get_post_permalink($case_id);
                         ?>
-                        <div class="col-xl-4 col-lg-6 col-6">
+                        <div class="col-xl-4 col-lg-6 col-6 mt-auto">
                             <div class="works__item">
                                 <div class="works__item-title"><?= $case->post_title ?></div>
                                 <div class="works__item-img">
@@ -893,7 +893,7 @@ function getCases($cat_id, $page = false)
                                 </div>
                                 <div class="works__item-box">
                                     <div class="works__item-descr">
-                                        <?= get_field('short_descr', $case_id) ?>
+                                        <?= mb_strimwidth(get_field('short_descr', $case_id), 0, 130, '...') ?>
                                     </div>
                                     <a href="<?= $link ?>" class="works__item-link">
                                         Узнать больше
@@ -1516,7 +1516,6 @@ function get_main_slides()
 /**
  * Render events slides for main-page
  * @return false|string
- * @todo Выводить ссылку на видео и само видео
  */
 function get_events_slides()
 {
