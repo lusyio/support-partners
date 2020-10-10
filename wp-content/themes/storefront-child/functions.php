@@ -916,6 +916,54 @@ function getCases($cat_id, $page = false)
 }
 
 /**
+ * Render last three events
+ * @param $cat_id
+ * @return false|string
+ */
+function getLastThreeEvents($cat_id)
+{
+    $args = array(
+        'category' => $cat_id,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'order' => 'desc',
+        'numberposts' => 3
+    );
+    $events = get_posts($args);
+    ob_start();
+    if ($events): ?>
+        <section class="last-events">
+            <div class="container">
+                <div class="row">
+                    <?php foreach ($events as $event):
+                        $event_id = $event->ID;
+                        $event_link = get_field('landing-link', $event_id);
+                        $featured_image = get_the_post_thumbnail_url($event_id);
+                        $event_date = get_field('date', $event_id);
+                        ?>
+                        <div class="col-lg-4 col-md-6 col-12 last-events__col">
+                            <a href="<?= $event_link ?>" class="last-events__item"
+                               style="background-image: url(<?= $featured_image ?>)">
+                                <p class="last-events__date"><?= $event_date ?></p>
+                                <div class="last-events__title"><?= $event->post_title ?></div>
+                            </a>
+                            <a class="last-events__link" href="<?= $event_link ?>">
+                                Узнать больше
+                                <svg class="icon">
+                                    <use xlink:href="#arrow"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
+    <?php
+    endif;
+    return ob_get_clean();
+}
+
+/**
  * Render news by category id
  * @param $cat_id
  * @return false|string

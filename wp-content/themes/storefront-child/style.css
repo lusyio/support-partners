@@ -1279,6 +1279,86 @@ p.no-comments .button:hover {
     min-height: 299px;
 }
 
+.last-events .container {
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+.last-events .last-events__item {
+    position: relative;
+    display: block;
+    max-width: 350px;
+    width: 100%;
+    height: 286px;
+    padding: 20px;
+    background-size: cover;
+    margin-bottom: 25px;
+}
+
+.last-events .last-events__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 88, 150, 0.8);
+    transition: all 0.3s ease;
+}
+
+.last-events .last-events__date {
+    font-weight: normal;
+    font-size: 1.25rem;
+    line-height: 23px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+
+.last-events .last-events__title {
+    position: absolute;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 23px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    padding: 0 25px;
+    display: block;
+    margin: 0 auto;
+}
+
+.last-events .last-events__link .icon {
+    fill: #005896;
+    width: 81px;
+    height: 10px;
+    margin-left: 35px;
+    transition: all 0.3s linear;
+}
+
+.last-events .last-events__item:hover:before {
+    background: rgba(0, 75, 128, 0.85);
+}
+
+.last-events .last-events__link:hover .icon, .last-events .last-events__item:hover ~ .last-events__link .icon {
+    transform: translateX(10px);
+}
+
+.last-events .last-events__link {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    color: #005896;
+    margin-bottom: 20px;
+    display: table;
+}
+
 .main-screen__img {
     position: absolute;
     left: 78px;
@@ -3903,6 +3983,10 @@ html .navbar-light .navbar-toggler-icon {
 @media screen and (max-width: 768px) {
     footer.site-footer {
         padding-bottom: 75px;
+    }
+
+    .last-events .last-events__item {
+        max-width: 100%;
     }
 
     .project__item {
