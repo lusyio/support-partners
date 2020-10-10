@@ -1500,7 +1500,7 @@ function get_main_slides()
                             </div>
                             <div class="col-md-6">
                                 <div class="main-screen__img">
-                                    <img src="<?= $image_obj['src'] ?>" alt="<?= $image_obj['title'] ?>">
+                                    <img style="<?= $image_obj['caption'] ?>" src="<?= $image_obj['src'] ?>" alt="<?= $image_obj['title'] ?>">
                                 </div>
                             </div>
                         </div>
