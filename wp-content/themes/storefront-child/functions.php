@@ -450,7 +450,7 @@ function get_activities($cat_id)
                                         <div class="past-events__item-title"><?= $past_activity->post_title ?></div>
                                     </div>
                                     <div class="past-events__item-descr">
-                                        <?= $past_activity->post_content ?>
+                                        <?= mb_strimwidth($past_activity->post_content, 0, 130, '...') ?>
                                     </div>
                                 </div>
                             </a>
@@ -1702,4 +1702,3 @@ function search_filter($query)
 }
 
 add_filter('pre_get_posts', 'search_filter');
-
