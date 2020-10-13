@@ -82,15 +82,21 @@
                 <?php
                 $tg = get_field('telegram', 21);
                 $fb = get_field('facebook', 21);
+                $inst = get_field('instagram', 21);
                 ?>
                 <?php if ($tg): ?>
-                    <a class="text-decoration-none socials" href="<?= $tg ?>">
+                    <a target="_blank" class="text-decoration-none socials" href="<?= $tg ?>">
                         <img src="/wp-content/themes/storefront-child/svg/tg-white.svg" alt="telegram">
                     </a>
                 <?php endif; ?>
                 <?php if ($fb): ?>
-                    <a class="text-decoration-none socials" href="<?= $fb ?>">
+                    <a target="_blank" class="text-decoration-none socials" href="<?= $fb ?>">
                         <img src="/wp-content/themes/storefront-child/svg/facebook.svg" alt="facebook">
+                    </a>
+                <?php endif; ?>
+                <?php if ($inst): ?>
+                    <a target="_blank" class="text-decoration-none socials" href="<?= $inst ?>">
+                        <img src="/wp-content/themes/storefront-child/svg/instagram.svg" alt="instagram">
                     </a>
                 <?php endif; ?>
             </div>
