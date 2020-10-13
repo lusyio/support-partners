@@ -1464,21 +1464,24 @@ function getReviews($cat_id)
                                 <?php foreach ($reviews as $review):
                                     $review_id = $review->ID;
                                     $featured_image_url = get_the_post_thumbnail_url($review_id);
+                                    $position = get_field('position', $review_id);
                                     ?>
                                     <div class="swiper-slide">
                                         <div class="reviews__item">
                                             <div class="reviews__item-header">
                                                 <div class="reviews__item-img">
-                                                    <img src="<?= $featured_image_url ?>"
+                                                    <img src="<?= $featured_image_url ?: '/wp-content/themes/storefront-child/svg/user-profile.svg' ?>"
                                                          alt="<?= $review->post_title ?>">
                                                 </div>
                                                 <div>
                                                     <div class="reviews__item-title"><?= $review->post_title ?></div>
-                                                    <div class="reviews__item-subtitle"><?= get_field('position', $review_id) ?></div>
+                                                    <?php if ($position): ?>
+                                                        <div class="reviews__item-subtitle"><?= $position ?></div>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                             <div class="reviews__item-descr">
-                                                <?= mb_strimwidth($review->post_content, 0, 120, '...') ?>
+                                                <?= mb_strimwidth($review->post_content, 0, 150, '...') ?>
                                             </div>
                                         </div>
                                     </div>
