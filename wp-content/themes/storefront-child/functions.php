@@ -837,7 +837,7 @@ function getCases($cat_id, $page = false)
                                 $case_id = $case->ID;
                                 $featured_image = get_the_post_thumbnail_url($case_id);
                                 ?>
-                                <div class="col-md-4">
+                                <div class="col-lg-4 col-md-6 col-12">
                                     <a href="<?= get_post_permalink($case_id) ?>" class="project__item"
                                        style="background-image: url(<?= $featured_image ?>)">
                                         <div class="project__title"><?= $case->post_title ?></div>
