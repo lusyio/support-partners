@@ -934,6 +934,7 @@ function getLastThreeEvents($cat_id)
     if ($events): ?>
         <section class="last-events">
             <div class="container">
+                <h2 class="heading mb-5">Календарь мероприятий</h2>
                 <div class="row">
                     <?php foreach ($events as $event):
                         $event_id = $event->ID;
