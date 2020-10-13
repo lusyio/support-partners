@@ -95,6 +95,10 @@ Template Post Type: post, page, product
             prevEl: '.carousel-control-prev',
         },
         runCallbacksOnInit: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
         on: {
             init: function () {
                 const offer = document.querySelector('#numberSlides');
